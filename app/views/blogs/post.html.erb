@@ -1,0 +1,41 @@
+<div class="container mx-auto flex flex-wrap py-6">
+
+        <!-- Post Section -->
+        <section class="w-full md:w-2/3 flex flex-col items-center px-3 mx-auto">
+
+            <article class="flex flex-col shadow my-4" style="min-width:100%!important;">
+                <!-- Article Image -->
+                <div class="bg-white flex flex-col justify-start p-6">
+                    <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4"><%=h(@blog.blog_title)%></a>
+                    <p href="#" class="text-sm pb-8">
+                    
+                        By <%=link_to h(@blog.user.username), user_blogs_path(@blog.user.id), class: 'font-semibold hover:text-gray-800'%>, <%=@blog.created_at.strftime("Published on %b %d, %Y")%>
+                    </p>
+                    <%= raw(@blog.blog_text) %>
+                    
+                </div>
+            </article>
+
+            <div class="w-full flex pt-6">
+            <% if @blog.prev %>
+                <a href="<%=show_blog_url(@blog.prev.id)%>" class="w-1/2 bg-white shadow hover:shadow-md text-left p-6">
+                    <p class="text-lg text-blue-800 font-bold flex items-center"><i class="fas fa-arrow-left pr-1"></i> Previous</p>
+                    <p class="pt-2"><%=@blog.prev.blog_title%></p></p>
+                </a>
+                <% end %>
+                <% if @blog.next %>
+                <a href="<%=show_blog_url(@blog.next.id)%>" class="w-1/2 bg-white shadow hover:shadow-md text-right p-6">
+                    <p class="text-lg text-blue-800 font-bold flex items-center justify-end">Next <i class="fas fa-arrow-right pl-1"></i></p>
+                    <p class="pt-2"><%=@blog.next.blog_title%></p>
+                </a>
+                <% end %>
+            </div>
+
+            <div class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
+                <div class="flex-1 flex flex-col justify-center md:justify-start">
+                    <p class="font-semibold text-2xl">Author: <%=h(@blog.user.full_name)%></p>
+                </div>
+            </div>
+
+        </section>
+</div>

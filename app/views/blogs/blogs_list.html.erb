@@ -1,0 +1,65 @@
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+<div class="flex flex-col">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full">
+          <thead class="bg-white border-b">
+            <tr>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                #
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Blog title
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Date created/updated
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Active
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+          <% unless @blogs.empty? %>
+            <% @blogs.each do |blog| %>
+            <tr class="bg-gray-100 border-b <%='border-b bg-yellow-100 border-yellow-200' unless blog.active %>">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%=blog.id%></td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <%=blog.blog_title%>
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <%=blog.created_at.strftime("%b %d, %Y %H:%M")%>/<%=blog.updated_at.strftime("%b %d, %Y %H:%M")%>
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <%=blog.active ? 'Published' : 'Draft' %>
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <%=link_to (blog.active ? "Draft it" : "Publish it"), "#{toggle_blog_status_path(blog.id)}", class: 'underline' %> | 
+                <%=link_to "Edit", "#{edit_blog_url(blog.id)}", class: 'underline' %>
+              </td>
+            </tr>
+            <% end %>
+
+            <% else %>
+    <div class="p-4 text-sm text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300" role="alert">
+    no blogs found 
+</div>
+            <% end %>
+
+        
+            </tr>
+          </tbody>
+          
+        </table>
+            <div class="mx-auto text-center my-4">
+  <%= paginate @blogs %>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
