@@ -33,6 +33,9 @@ gem 'kaminari'
 
 gem 'jquery-rails'
 
+gem 'tzinfo-data'
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
