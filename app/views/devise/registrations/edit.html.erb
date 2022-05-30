@@ -8,17 +8,17 @@
 
   <div class="mb-4">
     <%= f.label :email, class: 'block text-gray-700 text-sm font-bold' %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+    <%= f.email_field :email, autofocus: true, :required => true, autocomplete: "email", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
   </div>
 
   <div class="mb-4">
     <%= f.label :username, class: 'block text-gray-700 text-sm font-bold' %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "email", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+    <%= f.text_field :username, autofocus: true, :required => true, autocomplete: "email", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
   </div>
 
     <div class="mb-4">
     <%= f.label :full_name, class: 'block text-gray-700 text-sm font-bold' %><br />
-    <%= f.text_field :full_name, autofocus: true, autocomplete: "email", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+    <%= f.text_field :full_name, autofocus: true, :required => true, autocomplete: "email", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -27,7 +27,7 @@
 
   <div class="mb-4">
     <%= f.label :password, class: 'block text-gray-700 text-sm font-bold' %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  %>
+    <%= f.password_field :password, autocomplete: "new-password", :required => true, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
@@ -36,12 +36,12 @@
 
   <div class="mb-4">
     <%= f.label :password_confirmation, class: 'block text-gray-700 text-sm font-bold' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  %>
+    <%= f.password_field :password_confirmation, :required => true, autocomplete: "new-password", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  %>
   </div>
 
   <div class="mb-4">
     <%= f.label :current_password, class: 'block text-gray-700 text-sm font-bold' %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  %>
+    <%= f.password_field :current_password, :required => true, autocomplete: "current-password", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  %>
   </div>
 
   <div class="flex items-baseline justify-between">
