@@ -40,6 +40,7 @@ class BlogsController < ApplicationController
 
   def show 
     if @blog = Blog.where(id: params[:id], active: true).take
+      @comments = Comment.where(blog_id: params[:id]).order('created_at desc')
       render 'blogs/post'
     else
       error_page

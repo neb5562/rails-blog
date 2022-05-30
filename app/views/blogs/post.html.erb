@@ -15,8 +15,13 @@
                     
                 </div>
             </article>
+            <div class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mb-4 p-6">
+                <div class="flex-1 flex flex-col justify-center md:justify-start">
+                    <p class="font-semibold text-2xl">Author: <%=h(@blog.user.full_name)%></p>
+                </div>
+            </div>
 
-            <div class="w-full flex pt-6">
+            <div class="w-full flex">
             <% if @blog.prev %>
                 <a href="<%=show_blog_url(@blog.prev.id)%>" class="w-1/2 bg-white shadow hover:shadow-md text-left p-6">
                     <p class="text-lg text-blue-800 font-bold flex items-center"><i class="fas fa-arrow-left pr-1"></i> Previous</p>
@@ -31,11 +36,56 @@
                 <% end %>
             </div>
 
-            <div class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
-                <div class="flex-1 flex flex-col justify-center md:justify-start">
-                    <p class="font-semibold text-2xl">Author: <%=h(@blog.user.full_name)%></p>
-                </div>
+            <h4 class="py-5">Comments(<%=@blog.comments.count%>)</h4>
+                                <!-- comment form -->
+            <div class="w-full flex mx-auto items-center justify-center shadow-lg mt-4 mx-8 mb-4">
+            <%= form_with(url: save_new_comment_path, html: { method: :put, class: "w-full bg-white rounded-lg px-4 pt-2" }) do |f| %>
+              <%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Add a new comment</h2>
+                    <div class="w-full md:w-full px-3 mb-2 mt-2">
+                        <textarea class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" placeholder='Type Your Comment' required></textarea>
+                    </div>
+                    <div class="w-full md:w-full flex items-start md:w-full px-3">
+                        <div class="flex items-start w-1/2 text-gray-700 px-2 mr-auto">
+                        </div>
+                        <div class="-mr-1">
+                        <input type='submit' class="bg-white text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-gray-100" value='Post Comment'>
+                        </div>
+                    </div>
+                <% end %>
             </div>
+            </div>
+<!-- component -->
+<% unless @comments.empty? %>
+<% @comments.each do |comment| %>
+            <div class="w-full my-2 mx-1 flex gap-3 rounded-md bg-white p-2 text-black shadow">
+                        
+                        <!-- Content -->
+                        <div>
+                            <!-- Header -->
+                            <div class="flex items-center justify-between py-1 pr-2">
+                            <!-- Author -->
+                            <div>
+                                <a href="#" class="text-blue-400 hover:underline"><%=comment.user.username%></a>
+                                <span class="text-sm font-thin text-gray-500"> <%=comment.created_at.strftime("Published on %b %d, %Y")%></span>
+                            </div>
+                            <!-- Rate -->
+                            <div>
+
+                            </div>
+                            </div>
+                            <!-- Context -->
+                            <div class="p-1">
+                            <p class="text-gray-900 border-l-2 px-1 border-blue-500 bg-gray-100 rounded"><%=h(comment.body)%></p>
+                            </div>
+                        </div>
+                        </div>
+   <% end%>
+<% end %>
+
 
         </section>
+
+
 </div>

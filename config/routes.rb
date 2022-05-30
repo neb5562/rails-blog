@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get "/blog/:id/toggle_status", to: "blogs#toggle_blog_status", as: :toggle_blog_status
   get "/profile/blogs", to: "blogs#user_blogs_list", as: :user_blogs_list
 
+  put "/blog/:id/add_comment", to: "comments#save", as: :save_new_comment
+
   delete "/blogs/:id/delete", to: "blogs#delete_user_blog", as: :delete_user_blog
   get '*unmatched_route', to: 'application#error_page'
 end
