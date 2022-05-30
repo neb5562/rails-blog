@@ -620,3 +620,12 @@ Processing by BlogsController#index as HTML
 Completed 200 OK in 29ms (Views: 21.2ms | ActiveRecord: 3.0ms | Allocations: 23244)
 
 
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-05-30 14:35:01 +0400
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1470)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3110)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 4454)
+
+
