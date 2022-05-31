@@ -7,6 +7,9 @@
             <article class="flex flex-col shadow my-4" style="min-width:100%!important;">
                 <!-- Article Image -->
                 <div class="bg-white flex flex-col justify-start p-6">
+                          <% if current_user.present?  && current_user.id == @blog.user_id %>
+          <%=link_to "Edit", edit_blog_url(@blog.id)%>
+          <% end %>
                     <h3 class="text-3xl font-bold pb-4"><%=h(@blog.blog_title)%></h3>
                     <p class="text-sm pb-2">
                     
