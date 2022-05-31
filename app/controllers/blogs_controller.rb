@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :user_blogs, :show]
 
-  PER_PAGE = 5
+  PER_PAGE = 9
 
 
   def index

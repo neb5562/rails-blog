@@ -35,7 +35,7 @@
                             <button role="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400" required>Submit</button>
                         </div>
                     <% end %>
-                      <div class="mb-0 m-auto w-full max-w-xs text-right">
+                      <div class="mb-0 m-auto w-full text-right">
 <%= button_to "Delete blog", delete_user_blog_path(@blog.id), data: { confirm: "Are you sure?" }, method: :delete, class: 'text-red-700' %>
 </div>
                 </div>
