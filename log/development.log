@@ -14398,3 +14398,351 @@ Processing by BlogsController#index as HTML
 Completed 200 OK in 46ms (Views: 39.2ms | ActiveRecord: 5.4ms | Allocations: 23862)
 
 
+Started GET "/" for 127.0.0.1 at 2022-05-31 11:22:53 +0400
+Processing by BlogsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:4
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 22]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:16
+  Rendered blogs/_blog.html.erb (Duration: 4.0ms | Allocations: 2687)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 19]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.1ms | Allocations: 1679)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 18]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.8ms | Allocations: 1596)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 17]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.7ms | Allocations: 1597)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.8ms | Allocations: 1597)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 14]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.9ms | Allocations: 1597)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 13]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.7ms | Allocations: 1636)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 12]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.7ms | Allocations: 1636)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 11]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.6ms | Allocations: 1655)
+  [1m[36mBlog Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:18
+  Rendered blogs/index.html.erb within layouts/application (Duration: 24.3ms | Allocations: 19395)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 21665)
+Completed 200 OK in 29ms (Views: 24.3ms | ActiveRecord: 3.3ms | Allocations: 22066)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-31 13:50:29 +0400
+Processing by BlogsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:4
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 22]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:16
+  Rendered blogs/_blog.html.erb (Duration: 4.1ms | Allocations: 2699)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 19]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 3.2ms | Allocations: 1679)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 18]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.8ms | Allocations: 1596)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 17]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.8ms | Allocations: 1597)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.0ms | Allocations: 1597)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 14]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.9ms | Allocations: 1597)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 13]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.4ms | Allocations: 1636)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 12]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.0ms | Allocations: 1636)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 11]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.7ms | Allocations: 1655)
+  [1m[36mBlog Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:18
+  Rendered blogs/index.html.erb within layouts/application (Duration: 26.8ms | Allocations: 19538)
+  Rendered layout layouts/application.html.erb (Duration: 28.9ms | Allocations: 21808)
+Completed 200 OK in 48ms (Views: 24.9ms | ActiveRecord: 7.7ms | Allocations: 24540)
+
+
+Started GET "/blog/19" for 127.0.0.1 at 2022-05-31 13:50:34 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mSQL (0.7ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."id" = $1 AND "blogs"."active" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["id", 19], ["active", true], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:42:in `show'
+  [1m[35mSQL (0.7ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."created_at" AS t0_r3, "blogs"."updated_at" AS t0_r4, "blogs"."user_id" AS t0_r5, "blogs"."active" AS t0_r6, "blogs"."blog_description" AS t0_r7, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."created_at" AS t1_r4, "comments"."updated_at" AS t1_r5, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."reset_password_token" AS t2_r3, "users"."reset_password_sent_at" AS t2_r4, "users"."remember_created_at" AS t2_r5, "users"."created_at" AS t2_r6, "users"."updated_at" AS t2_r7, "users"."full_name" AS t2_r8, "users"."username" AS t2_r9 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."id" = $1 AND "blogs"."active" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["id", 19], ["active", true], ["id", 19]]
+  ↳ app/controllers/blogs_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:16
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 19]]
+  ↳ app/views/blogs/post.html.erb:44
+  Rendered blogs/post.html.erb within layouts/application (Duration: 8.7ms | Allocations: 7606)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 9859)
+Completed 200 OK in 18ms (Views: 10.0ms | ActiveRecord: 2.7ms | Allocations: 12500)
+
+
+Started GET "/blog/19" for 127.0.0.1 at 2022-05-31 13:51:41 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mSQL (0.4ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."id" = $1 AND "blogs"."active" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["id", 19], ["active", true], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:42:in `show'
+  [1m[35mSQL (0.4ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."created_at" AS t0_r3, "blogs"."updated_at" AS t0_r4, "blogs"."user_id" AS t0_r5, "blogs"."active" AS t0_r6, "blogs"."blog_description" AS t0_r7, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."created_at" AS t1_r4, "comments"."updated_at" AS t1_r5, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."reset_password_token" AS t2_r3, "users"."reset_password_sent_at" AS t2_r4, "users"."remember_created_at" AS t2_r5, "users"."created_at" AS t2_r6, "users"."updated_at" AS t2_r7, "users"."full_name" AS t2_r8, "users"."username" AS t2_r9 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."id" = $1 AND "blogs"."active" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["id", 19], ["active", true], ["id", 19]]
+  ↳ app/controllers/blogs_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:10
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:16
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 19]]
+  ↳ app/views/blogs/post.html.erb:44
+  Rendered blogs/post.html.erb within layouts/application (Duration: 13.7ms | Allocations: 8747)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 11789)
+Completed 200 OK in 21ms (Views: 15.5ms | ActiveRecord: 2.5ms | Allocations: 14964)
+
+
+Started GET "/blog/19" for 127.0.0.1 at 2022-05-31 13:51:46 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mSQL (0.9ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."id" = $1 AND "blogs"."active" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["id", 19], ["active", true], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:42:in `show'
+  [1m[35mSQL (0.7ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."created_at" AS t0_r3, "blogs"."updated_at" AS t0_r4, "blogs"."user_id" AS t0_r5, "blogs"."active" AS t0_r6, "blogs"."blog_description" AS t0_r7, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."created_at" AS t1_r4, "comments"."updated_at" AS t1_r5, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."reset_password_token" AS t2_r3, "users"."reset_password_sent_at" AS t2_r4, "users"."remember_created_at" AS t2_r5, "users"."created_at" AS t2_r6, "users"."updated_at" AS t2_r7, "users"."full_name" AS t2_r8, "users"."username" AS t2_r9 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."id" = $1 AND "blogs"."active" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["id", 19], ["active", true], ["id", 19]]
+  ↳ app/controllers/blogs_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:16
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 19]]
+  ↳ app/views/blogs/post.html.erb:44
+  Rendered blogs/post.html.erb within layouts/application (Duration: 14.1ms | Allocations: 8744)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 11783)
+Completed 200 OK in 25ms (Views: 16.7ms | ActiveRecord: 3.3ms | Allocations: 15043)
+
+
+Started GET "/blog/19" for 127.0.0.1 at 2022-05-31 13:51:51 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mSQL (0.4ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."id" = $1 AND "blogs"."active" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["id", 19], ["active", true], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:42:in `show'
+  [1m[35mSQL (0.4ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."created_at" AS t0_r3, "blogs"."updated_at" AS t0_r4, "blogs"."user_id" AS t0_r5, "blogs"."active" AS t0_r6, "blogs"."blog_description" AS t0_r7, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."created_at" AS t1_r4, "comments"."updated_at" AS t1_r5, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."reset_password_token" AS t2_r3, "users"."reset_password_sent_at" AS t2_r4, "users"."remember_created_at" AS t2_r5, "users"."created_at" AS t2_r6, "users"."updated_at" AS t2_r7, "users"."full_name" AS t2_r8, "users"."username" AS t2_r9 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."id" = $1 AND "blogs"."active" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["id", 19], ["active", true], ["id", 19]]
+  ↳ app/controllers/blogs_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:16
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 19]]
+  ↳ app/views/blogs/post.html.erb:44
+  Rendered blogs/post.html.erb within layouts/application (Duration: 12.5ms | Allocations: 8781)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 11820)
+Completed 200 OK in 21ms (Views: 15.0ms | ActiveRecord: 2.4ms | Allocations: 15080)
+
+
+Started GET "/blog/19" for 127.0.0.1 at 2022-05-31 13:51:57 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mSQL (0.4ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."id" = $1 AND "blogs"."active" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["id", 19], ["active", true], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:42:in `show'
+  [1m[35mSQL (1.0ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."created_at" AS t0_r3, "blogs"."updated_at" AS t0_r4, "blogs"."user_id" AS t0_r5, "blogs"."active" AS t0_r6, "blogs"."blog_description" AS t0_r7, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."created_at" AS t1_r4, "comments"."updated_at" AS t1_r5, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."reset_password_token" AS t2_r3, "users"."reset_password_sent_at" AS t2_r4, "users"."remember_created_at" AS t2_r5, "users"."created_at" AS t2_r6, "users"."updated_at" AS t2_r7, "users"."full_name" AS t2_r8, "users"."username" AS t2_r9 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."id" = $1 AND "blogs"."active" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["id", 19], ["active", true], ["id", 19]]
+  ↳ app/controllers/blogs_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:10
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:16
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 19]]
+  ↳ app/views/blogs/post.html.erb:44
+  Rendered blogs/post.html.erb within layouts/application (Duration: 9.8ms | Allocations: 8762)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 11784)
+Completed 200 OK in 23ms (Views: 14.8ms | ActiveRecord: 2.4ms | Allocations: 15043)
+
+
+Started GET "/blog/19" for 127.0.0.1 at 2022-05-31 13:52:00 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mSQL (0.9ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."id" = $1 AND "blogs"."active" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["id", 19], ["active", true], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:42:in `show'
+  [1m[35mSQL (0.7ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."created_at" AS t0_r3, "blogs"."updated_at" AS t0_r4, "blogs"."user_id" AS t0_r5, "blogs"."active" AS t0_r6, "blogs"."blog_description" AS t0_r7, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."created_at" AS t1_r4, "comments"."updated_at" AS t1_r5, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."reset_password_token" AS t2_r3, "users"."reset_password_sent_at" AS t2_r4, "users"."remember_created_at" AS t2_r5, "users"."created_at" AS t2_r6, "users"."updated_at" AS t2_r7, "users"."full_name" AS t2_r8, "users"."username" AS t2_r9 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."id" = $1 AND "blogs"."active" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["id", 19], ["active", true], ["id", 19]]
+  ↳ app/controllers/blogs_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:10
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:16
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 19]]
+  ↳ app/views/blogs/post.html.erb:44
+  Rendered blogs/post.html.erb within layouts/application (Duration: 11.8ms | Allocations: 8771)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 11793)
+Completed 200 OK in 24ms (Views: 14.8ms | ActiveRecord: 3.2ms | Allocations: 15052)
+
+
+Started GET "/blog/19" for 127.0.0.1 at 2022-05-31 13:52:12 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mSQL (0.6ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."id" = $1 AND "blogs"."active" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["id", 19], ["active", true], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:42:in `show'
+  [1m[35mSQL (1.0ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."created_at" AS t0_r3, "blogs"."updated_at" AS t0_r4, "blogs"."user_id" AS t0_r5, "blogs"."active" AS t0_r6, "blogs"."blog_description" AS t0_r7, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."created_at" AS t1_r4, "comments"."updated_at" AS t1_r5, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."reset_password_token" AS t2_r3, "users"."reset_password_sent_at" AS t2_r4, "users"."remember_created_at" AS t2_r5, "users"."created_at" AS t2_r6, "users"."updated_at" AS t2_r7, "users"."full_name" AS t2_r8, "users"."username" AS t2_r9 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."id" = $1 AND "blogs"."active" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["id", 19], ["active", true], ["id", 19]]
+  ↳ app/controllers/blogs_controller.rb:42:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:10
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:16
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:14:in `prev'
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 19) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:9:in `next'
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 19]]
+  ↳ app/views/blogs/post.html.erb:44
+  Rendered blogs/post.html.erb within layouts/application (Duration: 12.4ms | Allocations: 8750)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 11789)
+Completed 200 OK in 25ms (Views: 15.9ms | ActiveRecord: 3.1ms | Allocations: 15048)
+
+

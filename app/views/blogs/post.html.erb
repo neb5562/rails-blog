@@ -74,14 +74,14 @@
             <div class="w-full my-2 mx-1 flex gap-3 rounded-md bg-white p-2 text-black shadow">
                         
                         <!-- Content -->
-                        <div>
+                        <div class = "w-full">
                             <!-- Header -->
                             <div class="flex items-center justify-between py-1 pr-2">
                             <!-- Author -->
-                            <div>
-                                <%=link_to h(comment.user.username), user_blogs_path(comment.user.id), class: "text-blue-400 hover:underline" %>
-                                <span class="text-sm font-thin text-gray-500"> <%=comment.created_at.strftime("Published on %b %d, %Y")%></span>
-                            </div>
+                                <div>
+                                    <%=link_to h(comment.user.username), user_blogs_path(comment.user.id), class: "text-blue-400 hover:underline" %>
+                                    <span class="text-sm font-thin text-gray-500"> <%=comment.created_at.strftime("Published on %b %d, %Y")%></span>
+                                </div>
                             <!-- Rate -->
                             <div>
 
