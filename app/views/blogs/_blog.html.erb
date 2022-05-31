@@ -13,6 +13,9 @@
             </span>
          </p>
           <p class="leading-relaxed mb-3"><%=h(@blog.blog_description)%></p>
+          <% if current_user.present?  && current_user.id == @blog.user_id %>
+          <%=link_to "Edit", edit_blog_url(@blog.id)%> | 
+          <% end %>
           <%=link_to show_blog_url(@blog.id), class: "text-indigo-500 inline-flex items-center" do %>
           Learn More
           
