@@ -1,16 +1,21 @@
-<div class="mt-10 m-auto w-full max-w-3xl content-center">
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-6 mx-auto">
+    <div class="flex flex-wrap -m-4">
   <% unless @blogs.empty? %>
     <% @blogs.each do |blog| @blog = blog%>
       <%=render 'blogs/blog' %>
-      <br>
     <% end %>
-    <div class="mx-auto text-center my-4">
-  <%= paginate @blogs %>
-</div>
+    <br>
     <% else %>
-    <div class="p-4 text-sm text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300" role="alert">
+<div class="p-4 text-sm text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300" role="alert">
     no blogs found 
 </div>
       
   <% end %>
+  
 </div>
+    <div class="mx-auto text-center mt-10">
+      <%= paginate @blogs %>
+    </div>
+</div>
+</section>

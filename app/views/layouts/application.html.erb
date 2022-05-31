@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Blog on Rails</title>
+    <title><%= content_for?(:html_title) ? yield(:html_title) : "Simple blog on RoR" %></title>
     <meta name="author" content="Gia Nebieridze">
     <meta name="description" content="">
 
