@@ -11,5 +11,5 @@ class User < ApplicationRecord
   validates :username, presence: true,  length: { minimum: 4, maximum: 12 }
   validates :username, format: { without: /\s/ }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
-  validates :password, presence: true, :confirmation =>true
+  # validates :password, presence: true, :confirmation =>true
 end

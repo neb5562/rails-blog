@@ -19801,3 +19801,666 @@ Processing by BlogsController#index as HTML
 Completed 200 OK in 42ms (Views: 35.1ms | ActiveRecord: 5.2ms | Allocations: 42674)
 
 
+Started GET "/" for 127.0.0.1 at 2022-05-31 14:38:02 +0400
+Processing by BlogsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:4
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:5
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 37]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:16
+  Rendered blogs/_blog.html.erb (Duration: 7.7ms | Allocations: 4995)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 36]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 3.6ms | Allocations: 3782)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 34]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.6ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 33]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.3ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 32]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.1ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 31]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.1ms | Allocations: 3782)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 30]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.3ms | Allocations: 3782)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 29]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 3.1ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 28]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.8ms | Allocations: 3800)
+  [1m[36mBlog Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:18
+  Rendered blogs/index.html.erb within layouts/application (Duration: 34.3ms | Allocations: 39452)
+  Rendered layout layouts/application.html.erb (Duration: 36.5ms | Allocations: 41705)
+Completed 200 OK in 38ms (Views: 32.9ms | ActiveRecord: 3.9ms | Allocations: 42192)
+
+
+Started GET "/?page=2" for 127.0.0.1 at 2022-05-31 14:38:04 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"page"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 9]]
+  ↳ app/views/blogs/index.html.erb:4
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 9]]
+  ↳ app/views/blogs/index.html.erb:5
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 27]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:16
+  Rendered blogs/_blog.html.erb (Duration: 7.5ms | Allocations: 5011)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 26]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 3.0ms | Allocations: 3781)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 25]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 3.1ms | Allocations: 3781)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 24]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 3.4ms | Allocations: 3781)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 22]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.5ms | Allocations: 3287)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 19]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.3ms | Allocations: 3780)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 18]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.1ms | Allocations: 3780)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 17]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.4ms | Allocations: 3781)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.8ms | Allocations: 3799)
+  [1m[36mBlog Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:18
+  Rendered blogs/index.html.erb within layouts/application (Duration: 39.4ms | Allocations: 39480)
+  Rendered layout layouts/application.html.erb (Duration: 41.0ms | Allocations: 41761)
+Completed 200 OK in 43ms (Views: 36.2ms | ActiveRecord: 5.4ms | Allocations: 42246)
+
+
+Started GET "/blog/gvmh1E" for 127.0.0.1 at 2022-05-31 14:41:10 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"gvmh1E"}
+  [1m[35mSQL (1.0ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:44:in `show'
+  [1m[35mSQL (1.0ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."created_at" AS t0_r3, "blogs"."updated_at" AS t0_r4, "blogs"."user_id" AS t0_r5, "blogs"."active" AS t0_r6, "blogs"."blog_description" AS t0_r7, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."created_at" AS t1_r4, "comments"."updated_at" AS t1_r5, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."reset_password_token" AS t2_r3, "users"."reset_password_sent_at" AS t2_r4, "users"."remember_created_at" AS t2_r5, "users"."created_at" AS t2_r6, "users"."updated_at" AS t2_r7, "users"."full_name" AS t2_r8, "users"."username" AS t2_r9 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 27], ["id", 27]]
+  ↳ app/controllers/blogs_controller.rb:44:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:10
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:16
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 27) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:17:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 27) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:17:in `prev'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 27) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:17:in `prev'
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 27) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:12:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 27) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:12:in `next'
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 27) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:12:in `next'
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 27]]
+  ↳ app/views/blogs/post.html.erb:44
+  Rendered blogs/post.html.erb within layouts/application (Duration: 11.5ms | Allocations: 7902)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 10155)
+Completed 200 OK in 22ms (Views: 11.9ms | ActiveRecord: 3.6ms | Allocations: 13430)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-31 14:41:14 +0400
+Processing by BlogsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:4
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 37]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:16
+  Rendered blogs/_blog.html.erb (Duration: 3.8ms | Allocations: 4995)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 36]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.2ms | Allocations: 3782)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 34]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.9ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 33]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.6ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 32]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.1ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 31]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.1ms | Allocations: 3782)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 30]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.1ms | Allocations: 3782)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 29]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.1ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 28]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.0ms | Allocations: 3800)
+  [1m[36mBlog Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:18
+  Rendered blogs/index.html.erb within layouts/application (Duration: 26.3ms | Allocations: 39452)
+  Rendered layout layouts/application.html.erb (Duration: 27.8ms | Allocations: 41733)
+Completed 200 OK in 29ms (Views: 25.4ms | ActiveRecord: 2.7ms | Allocations: 42220)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2022-05-31 14:41:39 +0400
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 2.8ms | Allocations: 3215)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 5643)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.2ms | Allocations: 8385)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2022-05-31 14:42:57 +0400
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 5.1ms | Allocations: 3165)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 6179)
+Completed 200 OK in 13ms (Views: 10.2ms | ActiveRecord: 0.1ms | Allocations: 8870)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2022-05-31 14:43:01 +0400
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2231)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 4497)
+Completed 200 OK in 17ms (Views: 11.8ms | ActiveRecord: 0.4ms | Allocations: 6495)
+
+
+Started PUT "/users" for 127.0.0.1 at 2022-05-31 14:43:06 +0400
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gia.nebieridze@gmail.com", "username"=>"neb13", "full_name"=>"gia nebieridze", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[31mUnpermitted parameter: :password_confirmation. Context: { controller: Devise::RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007fdcadb27d20>, params: {"_method"=>"put", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gia.nebieridze@gmail.com", "username"=>"neb13", "full_name"=>"gia nebieridze", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update", "controller"=>"devise/registrations", "action"=>"update"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 2.8ms | Allocations: 3552)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 5904)
+Completed 200 OK in 234ms (Views: 4.7ms | ActiveRecord: 0.5ms | Allocations: 19096)
+
+
+Started PUT "/users" for 127.0.0.1 at 2022-05-31 14:43:36 +0400
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gia.nebieridze@gmail.com", "username"=>"neb13", "full_name"=>"gia nebieridze", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[31mUnpermitted parameter: :password_confirmation. Context: { controller: Devise::RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007fdc95eeb6b8>, params: {"_method"=>"put", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gia.nebieridze@gmail.com", "username"=>"neb13", "full_name"=>"gia nebieridze", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update", "controller"=>"devise/registrations", "action"=>"update"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "username" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2022-05-31 10:43:36.796153"], ["username", "neb13"], ["id", 4]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+[31mUnpermitted parameter: :password_confirmation. Context: { controller: Devise::RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007fdc95eeb6b8>, params: {"_method"=>"put", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gia.nebieridze@gmail.com", "username"=>"neb13", "full_name"=>"gia nebieridze", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update", "controller"=>"devise/registrations", "action"=>"update"} }[0m
+[31mUnpermitted parameter: :password_confirmation. Context: { controller: Devise::RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007fdc95eeb6b8>, params: {"_method"=>"put", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gia.nebieridze@gmail.com", "username"=>"neb13", "full_name"=>"gia nebieridze", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update", "controller"=>"devise/registrations", "action"=>"update"} }[0m
+[31mUnpermitted parameter: :password_confirmation. Context: { controller: Devise::RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007fdc95eeb6b8>, params: {"_method"=>"put", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gia.nebieridze@gmail.com", "username"=>"neb13", "full_name"=>"gia nebieridze", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update", "controller"=>"devise/registrations", "action"=>"update"} }[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 221ms (ActiveRecord: 4.8ms | Allocations: 12332)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-31 14:43:36 +0400
+Processing by BlogsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:4
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 37]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:16
+  Rendered blogs/_blog.html.erb (Duration: 9.7ms | Allocations: 9696)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 36]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.3ms | Allocations: 3809)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 34]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.5ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 33]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.6ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 32]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.1ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 31]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.3ms | Allocations: 3782)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 30]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.2ms | Allocations: 3782)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 29]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.7ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 28]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.2ms | Allocations: 3800)
+  [1m[36mBlog Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:18
+  Rendered blogs/index.html.erb within layouts/application (Duration: 46.2ms | Allocations: 48061)
+  Rendered layout layouts/application.html.erb (Duration: 48.2ms | Allocations: 50540)
+Completed 200 OK in 53ms (Views: 44.4ms | ActiveRecord: 5.3ms | Allocations: 53718)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2022-05-31 14:43:39 +0400
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2424)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 4749)
+Completed 200 OK in 14ms (Views: 8.9ms | ActiveRecord: 0.6ms | Allocations: 6597)
+
+
+Started PUT "/users" for 127.0.0.1 at 2022-05-31 14:43:58 +0400
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gia.nebieridze@gmail.com", "username"=>"neb13", "full_name"=>"gia nebieridze", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[31mUnpermitted parameter: :password_confirmation. Context: { controller: Devise::RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007fdcac02d6c8>, params: {"_method"=>"put", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gia.nebieridze@gmail.com", "username"=>"neb13", "full_name"=>"gia nebieridze", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update", "controller"=>"devise/registrations", "action"=>"update"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "reset_password_token" = $2, "reset_password_sent_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["updated_at", "2022-05-31 10:43:59.014181"], ["id", 4]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+[31mUnpermitted parameter: :password_confirmation. Context: { controller: Devise::RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007fdcac02d6c8>, params: {"_method"=>"put", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gia.nebieridze@gmail.com", "username"=>"neb13", "full_name"=>"gia nebieridze", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update", "controller"=>"devise/registrations", "action"=>"update"} }[0m
+[31mUnpermitted parameter: :password_confirmation. Context: { controller: Devise::RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007fdcac02d6c8>, params: {"_method"=>"put", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gia.nebieridze@gmail.com", "username"=>"neb13", "full_name"=>"gia nebieridze", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update", "controller"=>"devise/registrations", "action"=>"update"} }[0m
+[31mUnpermitted parameter: :password_confirmation. Context: { controller: Devise::RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007fdcac02d6c8>, params: {"_method"=>"put", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gia.nebieridze@gmail.com", "username"=>"neb13", "full_name"=>"gia nebieridze", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update", "controller"=>"devise/registrations", "action"=>"update"} }[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 428ms (ActiveRecord: 3.1ms | Allocations: 7780)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-31 14:43:59 +0400
+Processing by BlogsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:4
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 37]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:16
+  Rendered blogs/_blog.html.erb (Duration: 3.8ms | Allocations: 5016)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 36]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.2ms | Allocations: 3782)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 34]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.0ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 33]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.0ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 32]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.1ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 31]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.4ms | Allocations: 3782)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 30]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.4ms | Allocations: 3782)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 29]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.3ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 28]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.6ms | Allocations: 3800)
+  [1m[36mBlog Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:18
+  Rendered blogs/index.html.erb within layouts/application (Duration: 26.6ms | Allocations: 39485)
+  Rendered layout layouts/application.html.erb (Duration: 28.3ms | Allocations: 41743)
+Completed 200 OK in 29ms (Views: 25.4ms | ActiveRecord: 3.2ms | Allocations: 42243)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2022-05-31 14:44:01 +0400
+Processing by Users::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms | Allocations: 2909)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-31 14:44:01 +0400
+Processing by BlogsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:4
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 37]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 5.2ms | Allocations: 3720)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 36]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.9ms | Allocations: 3226)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 34]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.0ms | Allocations: 3226)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 33]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.9ms | Allocations: 3226)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 32]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.8ms | Allocations: 3226)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 31]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.8ms | Allocations: 3225)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 30]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 7.9ms | Allocations: 3225)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 29]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.4ms | Allocations: 3226)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 28]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.3ms | Allocations: 3243)
+  [1m[36mBlog Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:18
+  Rendered blogs/index.html.erb within layouts/application (Duration: 34.2ms | Allocations: 33882)
+  Rendered layout layouts/application.html.erb (Duration: 36.1ms | Allocations: 36182)
+Completed 200 OK in 38ms (Views: 33.3ms | ActiveRecord: 3.3ms | Allocations: 36765)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-05-31 14:44:02 +0400
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1618)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3990)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 5387)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-05-31 14:44:07 +0400
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gia.nebieridze@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "gia.nebieridze@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 219ms (ActiveRecord: 0.3ms | Allocations: 3513)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-31 14:44:07 +0400
+Processing by BlogsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:4
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 37]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:16
+  Rendered blogs/_blog.html.erb (Duration: 4.0ms | Allocations: 5151)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 36]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.2ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 34]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.7ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 33]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.5ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 32]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.3ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 31]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.4ms | Allocations: 3782)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 30]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.2ms | Allocations: 3782)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 29]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.9ms | Allocations: 3783)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 28]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.0ms | Allocations: 3800)
+  [1m[36mBlog Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:18
+  Rendered blogs/index.html.erb within layouts/application (Duration: 26.9ms | Allocations: 39684)
+  Rendered layout layouts/application.html.erb (Duration: 28.7ms | Allocations: 42035)
+Completed 200 OK in 30ms (Views: 26.0ms | ActiveRecord: 3.1ms | Allocations: 42557)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2022-05-31 14:44:15 +0400
+Processing by Users::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 1955)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-31 14:44:15 +0400
+Processing by BlogsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:4
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 37]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 3.0ms | Allocations: 3587)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 36]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.6ms | Allocations: 3225)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 34]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.2ms | Allocations: 3226)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 33]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.4ms | Allocations: 3226)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 32]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 3.1ms | Allocations: 3226)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 31]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.2ms | Allocations: 3225)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 30]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.0ms | Allocations: 3225)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 29]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 5.5ms | Allocations: 3226)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 28]]
+  ↳ app/views/blogs/_blog.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 3.3ms | Allocations: 3243)
+  [1m[36mBlog Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:18
+  Rendered blogs/index.html.erb within layouts/application (Duration: 32.5ms | Allocations: 33590)
+  Rendered layout layouts/application.html.erb (Duration: 34.2ms | Allocations: 35790)
+Completed 200 OK in 35ms (Views: 31.2ms | ActiveRecord: 3.3ms | Allocations: 36277)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-05-31 14:44:15 +0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2388)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 4594)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 5294)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-05-31 14:44:57 +0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gia.nea11111sdabieridze@gmail.com", "username"=>"dfgdfgdddd", "full_name"=>"dsgsdgas sadg", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gia.nea11111sdabieridze@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 2816)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 4991)
+Completed 200 OK in 13ms (Views: 6.0ms | ActiveRecord: 0.6ms | Allocations: 10130)
+
+
