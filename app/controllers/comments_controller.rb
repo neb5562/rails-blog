@@ -3,7 +3,8 @@ class CommentsController < ApplicationController
 
   def save
     # @comment = current_user.comments.build(comment_params)
-    @comment = Comment.new(body: params['body'], user_id: current_user.id, blog_id: params[:id])
+    @blog = Blog.find_by_hashid(params[:id])
+    @comment = Comment.new(body: params['body'], user_id: current_user.id, blog_id: @blog.id)
     respond_to do |format|
       if @comment.save
         format.html { redirect_to show_blog_url(params[:id]), notice: "Comment was successfully created." }

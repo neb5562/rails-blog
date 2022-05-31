@@ -33,6 +33,8 @@ gem 'kaminari'
 
 gem 'jquery-rails'
 
+gem "hashid-rails", "~> 1.0"
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

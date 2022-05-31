@@ -28,7 +28,7 @@
           <% unless @blogs.empty? %>
             <% @blogs.each do |blog| %>
             <tr class="bg-gray-100 border-b <%='border-b bg-yellow-100 border-yellow-200' unless blog.active %>">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%=blog.id%></td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%=blog.hashid%></td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 <%=blog.blog_title%>
               </td>
@@ -39,8 +39,8 @@
                 <%=blog.active ? 'Published' : 'Draft' %>
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <%=link_to (blog.active ? "Draft it" : "Publish it"), "#{toggle_blog_status_path(blog.id)}", class: 'underline' %> | 
-                <%=link_to "Edit", "#{edit_blog_url(blog.id)}", class: 'underline' %>
+                <%=link_to (blog.active ? "Draft it" : "Publish it"), "#{toggle_blog_status_path(blog.hashid)}", class: 'underline' %> | 
+                <%=link_to "Edit", "#{edit_blog_url(blog.hashid)}", class: 'underline' %>
               </td>
             </tr>
             <% end %>

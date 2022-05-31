@@ -5,16 +5,17 @@ class BlogsController < ApplicationController
 
 
   def index
-    @blogs = Blog.where(active: true).order('created_at desc').page(params['page']).per(PER_PAGE)
+    @blogs = Blog.order('created_at desc').where(active: true).page(params['page']).per(PER_PAGE)
     render 'blogs/index'
   end
 
   def user_blogs
-    @blogs = Blog.where(user_id: params[:user_id], active: true).order('created_at desc').page(params['page']).per(PER_PAGE)
-
-    if @user = User.find_by_id(params["user_id"])
+    # @blogs = Blog.where(active: true).order('comments.created_at desc').page(params['page']).per(PER_PAGE).includes(comments: :user).find_by(user_id: params[:user_id])
+    begin
+      @user = User.find_by_hashid(params["user_id"])
+      @blogs = Blog.where(user_id: @user.id, active: true).order('created_at desc').page(params['page']).per(PER_PAGE)
       render 'blogs/index'
-    else
+    rescue
       error_page
     end
   end
@@ -39,18 +40,19 @@ class BlogsController < ApplicationController
   end
 
   def show 
-    if @blog = Blog.includes(comments: :user).where(id: params[:id], active: true).order('comments.created_at desc').take
+    begin
+      @blog = Blog.where(active: true).order('comments.created_at desc').includes(comments: :user).find(params[:id])
       @comment = Comment.new
       render 'blogs/post'
-    else
+    rescue
       error_page
     end
-
   end
 
   def edit_blog 
     begin
-      @blog = current_user.blogs.find_by_id(params[:id])
+      # @blog = Blog.where(active: true).order('comments.created_at desc').includes(comments: :user).find(params[:id])
+      @blog = current_user.blogs.find_by_hashid(params[:id])
       render 'blogs/edit'
     rescue
       error_page
@@ -58,11 +60,15 @@ class BlogsController < ApplicationController
   end
   
   def save_edit_blog
-    @blog = current_user.blogs.build(blog_params)
+    @blog = current_user.blogs.find_by_hashid(params[:id])
+    @blog.blog_title = params[:blog_title]
+    @blog.blog_description = params[:blog_description]
+    @blog.blog_text = params[:blog_text]
+    @blog.active = params[:active]
     
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to edit_blog_path(@blog.id), notice: "blog was successfully Edited." }
+        format.html { redirect_to edit_blog_path(@blog.hashid), notice: "blog was successfully Edited." }
         format.json { render :'blogs/edit', status: :created, location: @blog }
       else
         format.html { render :'blogs/edit', status: :unprocessable_entity }
@@ -78,7 +84,7 @@ class BlogsController < ApplicationController
 
   def toggle_blog_status 
     begin
-      @blog = current_user.blogs.find_by_id(params[:id])
+      @blog = current_user.blogs.find_by_hashid(params[:id])
       @blog.active = !@blog.active
       @blog.save
       flash[:notice] = 'Successfully updatet status!'
@@ -90,7 +96,7 @@ class BlogsController < ApplicationController
 
   def delete_user_blog
     begin
-      @blog = current_user.blogs.find_by_id(params[:id])
+      @blog = current_user.blogs.find_by_hashid(params[:id])
       @blog.destroy
       flash[:notice] = 'Successfully deleted blog!'
       redirect_to user_blogs_list_path

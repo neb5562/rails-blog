@@ -3,7 +3,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                <%=link_to "View Blog", show_blog_url(@blog.id), target: "_blank"%>
+                <%=link_to "View Blog", show_blog_url(@blog.hashid), target: "_blank"%>
                     <%= form_with(url: save_edit_blog_path, html: { method: :put, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" }) do |f| %>
                        <% if @blog.errors.full_messages.any? %>
                             <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
@@ -36,7 +36,7 @@
                         </div>
                     <% end %>
                       <div class="mb-0 m-auto w-full text-right">
-<%= button_to "Delete blog", delete_user_blog_path(@blog.id), data: { confirm: "Are you sure?" }, method: :delete, class: 'text-red-700' %>
+<%= button_to "Delete blog", delete_user_blog_path(@blog.hashid), data: { confirm: "Are you sure?" }, method: :delete, class: 'text-red-700' %>
 </div>
                 </div>
             </div>
