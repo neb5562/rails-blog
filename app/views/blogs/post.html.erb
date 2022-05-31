@@ -28,13 +28,13 @@
 
             <div class="w-full flex">
             <% if @blog.prev %>
-                <a href="<%=show_blog_url(@blog.prev.id)%>" class="w-1/2 bg-white shadow hover:shadow-md text-left p-6">
+                <a href="<%=show_blog_url(@blog.prev.hashid)%>" class="w-1/2 bg-white shadow hover:shadow-md text-left p-6">
                     <p class="text-lg text-blue-800 font-bold flex items-center"><i class="fas fa-arrow-left pr-1"></i> Previous</p>
                     <p class="pt-2"><%=@blog.prev.blog_title%></p></p>
                 </a>
                 <% end %>
                 <% if @blog.next %>
-                <a href="<%=show_blog_url(@blog.next.id)%>" class="w-1/2 bg-white shadow hover:shadow-md text-right p-6">
+                <a href="<%=show_blog_url(@blog.next.hashid)%>" class="w-1/2 bg-white shadow hover:shadow-md text-right p-6">
                     <p class="text-lg text-blue-800 font-bold flex items-center justify-end">Next <i class="fas fa-arrow-right pl-1"></i></p>
                     <p class="pt-2"><%=@blog.next.blog_title%></p>
                 </a>
