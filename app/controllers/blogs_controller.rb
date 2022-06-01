@@ -41,8 +41,10 @@ class BlogsController < ApplicationController
 
   def show 
     begin
-      @blog = Blog.where(active: true).order('comments.created_at desc').includes(comments: :user).find(params[:id])
+      @blog = Blog.where(active: true).order('comments.created_at desc').includes(:comments => [:likes, :user]).find(params[:id])
       @comment = Comment.new
+      @prev = @blog.prev 
+      @next = @blog.next
       render 'blogs/post'
     rescue
       error_page

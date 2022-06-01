@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   delete "/blogs/:id/delete", to: "blogs#delete_user_blog", as: :delete_user_blog
   get '*unmatched_route', to: 'application#error_page'
+
+  post "/likes/save", to: "likes#save", as: :save_like
 end
 
 

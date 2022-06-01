@@ -220,6 +220,8 @@ GEM
     strscan (3.0.3)
     thor (1.2.1)
     timeout (0.2.0)
+    toastr-rails (1.0.3)
+      railties (>= 3.1.0)
     turbo-rails (1.1.1)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -264,6 +266,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
+  toastr-rails
   turbo-rails
   tzinfo-data
   web-console

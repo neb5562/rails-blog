@@ -19,7 +19,7 @@ default: &default
   encoding: unicode
   host: localhost
   username: postgres
-  password: <%= ENV["BLOG_DATABASE_PASSWORD"] %>
+  password: <%=ENV["BLOG_DATABASE_PASSWORD"] %>
 
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
