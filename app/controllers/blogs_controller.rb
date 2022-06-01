@@ -5,7 +5,7 @@ class BlogsController < ApplicationController
 
 
   def index
-    @blogs = Blog.order('created_at desc').where(active: true).page(params['page']).per(PER_PAGE)
+    @blogs = Blog.where(active: true).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
     render 'blogs/index'
   end
 
@@ -13,7 +13,7 @@ class BlogsController < ApplicationController
     # @blogs = Blog.where(active: true).order('comments.created_at desc').page(params['page']).per(PER_PAGE).includes(comments: :user).find_by(user_id: params[:user_id])
     begin
       @user = User.find_by_hashid(params["user_id"])
-      @blogs = Blog.where(user_id: @user.id, active: true).order('created_at desc').page(params['page']).per(PER_PAGE)
+      @blogs = Blog.where(user_id: @user.id, active: true).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
       render 'blogs/index'
     rescue
       error_page
@@ -41,7 +41,7 @@ class BlogsController < ApplicationController
 
   def show 
     begin
-      @blog = Blog.where(active: true).order('comments.created_at desc').includes(:comments => [:likes, :user]).find(params[:id])
+      @blog = Blog.where(active: true).order('comments.created_at desc').includes(:comments => [:likes, :user]).find_by_hashid(params[:id])
       @comment = Comment.new
       @prev = @blog.prev 
       @next = @blog.next

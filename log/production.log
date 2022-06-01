@@ -1,0 +1,51 @@
+I, [2022-06-01T15:02:45.704152 #35473]  INFO -- : [f89c5070-f797-4026-95d8-d654d62cc8f1] Started GET "/" for 127.0.0.1 at 2022-06-01 15:02:45 +0400
+I, [2022-06-01T15:02:45.706197 #35473]  INFO -- : [f89c5070-f797-4026-95d8-d654d62cc8f1] Processing by BlogsController#index as HTML
+I, [2022-06-01T15:02:45.719403 #35473]  INFO -- : [f89c5070-f797-4026-95d8-d654d62cc8f1] Completed 500 Internal Server Error in 13ms (Allocations: 1088)
+F, [2022-06-01T15:02:45.719796 #35473] FATAL -- : [f89c5070-f797-4026-95d8-d654d62cc8f1]   
+[f89c5070-f797-4026-95d8-d654d62cc8f1] ActiveRecord::NoDatabaseError (We could not find your database: blog_production. Which can be found in the database configuration file located at config/database.yml.
+
+To resolve this issue:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+[f89c5070-f797-4026-95d8-d654d62cc8f1]   
+[f89c5070-f797-4026-95d8-d654d62cc8f1] app/controllers/blogs_controller.rb:8:in `index'
+I, [2022-06-01T15:02:50.970530 #35473]  INFO -- : [2d8962f0-eaa6-4bf1-a573-49f70d7a2301] Started GET "/" for 127.0.0.1 at 2022-06-01 15:02:50 +0400
+I, [2022-06-01T15:02:50.971307 #35473]  INFO -- : [2d8962f0-eaa6-4bf1-a573-49f70d7a2301] Processing by BlogsController#index as HTML
+I, [2022-06-01T15:02:50.983499 #35473]  INFO -- : [2d8962f0-eaa6-4bf1-a573-49f70d7a2301] Completed 500 Internal Server Error in 12ms (Allocations: 457)
+F, [2022-06-01T15:02:50.984045 #35473] FATAL -- : [2d8962f0-eaa6-4bf1-a573-49f70d7a2301]   
+[2d8962f0-eaa6-4bf1-a573-49f70d7a2301] ActiveRecord::NoDatabaseError (We could not find your database: blog_production. Which can be found in the database configuration file located at config/database.yml.
+
+To resolve this issue:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+[2d8962f0-eaa6-4bf1-a573-49f70d7a2301]   
+[2d8962f0-eaa6-4bf1-a573-49f70d7a2301] app/controllers/blogs_controller.rb:8:in `index'
+I, [2022-06-01T15:02:51.727584 #35473]  INFO -- : [ed4a0b9f-e2d2-4650-a0de-8a7013bd7190] Started GET "/" for 127.0.0.1 at 2022-06-01 15:02:51 +0400
+I, [2022-06-01T15:02:51.728084 #35473]  INFO -- : [ed4a0b9f-e2d2-4650-a0de-8a7013bd7190] Processing by BlogsController#index as HTML
+I, [2022-06-01T15:02:51.738396 #35473]  INFO -- : [ed4a0b9f-e2d2-4650-a0de-8a7013bd7190] Completed 500 Internal Server Error in 10ms (Allocations: 457)
+F, [2022-06-01T15:02:51.738764 #35473] FATAL -- : [ed4a0b9f-e2d2-4650-a0de-8a7013bd7190]   
+[ed4a0b9f-e2d2-4650-a0de-8a7013bd7190] ActiveRecord::NoDatabaseError (We could not find your database: blog_production. Which can be found in the database configuration file located at config/database.yml.
+
+To resolve this issue:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+[ed4a0b9f-e2d2-4650-a0de-8a7013bd7190]   
+[ed4a0b9f-e2d2-4650-a0de-8a7013bd7190] app/controllers/blogs_controller.rb:8:in `index'
