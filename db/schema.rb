@@ -17,6 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_114540) do
   create_table "blogs", force: :cascade do |t|
     t.string "blog_title"
     t.text "blog_text"
+    t.integer "comments_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
@@ -29,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_114540) do
     t.text "body"
     t.bigint "user_id", null: false
     t.bigint "blog_id", null: false
+    t.integer "likes_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["blog_id"], name: "index_comments_on_blog_id"
@@ -47,6 +49,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_114540) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.integer "blogs_count"
+    t.integer "likes_count"
+    t.integer "comments_count"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

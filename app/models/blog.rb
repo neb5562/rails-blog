@@ -1,5 +1,5 @@
 class Blog < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, counter_cache: true 
   has_many :comments
 
   include Hashid::Rails
