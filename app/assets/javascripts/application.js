@@ -1,3 +1,5 @@
 //= require jquery
-//= require like
 //= require toastr
+//= require like
+//= require jquery_ujs
+//= require_tree .
