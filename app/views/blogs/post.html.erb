@@ -40,7 +40,7 @@
                 <% end %>
             </div>
 
-            <h4 class="py-5">Comments(<%=@blog.comments.count%>)</h4>
+            <h4 class="py-5">Comments(<%=@blog.comments.size%>)</h4>
                                 <!-- comment form -->
             <div class="w-full flex mx-auto items-center justify-center shadow-lg mt-4 mx-8 mb-4">
             <%= form_with(url: save_new_comment_path, html: { method: :put, class: "w-full bg-white rounded-lg px-4 pt-2" }) do |f| %>
