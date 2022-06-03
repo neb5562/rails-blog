@@ -12,7 +12,7 @@ class BlogsController < ApplicationController
   def user_blogs
     # @blogs = Blog.where(active: true).order('comments.created_at desc').page(params['page']).per(PER_PAGE).includes(comments: :user).find_by(user_id: params[:user_id])
     begin
-      @user = User.find_by_hashid(params["user_id"])
+      @user = User.find_by(username: params["username"])
       @blogs = Blog.where(user_id: @user.id, active: true).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
       render 'blogs/index'
     rescue

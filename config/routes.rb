@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "blogs#index"
 
-  get "/user/:user_id/blogs", to: "blogs#user_blogs", as: :user_blogs
+  get "/user/:username/blogs", to: "blogs#user_blogs", as: :user_blogs
   get "/blogs/new", to: "blogs#new_blog", as: :create_new_blog
   get "/blog/:id/edit", to: "blogs#edit_blog", as: :edit_blog
   put "/blog/:id/edit", to: "blogs#save_edit_blog", as: :save_edit_blog
