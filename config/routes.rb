@@ -19,9 +19,12 @@ Rails.application.routes.draw do
   put "/blog/:id/add_comment", to: "comments#save", as: :save_new_comment
 
   delete "/blogs/:id/delete", to: "blogs#delete_user_blog", as: :delete_user_blog
-  get '*unmatched_route', to: 'application#error_page'
-
   post "/likes/save", to: "likes#save", as: :save_like
+
+  get "/categories/new", to: "categories#new", as: :new_category
+  put "/categories/new", to: "categories#create", as: :save_new_category
+
+  get '*unmatched_route', to: 'application#error_page'
 end
 
 
