@@ -1,8 +1,9 @@
 <% content_for(:html_title) { 'New blog' } %>
-<div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+<%=render "layouts/users_sidebar" %>
+<div class = "mt-10 float-left w-full max-w-4xl content-center">
+        <div>
+            <div>
+                <div>
                     <%= form_with(url: save_new_blog_path, html: { method: :put, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" }) do |f| %>
                        <% if @blog.errors.full_messages.any? %>
                             <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
@@ -12,8 +13,10 @@
                             </div>
                         <% end %>
                         <div class="mb-4">
+                        
                             <label class="text-xl text-gray-600">Category <span class="text-red-500">*</span></label></br>
-                            <%= f.collection_select :category, Category.all, :id, :name, { :prompt => "Please Select" }, { :class => "form-select appearance-none
+                            <i>you can select multiple categories when holding <b>ctrl</b></i>
+                            <%= f.collection_select :categories, Category.all, :id, :name, { :prompt => nil }, { :multiple => true, :size => 5, :class => "form-select appearance-none
       block
       w-full
       px-3

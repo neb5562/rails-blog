@@ -27,9 +27,19 @@ class BlogsController < ApplicationController
 
   def save_new_blog
     @blog = current_user.blogs.build(blog_params)
-    
+    categories = params[:categories].reject { |e| e.to_s.empty? }
+    blog_categories = []
+    # binding.pry
+    ActiveRecord::Base.transaction do
+      @res = @blog.save
+      binding.pry
+      categories.each do |cat_item|
+        blog_categories << {blog_id: @blog.id, category_id: cat_item }
+      end
+      BlogCategory.create(blog_categories)
+     end
     respond_to do |format|
-      if @blog.save
+      if @res
         format.html { redirect_to root_path, notice: "blog was successfully created." }
         format.json { render :show, status: :created, location: @blog }
       else

@@ -46,7 +46,7 @@
 
     <!-- Top Bar Nav -->
     <nav class="w-full py-4 bg-indigo-500 shadow">
-        <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
+        <div class="w-8/12 container mx-auto flex flex-wrap items-center justify-between">
             <nav>
                 <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
                 <li><%= link_to 'Home', root_path, class: 'hover:text-gray-200 hover:underline px-4' %></li>
@@ -62,8 +62,6 @@
 <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700">
     <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
     <li><%= link_to "Profile", edit_user_registration_path, class: 'block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white' %></li>
-          <li><%= link_to "New Blog", create_new_blog_path, class: 'block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white' %></li>
-    <li><%= link_to "My Blogs", user_blogs_list_path, class: 'block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white' %></li>
     <li><%= link_to "Log out", destroy_user_session_path,  class: 'block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white', method: :delete %></li>
     </ul>
 </div>
@@ -114,9 +112,11 @@
             <%= alert %>
         </div>
 <% end %>  
-
+<div class="container mx-auto w-8/12">
     <%= yield %>
-<footer class="w-full border-t bg-white pb-12">
+ </div>
+
+<footer class="clear-both w-full border-t bg-white pb-12">
 
         <div class="w-full container mx-auto flex flex-col items-center">
            <!-- <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
