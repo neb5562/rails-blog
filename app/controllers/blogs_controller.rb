@@ -22,7 +22,7 @@ class BlogsController < ApplicationController
 
   def search_blogs 
     # begin
-      @blogs = Blog.search(params[:query]).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
+      @blogs = Blog.search(params[:query]).where(active: true).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
       render 'blogs/index'
     # rescue
       # error_page
