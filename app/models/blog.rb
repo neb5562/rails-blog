@@ -21,4 +21,13 @@ class Blog < ApplicationRecord
     prv ||= Blog.where("id < ?", id).where(active: true).last
     prv
   end
+
+  def self.search(search)
+    if search.present?
+      search = search.titleize.downcase
+      Blog.where('blog_title LIKE ?', "%#{search}%").or(Blog.where('blog_text LIKE ?', "%#{search}%"))
+    end
+  end 
+
+
 end

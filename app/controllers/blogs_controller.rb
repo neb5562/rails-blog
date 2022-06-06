@@ -20,6 +20,15 @@ class BlogsController < ApplicationController
     end
   end
 
+  def search_blogs 
+    # begin
+      @blogs = Blog.search(params[:query]).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
+      render 'blogs/index'
+    # rescue
+      # error_page
+    # end
+  end
+
   def new_blog 
     @blog = Blog.new
     render 'blogs/new'

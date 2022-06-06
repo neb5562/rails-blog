@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   put "/categories/new", to: "categories#create", as: :save_new_category
   get "/profile/categories", to: "categories#index", as: :user_blog_actegories
   get "/category/:name", to: "categories#category_blogs", as: :show_category_blogs
+  match '/search',  to: 'blogs#search_blogs', via: 'get'
   
   get '*unmatched_route', to: 'application#error_page'
 end
