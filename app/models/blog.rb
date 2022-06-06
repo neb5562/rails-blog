@@ -1,15 +1,16 @@
 class Blog < ApplicationRecord
   belongs_to :user, counter_cache: true 
   has_many :comments
-  has_many :blog_categories
+  has_many :blog_categories, dependent: :delete_all
   has_many :categories, through: :blog_categories, counter_cache: true
+  before_save { validates_presence_of :categories }
 
   include Hashid::Rails
   
   validates :blog_title, presence: true,  length: { maximum: 255 }
   validates :blog_text, presence: true,  length: { maximum: 65000 }
   validates :blog_description, presence: true,  length: { maximum: 255 }
-  validates :categories, presence: true
+  validates :blog_categories, presence: true
 
   def next
     nxt ||= Blog.where("id > ?", id).where(active: true).first

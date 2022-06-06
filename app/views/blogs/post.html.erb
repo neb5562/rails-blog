@@ -10,7 +10,23 @@
           <%=link_to "Edit", edit_blog_url(@blog.hashid)%>
           <% end %>
                     <h3 class="text-3xl font-bold pb-4"><%=h(@blog.blog_title)%></h3>
-                    <p class="text-sm pb-2">
+
+
+                    <!-- component -->
+<div class = "mb-4">
+
+<% if @blog.categories %>
+    <% @blog.categories.each do |cat| %>
+  <div
+    class="mr-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full bg-white text-gray-700 border"
+  >
+    <%=link_to cat.name, "sdfs", class: 'text-blue-600 hover:text-blue-800 visited:text-purple-600'%>
+  </div>
+    <% end %>
+<% end %>
+</div>
+<hr>
+                    <p class="text-sm pb-2 mt-2">
                     
                         By <%=link_to h(@blog.user.username), user_blogs_path(@blog.user.id), class: 'font-semibold hover:text-gray-800'%>, <%=@blog.created_at.strftime("Published on %b %d, %Y")%>
                     </p>

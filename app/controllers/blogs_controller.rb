@@ -29,15 +29,17 @@ class BlogsController < ApplicationController
     @blog = current_user.blogs.build(blog_params)
     categories = params[:categories].reject { |e| e.to_s.empty? }
     blog_categories = []
-    # binding.pry
+    
     ActiveRecord::Base.transaction do
-      @res = @blog.save
-      binding.pry
+      
       categories.each do |cat_item|
-        blog_categories << {blog_id: @blog.id, category_id: cat_item }
+        blog_categories << BlogCategory.new(blog_id: @blog.id, category_id: cat_item )
       end
-      BlogCategory.create(blog_categories)
+
+      @blog.blog_categories << blog_categories
+      @res = @blog.save
      end
+
     respond_to do |format|
       if @res
         format.html { redirect_to root_path, notice: "blog was successfully created." }
@@ -63,7 +65,6 @@ class BlogsController < ApplicationController
 
   def edit_blog 
     begin
-      # @blog = Blog.where(active: true).order('comments.created_at desc').includes(comments: :user).find(params[:id])
       @blog = current_user.blogs.find_by_hashid(params[:id])
       render 'blogs/edit'
     rescue
@@ -73,11 +74,27 @@ class BlogsController < ApplicationController
   
   def save_edit_blog
     @blog = current_user.blogs.find_by_hashid(params[:id])
+    blog_categories = []
     @blog.blog_title = params[:blog_title]
     @blog.blog_description = params[:blog_description]
     @blog.blog_text = params[:blog_text]
     @blog.active = params[:active]
     
+    categories = params[:categories].reject { |e| e.to_s.empty? }
+    blog_categories = []
+    
+    ActiveRecord::Base.transaction do
+      @blog.blog_categories.destroy_all
+      categories.each do |cat_item|
+        blog_categories << BlogCategory.new(blog_id: @blog.id, category_id: cat_item )
+      end
+
+      @blog.blog_categories << blog_categories
+      @res = @blog.save
+     end
+
+
+
     respond_to do |format|
       if @blog.save
         format.html { redirect_to edit_blog_path(@blog.hashid), notice: "blog was successfully Edited." }
@@ -108,8 +125,8 @@ class BlogsController < ApplicationController
 
   def delete_user_blog
     begin
-      @blog = current_user.blogs.find_by_hashid(params[:id])
-      @blog.destroy
+      blog = current_user.blogs.find_by_hashid(params[:id])
+      blog.destroy
       flash[:notice] = 'Successfully deleted blog!'
       redirect_to user_blogs_list_path
     rescue
