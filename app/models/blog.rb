@@ -24,7 +24,7 @@ class Blog < ApplicationRecord
 
   def self.search(search)
     if search.present?
-      Blog.where('blog_title LIKE ?', "%#{search}%").or(Blog.where('blog_text LIKE ?', "%#{search}%"))
+      Blog.where('lower(blog_title) LIKE ?', "%#{search.downcase}%").or(Blog.where('lower(blog_text) LIKE ?', "%#{search.downcase}%"))
     end
   end 
 
