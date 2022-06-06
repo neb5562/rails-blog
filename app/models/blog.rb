@@ -24,7 +24,6 @@ class Blog < ApplicationRecord
 
   def self.search(search)
     if search.present?
-      search = search.titleize.downcase
       Blog.where('blog_title LIKE ?', "%#{search}%").or(Blog.where('blog_text LIKE ?', "%#{search}%"))
     end
   end 
