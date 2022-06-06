@@ -27,8 +27,7 @@
 </div>
 <hr>
                     <p class="text-sm pb-2 mt-2">
-                    
-                        By <%=link_to h(@blog.user.username), user_blogs_path(@blog.user.id), class: 'font-semibold hover:text-gray-800'%>, <%=@blog.created_at.strftime("Published on %b %d, %Y")%>
+                        By <%=link_to h(@blog.user.username), user_blogs_path(@blog.user.username), class: 'font-semibold hover:text-gray-800'%>, <%=@blog.created_at.strftime("Published on %b %d, %Y")%>
                     </p>
                     <hr class="pb-2">
                     <%= raw(@blog.blog_text) %>
@@ -94,7 +93,7 @@
                             <div class="flex items-center justify-between py-1 pr-2">
                             <!-- Author -->
                                 <div>
-                                    <%=link_to h(comment.user.username), user_blogs_path(comment.user.hashid), class: "text-blue-400 hover:underline" %>
+                                    <%=link_to h(comment.user.username), user_blogs_path(comment.user.username), class: "text-blue-400 hover:underline" %>
                                     <span class="text-sm font-thin text-gray-500"> <%=comment.created_at.strftime("Published on %b %d, %Y")%></span>
                                 </div>
                             <!-- Rate -->
