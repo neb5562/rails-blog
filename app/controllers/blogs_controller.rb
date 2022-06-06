@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :authenticate_user!, :except => [:index, :user_blogs, :show]
+  before_action :authenticate_user!, :except => [:index, :user_blogs, :show, :search_blogs]
 
   PER_PAGE = 9
 
