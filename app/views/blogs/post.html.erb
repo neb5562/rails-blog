@@ -20,7 +20,7 @@
   <div
     class="mr-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full bg-white text-gray-700 border"
   >
-    <%=link_to cat.name, "sdfs", class: 'text-blue-600 hover:text-blue-800 visited:text-purple-600'%>
+    <%=link_to cat.name, show_category_blogs_path(cat.name.parameterize), class: 'text-blue-600 hover:text-blue-800 visited:text-purple-600'%>
   </div>
     <% end %>
 <% end %>
