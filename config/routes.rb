@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   put "/blogs/save", to: "blogs#save_new_blog", as: :save_new_blog
   get "/blog/:id/toggle_status", to: "blogs#toggle_blog_status", as: :toggle_blog_status
   get "/profile/blogs", to: "blogs#user_blogs_list", as: :user_blogs_list
-
+  get "/profile/settings", to: "users#settings", as: :user_settings
   put "/blog/:id/add_comment", to: "comments#save", as: :save_new_comment
 
   delete "/blogs/:id/delete", to: "blogs#delete_user_blog", as: :delete_user_blog

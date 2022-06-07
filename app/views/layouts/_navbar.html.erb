@@ -1,0 +1,50 @@
+<script>
+(function() {
+  dropdown.hide();
+})();
+  
+</script>
+<nav class="w-full py-4 bg-indigo-500 shadow">
+        <div class="w-8/12 container mx-auto flex flex-wrap items-center justify-between">
+            <nav>
+                <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
+                <li><%= link_to 'Home', root_path, class: 'hover:text-gray-200 hover:underline px-4' %></li>
+                <% unless signed_in? %>
+                    <li><%= link_to 'Login', new_user_session_path, class: 'hover:text-gray-200 hover:underline px-4' %></li>
+                    <li><%= link_to 'Sign Up', new_user_registration_path, class: 'hover:text-gray-200 hover:underline px-4' %></li>
+                <% end %>
+                </ul>
+            </nav>
+
+
+            <div class="flex items-center text-lg no-underline text-white pr-6">
+              <% if signed_in? %>
+              <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
+                <span class="sr-only">Open user menu</span>
+                <%=image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'w-8 h-8 rounded-full') %>
+              </button>
+        
+              <div class="z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 hidden" id="dropdown" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(1560px, 54px);" data-popper-placement="bottom">
+                <div class="py-3 px-4">
+                  <span class="block text-sm text-gray-900 dark:text-white"><%=h(current_user.full_name)%></span>
+                  <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400"><%=h(current_user.email)%></span>
+                </div>
+                <ul class="py-1" aria-labelledby="dropdown">
+                  <li><%= link_to "Dashboard", edit_user_registration_path, class: 'block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %></li>
+                  <li><%= link_to "Log out", destroy_user_session_path,  class: 'block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white', method: :delete %></li>
+                </ul>
+              </div>
+              <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                </svg>
+                <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+              </button>
+            <% end %>
+            </div>
+        </div>
+
+    </nav>

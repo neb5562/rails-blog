@@ -29,9 +29,9 @@
             <% @categories.each do |category| %>
             <tr class="bg-gray-100 border-b">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-              <%=link_to category.id, "", target: '_blank', class:'underline text-blue-600 hover:text-blue-800 visited:text-purple-600'%>
+              <%=link_to category.id, show_category_blogs_path(category.name.parameterize), target: '_blank', class:'underline text-blue-600 hover:text-blue-800 visited:text-purple-600'%>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <%=link_to category.name, "", target: '_blank', class:'underline text-blue-600 hover:text-blue-800 visited:text-purple-600'%>
+                <%=link_to category.name, show_category_blogs_path(category.name.parameterize), target: '_blank', class:'underline text-blue-600 hover:text-blue-800 visited:text-purple-600'%>
               </td>
             </tr>
            
