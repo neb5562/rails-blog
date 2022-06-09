@@ -16,4 +16,8 @@ class User < ApplicationRecord
   validates :username, format: { without: /\s/ }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
 
+  def after_confirmation
+    UserMailer.with(user: self).welcome_email.deliver_later
+  end
+  
 end
