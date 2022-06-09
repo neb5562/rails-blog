@@ -8,9 +8,9 @@
         <div class="w-8/12 container mx-auto flex flex-wrap items-center justify-between">
             <nav>
                 <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
-                <li><%= link_to 'Home', root_path, class: 'hover:text-gray-200 hover:underline px-4' %></li>
+                  <li><%= link_to 'Home', root_path, class: 'hover:text-gray-200 hover:underline px-4' %></li>
                 <% unless signed_in? %>
-                    <li><%= link_to 'Login', new_user_session_path, class: 'hover:text-gray-200 hover:underline px-4' %></li>
+                    <li><%= link_to 'Sign In', new_user_session_path, class: 'hover:text-gray-200 hover:underline px-4' %></li>
                     <li><%= link_to 'Sign Up', new_user_registration_path, class: 'hover:text-gray-200 hover:underline px-4' %></li>
                 <% end %>
                 </ul>
@@ -19,9 +19,15 @@
 
             <div class="flex items-center text-lg no-underline text-white pr-6">
               <% if signed_in? %>
-              <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
+              
+              <button type="button" class="flex mr-3 text-sm rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
+                <div class="p-2">Hallo, <%=current_user.username%></div>
                 <span class="sr-only">Open user menu</span>
-                <%=image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'w-8 h-8 rounded-full') %>
+                <% if current_user.avatar.attached? %>
+                  <%= image_tag current_user.avatar.variant(:thumb), class: 'w-8 h-8 rounded-full'%>
+                <% else %>
+                 <%=image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'w-8 h-8 rounded-full') %>
+                <% end %>
               </button>
         
               <div class="z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 hidden" id="dropdown" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(1560px, 54px);" data-popper-placement="bottom">

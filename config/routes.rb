@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "/blog/:id/toggle_status", to: "blogs#toggle_blog_status", as: :toggle_blog_status
   get "/profile/blogs", to: "blogs#user_blogs_list", as: :user_blogs_list
   get "/profile/settings", to: "users#settings", as: :user_settings
+  post "/profile/settings", to: "users#save_settings", as: :save_user_settings
   put "/blog/:id/add_comment", to: "comments#save", as: :save_new_comment
 
   delete "/blogs/:id/delete", to: "blogs#delete_user_blog", as: :delete_user_blog
@@ -26,8 +27,13 @@ Rails.application.routes.draw do
   get "/profile/categories", to: "categories#index", as: :user_blog_actegories
   get "/category/:name", to: "categories#category_blogs", as: :show_category_blogs
   match '/search',  to: 'blogs#search_blogs', via: 'get'
-  
-  get '*unmatched_route', to: 'application#error_page'
+
+  get '*all', to: 'application#error_page', constraints: lambda { |req|
+    req.path.exclude? 'rails/active_storage'
+  }
+
+  # get '*unmatched_route', to: 'application#error_page'
+
 end
 
 

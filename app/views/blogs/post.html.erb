@@ -93,6 +93,11 @@
                             <div class="flex items-center justify-between py-1 pr-2">
                             <!-- Author -->
                                 <div>
+                                    <% if comment.user.avatar.attached? %>
+                                    <%= image_tag comment.user.avatar.variant(:thumb), class: 'float-left w-8 h-8 rounded-full mr-4 mb-2'%>
+                                  <% else %>
+                                   <%=image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'float-left mr-4 mb-2 w-8 h-8 rounded-full') %>
+                                  <% end %>
                                     <%=link_to h(comment.user.username), user_blogs_path(comment.user.username), class: "text-blue-400 hover:underline" %>
                                     <span class="text-sm font-thin text-gray-500"> <%=comment.created_at.strftime("Published on %b %d, %Y")%></span>
                                 </div>
