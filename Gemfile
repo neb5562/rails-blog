@@ -39,7 +39,7 @@ gem 'toastr-rails'
 
 gem "tzinfo-data"
 
-gem "image_processing", ">= 1.2"
+gem 'mini_magick'
 
 
 # Use Redis adapter to run Action Cable in production
