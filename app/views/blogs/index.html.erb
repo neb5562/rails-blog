@@ -1,11 +1,10 @@
 <% 
 if action_name == 'category_blogs'
-content_for(:html_title) { 'Category: ' + params[:name].titleize } 
-end
+  content_for(:html_title) { 'Category: ' + params[:name].titleize } 
+end 
 %>
 <br>
 <%=render "layouts/search_form" %>
-
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-6 mx-auto">
     <div class="flex flex-wrap -m-4">

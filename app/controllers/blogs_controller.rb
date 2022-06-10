@@ -14,6 +14,7 @@ class BlogsController < ApplicationController
     begin
       @user = User.find_by(username: params["username"])
       @blogs = Blog.where(user_id: @user.id, active: true).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
+      @color = @blogs.first.user.settings(:settings).user_blog_color
       render 'blogs/index'
     rescue
       error_page
@@ -66,6 +67,7 @@ class BlogsController < ApplicationController
       @comment = Comment.new
       @prev = @blog.prev 
       @next = @blog.next
+      @color = @blog.user.settings(:settings).user_blog_color
       render 'blogs/post'
     rescue
       error_page

@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_fill: [100, 100]
   end
+  has_settings do |s|
+    s.key :settings, :defaults => { :user_blog_color => '#3b82f680' }
+  end
 
   include Hashid::Rails
   # Include default devise modules. Others available are:
@@ -16,8 +19,8 @@ class User < ApplicationRecord
   validates :username, format: { without: /\s/ }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
 
-  def after_confirmation
-    UserMailer.with(user: self).welcome_email.deliver_later
-  end
+  # def after_confirmation
+  #   UserMailer.with(user: self).welcome_email.deliver_later
+  # end
   
 end
