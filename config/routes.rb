@@ -28,9 +28,9 @@ Rails.application.routes.draw do
   get "/category/:name", to: "categories#category_blogs", as: :show_category_blogs
   match '/search',  to: 'blogs#search_blogs', via: 'get'
 
-  # get '*all', to: 'application#error_page', constraints: lambda { |req|
-  #   req.path.exclude? 'rails/active_storage'
-  # }
+  get '*all', to: 'application#error_page', constraints: lambda { |req|
+    req.path.exclude? 'rails/active_storage'
+  }
 
   # get '*unmatched_route', to: 'application#error_page'
 

@@ -62,16 +62,16 @@ class BlogsController < ApplicationController
   end
 
   def show 
-    # begin
+    begin
       @blog = Blog.where(active: true).order('comments.created_at desc').includes(:comments => [:likes, :user]).find_by_hashid(params[:id])
       @comment = Comment.new
       @prev = @blog.prev 
       @next = @blog.next
       @color = @blog.user.settings(:settings).user_blog_color
       render 'blogs/post'
-    # rescue
-    #   error_page
-    # end
+    rescue
+      error_page
+    end
   end
 
   def edit_blog 
