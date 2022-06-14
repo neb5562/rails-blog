@@ -1,13 +1,11 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
-  def settings
-    
-  end
+  def settings;end
 
   def save_settings 
-    @user_avatar = current_user.avatar.attach(params[:avatar])
-    current_user.settings(:settings).user_blog_color = params[:user_blog_color]
+    @user_avatar = current_user.avatar.attach(params[:settings][:avatar]) unless params[:settings][:avatar].nil? 
+    current_user.settings(:settings).user_blog_color = params[:settings][:user_blog_color] unless params[:settings][:user_blog_color].nil? 
     if current_user.save!
       flash[:notice] = 'Settings updated Successfully!'
       redirect_to user_settings_path

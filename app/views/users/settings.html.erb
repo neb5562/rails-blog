@@ -22,7 +22,7 @@
 								<label class="cursor-pointer ">
                   <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Browse</span>
                   <!-- <input type="file" class="hidden" :multiple="false" :accept="accept" name="avatar"> -->
-									<%= form.file_field :avatar, hidden:true %>
+									<%= form.file_field :'[settings]avatar', hidden:true %>
 
                 </label>
 							</div>
@@ -37,7 +37,7 @@
 									<div class="flex items-center">
 										<div>
 											<label for="colorSelected" class="block font-bold mb-1">My Blog Template Color</label>
-											<input name = "user_blog_color" id="colorSelected" type="text" placeholder="Pick a color"
+											<input name = "[settings]user_blog_color" id="colorSelected" type="text" placeholder="Pick a color"
 												class="border border-transparent shadow px-4 py-2 leading-normal text-gray-700 bg-white rounded-md focus:outline-none focus:shadow-outline"
 												readonly 
 												x-model="colorSelected">
