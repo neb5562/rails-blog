@@ -10,7 +10,9 @@ end
     <div class="flex flex-wrap -m-4">
   <% unless @blogs.empty? %>
     <% @blogs.each do |blog| @blog = blog%>
-      <%=render 'blogs/blog' %>
+      <% cache blog do %>
+       <%=render 'blogs/blog' %>
+      <% end %>
     <% end %>
     <br>
     <% else %>
