@@ -63,7 +63,7 @@ class BlogsController < ApplicationController
 
   def show 
     begin
-      @blog = Blog.where(active: true).order('comments.created_at desc').includes(:comments => [:likes, :user]).find_by_hashid(params[:id])
+      @blog = Blog.includes(:comments => [:user, :likes]).where(active: true).order('comments.created_at desc').find_by_hashid(params[:id])
       @comment = Comment.new
       @prev = @blog.prev 
       @next = @blog.next
