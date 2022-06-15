@@ -17918,3 +17918,1792 @@ Completed 200 OK in 0ms (ActiveRecord: 0.0ms | Allocations: 170)
   
 ActionController::RoutingError (No route matches [GET] "/assets/custom"):
   
+Started GET "/en/users/sign_out" for 127.0.0.1 at 2022-06-15 11:46:47 +0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/?locale=en
+Completed 302 Found in 18ms (ActiveRecord: 3.1ms | Allocations: 15063)
+
+
+Started GET "/?locale=en" for 127.0.0.1 at 2022-06-15 11:46:47 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.4ms | Allocations: 444)
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.7ms | Allocations: 4866)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 14.1ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.7ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.5ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3594)
+  [1m[36mBlog Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 51.6ms | Allocations: 54574)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 1099)
+  Rendered layout layouts/application.html.erb (Duration: 81.7ms | Allocations: 87928)
+Completed 200 OK in 91ms (Views: 80.1ms | ActiveRecord: 5.0ms | Allocations: 93509)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/en/users/sign_up" for 127.0.0.1 at 2022-06-15 11:46:49 +0400
+Processing by Devise::RegistrationsController#new as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 50.8ms | Allocations: 3891)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 354)
+  Rendered layout layouts/application.html.erb (Duration: 57.3ms | Allocations: 7386)
+Completed 200 OK in 61ms (Views: 59.6ms | ActiveRecord: 0.0ms | Allocations: 8935)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/ka/users/sign_up" for 127.0.0.1 at 2022-06-15 11:46:53 +0400
+Processing by Devise::RegistrationsController#new as HTML
+  Parameters: {"locale"=>"ka"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1784)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 312)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 5013)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 5802)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/?locale=ka" for 127.0.0.1 at 2022-06-15 11:48:31 +0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"ka"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.5ms | Allocations: 487)
+  [1m[36mBlog Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 3.5ms | Allocations: 5142)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 0.7ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 11.9ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.7ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3594)
+  [1m[36mBlog Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 54.7ms | Allocations: 63462)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 1113)
+  Rendered layout layouts/application.html.erb (Duration: 82.7ms | Allocations: 96909)
+Completed 200 OK in 93ms (Views: 77.9ms | ActiveRecord: 8.0ms | Allocations: 105876)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/?locale=ka" for 127.0.0.1 at 2022-06-15 11:48:32 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"ka"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.2ms | Allocations: 150)
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.1ms | Allocations: 4006)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3594)
+  [1m[36mBlog Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 21.6ms | Allocations: 39179)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 291)
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | Allocations: 42506)
+Completed 200 OK in 25ms (Views: 22.1ms | ActiveRecord: 2.1ms | Allocations: 43140)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/?locale=ka" for 127.0.0.1 at 2022-06-15 11:49:23 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"ka"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 1.0ms | Allocations: 350)
+  [1m[36mBlog Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.5ms | Allocations: 4505)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3594)
+  [1m[36mBlog Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 24.2ms | Allocations: 41425)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 997)
+  Rendered layout layouts/application.html.erb (Duration: 28.2ms | Allocations: 46090)
+Completed 200 OK in 33ms (Views: 28.9ms | ActiveRecord: 2.0ms | Allocations: 47192)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/ka/users/sign_in" for 127.0.0.1 at 2022-06-15 11:49:31 +0400
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"locale"=>"ka"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2700)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 378)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 6233)
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 8268)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started POST "/ka/users/sign_in" for 127.0.0.1 at 2022-06-15 11:49:38 +0400
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gia.nebieridze@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in", "locale"=>"ka"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "gia.nebieridze@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/?locale=ka
+Completed 302 Found in 217ms (ActiveRecord: 0.3ms | Allocations: 4474)
+
+
+Started GET "/?locale=ka" for 127.0.0.1 at 2022-06-15 11:49:38 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"ka"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.4ms | Allocations: 141)
+  [1m[36mBlog Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:16
+  Rendered blogs/_blog.html.erb (Duration: 7.6ms | Allocations: 5480)
+  Rendered blogs/_blog.html.erb (Duration: 1.3ms | Allocations: 4176)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 4176)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 4178)
+  Rendered blogs/_blog.html.erb (Duration: 1.3ms | Allocations: 4178)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 4178)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 4178)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 4177)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 4177)
+  [1m[36mBlog Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 25.0ms | Allocations: 45292)
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:27
+  Rendered layouts/_navbar.html.erb (Duration: 27.9ms | Allocations: 20252)
+  Rendered layout layouts/application.html.erb (Duration: 55.6ms | Allocations: 68615)
+Completed 200 OK in 57ms (Views: 50.1ms | ActiveRecord: 5.8ms | Allocations: 69233)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNM3BxWjNsdE5HNTRaREZzZVhsc2JXUm9NMkp5YURkb05tUjVlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTzJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbVp5NXFjR1ZuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlka1ptY3VhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjItMDYtMTVUMDc6NTE6MDcuMzQzWiIsInB1ciI6ImJsb2Jfa2V5In19--794ab09c6214f88c4bfdcb735b9baad5feb2c688/dfg.jpeg" for 127.0.0.1 at 2022-06-15 11:49:38 +0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"dfg"}
+Completed 200 OK in 12ms (ActiveRecord: 0.0ms | Allocations: 862)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/?locale=en" for 127.0.0.1 at 2022-06-15 11:49:41 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.2ms | Allocations: 136)
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:16
+  Rendered blogs/_blog.html.erb (Duration: 4.8ms | Allocations: 5389)
+  Rendered blogs/_blog.html.erb (Duration: 1.3ms | Allocations: 4176)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 4176)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 4178)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 4178)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 4178)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 4178)
+  Rendered blogs/_blog.html.erb (Duration: 1.6ms | Allocations: 4177)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 4177)
+  [1m[36mBlog Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 24.2ms | Allocations: 45094)
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:27
+  Rendered layouts/_navbar.html.erb (Duration: 4.5ms | Allocations: 2589)
+  Rendered layout layouts/application.html.erb (Duration: 31.1ms | Allocations: 50638)
+Completed 200 OK in 33ms (Views: 28.9ms | ActiveRecord: 2.6ms | Allocations: 51254)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNM3BxWjNsdE5HNTRaREZzZVhsc2JXUm9NMkp5YURkb05tUjVlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTzJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbVp5NXFjR1ZuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlka1ptY3VhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjItMDYtMTVUMDc6NTE6MTcuNjEyWiIsInB1ciI6ImJsb2Jfa2V5In19--1b820f2f884e981b66f535d40b6e8d3a2d7b2628/dfg.jpeg" for 127.0.0.1 at 2022-06-15 11:49:41 +0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"dfg"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 165)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/en/users/sign_out" for 127.0.0.1 at 2022-06-15 11:49:44 +0400
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/?locale=en
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms | Allocations: 2943)
+
+
+Started GET "/?locale=en" for 127.0.0.1 at 2022-06-15 11:49:44 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.2ms | Allocations: 136)
+  [1m[36mBlog Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.4ms | Allocations: 3943)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.7ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3594)
+  [1m[36mBlog Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 14.6ms | Allocations: 38967)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 290)
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 42294)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 1.1ms | Allocations: 42909)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/?locale=en" for 127.0.0.1 at 2022-06-15 11:49:48 +0400
+Processing by BlogsController#index as */*
+  Parameters: {"locale"=>"en"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.2ms | Allocations: 107)
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.3ms | Allocations: 3712)
+  Rendered blogs/_blog.html.erb (Duration: 1.6ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.9ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 2.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 2.1ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 2.5ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.7ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 1.5ms | Allocations: 3594)
+  [1m[36mBlog Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 31.5ms | Allocations: 38533)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 287)
+  Rendered layout layouts/application.html.erb (Duration: 35.1ms | Allocations: 41752)
+Completed 200 OK in 37ms (Views: 34.0ms | ActiveRecord: 1.5ms | Allocations: 42278)
+
+
+Started GET "/?locale=en" for 127.0.0.1 at 2022-06-15 11:50:23 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.6ms | Allocations: 348)
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.0ms | Allocations: 4497)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.4ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.5ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3594)
+  [1m[36mBlog Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 24.4ms | Allocations: 41292)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 1260)
+  Rendered layout layouts/application.html.erb (Duration: 28.3ms | Allocations: 46216)
+Completed 200 OK in 31ms (Views: 28.3ms | ActiveRecord: 1.6ms | Allocations: 47319)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/?locale=ka" for 127.0.0.1 at 2022-06-15 11:50:26 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"ka"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 3.5ms | Allocations: 109)
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.1ms | Allocations: 3872)
+  Rendered blogs/_blog.html.erb (Duration: 1.3ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.5ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3594)
+  [1m[36mBlog Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 23.5ms | Allocations: 38818)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 549)
+  Rendered layout layouts/application.html.erb (Duration: 26.5ms | Allocations: 42289)
+Completed 200 OK in 28ms (Views: 24.9ms | ActiveRecord: 2.0ms | Allocations: 42894)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/ka/users/sign_up" for 127.0.0.1 at 2022-06-15 11:50:44 +0400
+Processing by Devise::RegistrationsController#new as HTML
+  Parameters: {"locale"=>"ka"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2795)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 632)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 6537)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 8031)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/?locale=ka" for 127.0.0.1 at 2022-06-15 11:50:45 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"ka"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.2ms | Allocations: 109)
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.4ms | Allocations: 3924)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3594)
+  [1m[36mBlog Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 17.3ms | Allocations: 39037)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 548)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 42507)
+Completed 200 OK in 22ms (Views: 19.5ms | ActiveRecord: 1.4ms | Allocations: 43110)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/ka/blog/DkqhME" for 127.0.0.1 at 2022-06-15 11:50:47 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"ka", "id"=>"DkqhME"}
+  [1m[35mSQL (0.7ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (0.6ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 15], ["id", 15]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.2ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 22.9ms | Allocations: 30010)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | Allocations: 30103)
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 631)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 3720)
+Completed 404 Not Found in 51ms (Views: 3.6ms | ActiveRecord: 8.5ms | Allocations: 51885)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/?locale=ka" for 127.0.0.1 at 2022-06-15 11:50:49 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"ka"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.2ms | Allocations: 112)
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.1ms | Allocations: 3909)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 3594)
+  [1m[36mBlog Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 20.2ms | Allocations: 39023)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 548)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | Allocations: 42493)
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 1.3ms | Allocations: 43086)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/ka/blog/gq3hAz" for 127.0.0.1 at 2022-06-15 11:50:51 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"ka", "id"=>"gq3hAz"}
+  [1m[35mSQL (0.9ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (1.0ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 12], ["id", 12]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 12) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 12) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.4ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 12]]
+  ↳ app/views/blogs/post.html.erb:19
+  Rendered blogs/post.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2922)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 565)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 6414)
+Completed 200 OK in 26ms (Views: 9.3ms | ActiveRecord: 3.9ms | Allocations: 13176)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/?locale=ka" for 127.0.0.1 at 2022-06-15 11:50:52 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"ka"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.1ms | Allocations: 109)
+  [1m[36mBlog Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.7ms | Allocations: 3860)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.7ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3594)
+  [1m[36mBlog Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 16.6ms | Allocations: 38799)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 548)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 42268)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.3ms | Allocations: 42783)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/ka/blog/DkqhME" for 127.0.0.1 at 2022-06-15 11:50:52 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"ka", "id"=>"DkqhME"}
+  [1m[35mSQL (1.3ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (1.5ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 15], ["id", 15]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.3ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 7.6ms | Allocations: 9754)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 9842)
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.1ms | Allocations: 5)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 565)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 3486)
+Completed 404 Not Found in 31ms (Views: 4.8ms | ActiveRecord: 5.0ms | Allocations: 20296)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/?locale=ka" for 127.0.0.1 at 2022-06-15 11:50:56 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"ka"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.2ms | Allocations: 109)
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 4.7ms | Allocations: 3872)
+  Rendered blogs/_blog.html.erb (Duration: 1.7ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 3594)
+  [1m[36mBlog Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 23.3ms | Allocations: 38811)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 548)
+  Rendered layout layouts/application.html.erb (Duration: 26.2ms | Allocations: 42281)
+Completed 200 OK in 28ms (Views: 25.2ms | ActiveRecord: 1.4ms | Allocations: 42796)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/ka/blog/DX9hjz" for 127.0.0.1 at 2022-06-15 11:50:57 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"ka", "id"=>"DX9hjz"}
+  [1m[35mSQL (1.1ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (1.0ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 14], ["id", 14]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 14) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 14) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.4ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 14]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 10.5ms | Allocations: 9616)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 9704)
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.0ms | Allocations: 5)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 565)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 3486)
+Completed 404 Not Found in 31ms (Views: 3.2ms | ActiveRecord: 4.5ms | Allocations: 20053)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/en/blog/DX9hjz" for 127.0.0.1 at 2022-06-15 11:51:00 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"DX9hjz"}
+  [1m[35mSQL (0.9ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (1.2ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 14], ["id", 14]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 14) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 14) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.2ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 14]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 8.0ms | Allocations: 9637)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 9725)
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.0ms | Allocations: 5)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 562)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 3483)
+Completed 404 Not Found in 28ms (Views: 2.8ms | ActiveRecord: 3.9ms | Allocations: 20071)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/?locale=en" for 127.0.0.1 at 2022-06-15 11:51:02 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.2ms | Allocations: 107)
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.5ms | Allocations: 3866)
+  Rendered blogs/_blog.html.erb (Duration: 1.7ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.6ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3594)
+  [1m[36mBlog Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 24.1ms | Allocations: 38687)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 545)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 42154)
+Completed 200 OK in 29ms (Views: 25.2ms | ActiveRecord: 2.2ms | Allocations: 42668)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/?locale=en&page=2" for 127.0.0.1 at 2022-06-15 11:51:13 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"en", "page"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.4ms | Allocations: 107)
+  [1m[36mBlog Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 9]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 9]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3)[0m  [["blog_id", 3], ["blog_id", 2], ["blog_id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 1.5ms | Allocations: 3855)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 3592)
+  Rendered blogs/_blog.html.erb (Duration: 1.7ms | Allocations: 3592)
+  Rendered blogs/index.html.erb within layouts/application (Duration: 20.7ms | Allocations: 16279)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 545)
+  Rendered layout layouts/application.html.erb (Duration: 23.0ms | Allocations: 19746)
+Completed 200 OK in 26ms (Views: 21.9ms | ActiveRecord: 1.6ms | Allocations: 20258)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/en/blog/EJmhvz" for 127.0.0.1 at 2022-06-15 11:51:18 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"EJmhvz"}
+  [1m[35mSQL (1.4ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (1.2ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 2], ["id", 2]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 2) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 2) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.3ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 2]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 11.8ms | Allocations: 9704)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 9792)
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.0ms | Allocations: 5)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 562)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 3483)
+Completed 404 Not Found in 33ms (Views: 3.6ms | ActiveRecord: 4.7ms | Allocations: 20138)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/?locale=en" for 127.0.0.1 at 2022-06-15 11:51:23 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.2ms | Allocations: 107)
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.2ms | Allocations: 3863)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.7ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 3.4ms | Allocations: 3594)
+  [1m[36mBlog Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 24.9ms | Allocations: 38684)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 545)
+  Rendered layout layouts/application.html.erb (Duration: 28.0ms | Allocations: 42152)
+Completed 200 OK in 30ms (Views: 26.5ms | ActiveRecord: 1.9ms | Allocations: 42667)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/en/blog/gYph4E" for 127.0.0.1 at 2022-06-15 11:51:24 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"gYph4E"}
+  [1m[35mSQL (1.1ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (1.2ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 16], ["id", 16]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 16) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 16) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.2ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 16]]
+  ↳ app/views/blogs/post.html.erb:19
+  Rendered blogs/post.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2395)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 562)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 5884)
+Completed 200 OK in 21ms (Views: 5.5ms | ActiveRecord: 3.6ms | Allocations: 12493)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/" for 127.0.0.1 at 2022-06-15 11:51:28 +0400
+Processing by BlogsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.2ms | Allocations: 107)
+  [1m[36mBlog Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.6ms | Allocations: 3863)
+  Rendered blogs/_blog.html.erb (Duration: 1.4ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.4ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.7ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.4ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3594)
+  [1m[36mBlog Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 19.9ms | Allocations: 38692)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 545)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 42159)
+Completed 200 OK in 25ms (Views: 22.8ms | ActiveRecord: 1.0ms | Allocations: 42677)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/en/blog/DkqhME" for 127.0.0.1 at 2022-06-15 11:51:29 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"DkqhME"}
+  [1m[35mSQL (1.1ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (1.4ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 15], ["id", 15]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 6.5ms | Allocations: 9693)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 9781)
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.0ms | Allocations: 5)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 562)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 3483)
+Completed 404 Not Found in 28ms (Views: 2.9ms | ActiveRecord: 4.3ms | Allocations: 20225)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/en/blog/gYph4E" for 127.0.0.1 at 2022-06-15 11:51:35 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"gYph4E"}
+  [1m[35mSQL (0.9ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (0.6ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 16], ["id", 16]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 16) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 16) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.3ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 16]]
+  ↳ app/views/blogs/post.html.erb:19
+  Rendered blogs/post.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2409)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 562)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 5898)
+Completed 200 OK in 21ms (Views: 5.5ms | ActiveRecord: 2.9ms | Allocations: 12507)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/en/blog/DkqhME" for 127.0.0.1 at 2022-06-15 11:51:41 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"DkqhME"}
+  [1m[35mSQL (1.3ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (1.2ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 15], ["id", 15]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.3ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 8.1ms | Allocations: 9707)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 9795)
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.0ms | Allocations: 5)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 562)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 3483)
+Completed 404 Not Found in 29ms (Views: 3.3ms | ActiveRecord: 4.2ms | Allocations: 20241)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/en/blog/DkqhME" for 127.0.0.1 at 2022-06-15 11:52:04 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"DkqhME"}
+  [1m[35mSQL (0.3ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (0.4ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 15], ["id", 15]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.2ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 31.3ms | Allocations: 29126)
+  Rendered layout layouts/application.html.erb (Duration: 31.4ms | Allocations: 29229)
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.0ms | Allocations: 6)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 1290)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 5898)
+Completed 404 Not Found in 69ms (Views: 5.6ms | ActiveRecord: 14.2ms | Allocations: 61616)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/en/blog/DkqhME" for 127.0.0.1 at 2022-06-15 11:52:11 +0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"DkqhME"}
+  [1m[35mSQL (0.9ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (0.5ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 15], ["id", 15]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.2ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 58.5ms | Allocations: 47863)
+  Rendered layout layouts/application.html.erb (Duration: 58.7ms | Allocations: 47978)
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 2094)
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | Allocations: 34508)
+Completed 404 Not Found in 140ms (Views: 30.3ms | ActiveRecord: 19.2ms | Allocations: 127234)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/en/blog/DkqhME" for 127.0.0.1 at 2022-06-15 11:52:33 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"DkqhME"}
+  [1m[35mSQL (0.5ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (0.6ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 15], ["id", 15]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.3ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 71.7ms | Allocations: 29140)
+  Rendered layout layouts/application.html.erb (Duration: 71.8ms | Allocations: 29244)
+Completed 500 Internal Server Error in 122ms (ActiveRecord: 15.5ms | Allocations: 55530)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass
+
+                                <div class="float-right" x-data="{ count: '.freeze;@output_buffer.append=(comment.likes.size);@output_buffer.safe_append=', liked: '.freeze;@output_buffer.append=(!comment.likes.find_by(user_id: current_user.id).nil?);@output_buffer.safe_append=' }">
+                                                                                                                                                                                                                                               ^^^):
+    103:                                 </div>
+    104:                             <!-- Rate -->
+    105:                             <div>
+    106:                                 <div class="float-right" x-data="{ count: <%=comment.likes.size%>, liked: <%=!comment.likes.find_by(user_id: current_user.id).nil?%> }">
+    107:                                     <a href="javascript:add_like(<%=!current_user.nil? ? current_user.id : -1 %>,<%=comment.id%>)" @click="if (liked) {count -=1; liked = false;} else { count +=1; liked = true;}">
+    108:                                         <svg xmlns="http://www.w3.org/2000/svg" id="comment-heart-<%=comment.id%>" class="<%='text-red-600' if (!current_user.nil? && comment.likes.find_by(user_id: current_user.id))%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+    109:                                             <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+  
+app/views/blogs/post.html.erb:106
+app/views/blogs/post.html.erb:87
+app/controllers/blogs_controller.rb:71:in `show'
+Started GET "/en/blog/DkqhME" for 127.0.0.1 at 2022-06-15 11:53:35 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"DkqhME"}
+  [1m[35mSQL (0.5ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (0.4ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 15], ["id", 15]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 10.7ms | Allocations: 11236)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 11330)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 2.8ms | Allocations: 18972)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass
+
+                                <div class="float-right" x-data="{ count: '.freeze;@output_buffer.append=(comment.likes.size);@output_buffer.safe_append=', liked: '.freeze;@output_buffer.append=(!comment.likes.find_by(user_id: current_user['id']).nil?);@output_buffer.safe_append=' }">
+                                                                                                                                                                                                                                               ^^^^^^):
+    103:                                 </div>
+    104:                             <!-- Rate -->
+    105:                             <div>
+    106:                                 <div class="float-right" x-data="{ count: <%=comment.likes.size%>, liked: <%=!comment.likes.find_by(user_id: current_user['id']).nil?%> }">
+    107:                                     <a href="javascript:add_like(<%=!current_user.nil? ? current_user.id : -1 %>,<%=comment.id%>)" @click="if (liked) {count -=1; liked = false;} else { count +=1; liked = true;}">
+    108:                                         <svg xmlns="http://www.w3.org/2000/svg" id="comment-heart-<%=comment.id%>" class="<%='text-red-600' if (!current_user.nil? && comment.likes.find_by(user_id: current_user.id))%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+    109:                                             <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+  
+app/views/blogs/post.html.erb:106
+app/views/blogs/post.html.erb:87
+app/controllers/blogs_controller.rb:71:in `show'
+Started GET "/en/blog/DkqhME" for 127.0.0.1 at 2022-06-15 11:55:24 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"DkqhME"}
+  [1m[35mSQL (0.6ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (0.6ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 15], ["id", 15]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.3ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  Rendered blogs/post.html.erb within layouts/application (Duration: 1.3ms | Allocations: 2051)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2146)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 2.4ms | Allocations: 9653)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% content_for(:html_title) { @blog.blog_title } %>
+<div class="container mx-auto flex flex-wrap py-6">
+        <!-- Post Section -->
+        <section class="w-full md:w-2/3 flex flex-col items-center px-3 mx-auto">
+
+            <article class="flex flex-col shadow my-4" style="min-width:100%!important;">
+                <!-- Article Image -->
+                <div class="bg-white flex flex-col justify-start p-6">
+                          <% if current_user.present?  && current_user.id == @blog.user_id %>
+          <%=link_to "Edit", edit_blog_url(@blog.hashid)%>
+          <% end %>
+                    <h3 class="text-3xl font-bold pb-4"><%=h(@blog.blog_title)%></h3>
+
+
+                    <!-- component -->
+<div class = "mb-4">
+
+<% if @blog.categories %>
+    <% @blog.categories.each do |cat| %>
+  <div
+    class="mr-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full bg-white text-gray-700 border"
+  >
+    <%=link_to cat.name, show_category_blogs_path(cat.name.parameterize), class: 'text-blue-600 hover:text-blue-800 visited:text-purple-600'%>
+  </div>
+    <% end %>
+<% end %>
+</div>
+<hr>
+                    <p class="text-sm pb-2 mt-2">
+                        By <%=link_to h(@blog.user.username), user_blogs_path(@blog.user.username), class: 'font-semibold hover:text-gray-800'%>, <%=@blog.created_at.strftime("Published on %b %d, %Y")%>
+                    </p>
+                    <hr class="pb-2">
+                    <%= raw(@blog.blog_text) %>
+                    
+                </div>
+            </article>
+            <div class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mb-4 p-6">
+                <div class="flex-1 flex flex-col justify-center md:justify-start">
+                    <p class="font-semibold text-2xl">Author: <%=h(@blog.user.full_name)%></p>
+                </div>
+            </div>
+
+            <div class="w-full flex">
+            <% if @prev %>
+                <a href="<%=show_blog_url(@prev.hashid)%>" class="w-1/2 bg-white shadow hover:shadow-md text-left p-6">
+                    <p class="text-lg text-blue-800 font-bold flex items-center"><i class="fas fa-arrow-left pr-1"></i> Previous</p>
+                    <p class="pt-2"><%=@prev.blog_title%></p></p>
+                </a>
+                <% end %>
+                <% if @next %>
+                <a href="<%=show_blog_url(@next.hashid)%>" class="w-1/2 bg-white shadow hover:shadow-md text-right p-6">
+                    <p class="text-lg text-blue-800 font-bold flex items-center justify-end">Next <i class="fas fa-arrow-right pl-1"></i></p>
+                    <p class="pt-2"><%=@next.blog_title%></p>
+                </a>
+                <% end %>
+            </div>
+
+            <h4 class="py-5">Comments(<%=@blog.comments.size%>)</h4>
+                                <!-- comment form -->
+            <div class="w-full flex mx-auto items-center justify-center shadow-lg mt-4 mx-8 mb-4">
+            <%= form_with(url: save_new_comment_path, html: { method: :put, class: "w-full bg-white rounded-lg px-4 pt-2" }) do |f| %>
+                         <% if @comment.errors.full_messages.any? %>
+                            <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                            <% @comment.errors.full_messages.each do |error_message| %>
+                              <%=error_message %><br>
+                            <% end %>
+                            </div>
+                        <% end %>
+              <%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Add a new comment</h2>
+                    <div class="w-full md:w-full px-3 mb-2 mt-2">
+                        <textarea class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" placeholder='Type Your Comment' required></textarea>
+                    </div>
+                    <div class="w-full md:w-full flex items-start md:w-full px-3">
+                        <div class="flex items-start w-1/2 text-gray-700 px-2 mr-auto">
+                        </div>
+                        <div class="-mr-1">
+                        <input type='submit' class="bg-white text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-gray-100" value='Post Comment'>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+            </div>
+<!-- component -->
+<% unless @blog.comments.empty? %>
+<% @blog.comments.each do |comment| %>
+            <div class="w-full my-2 mx-1 flex gap-3 rounded-md bg-white p-2 text-black shadow">
+                        
+                        <!-- Content -->
+                        <div class = "w-full">
+                            <!-- Header -->
+                            <div class="flex items-center justify-between py-1 pr-2">
+                            <!-- Author -->
+                                <div>
+                                    <% if comment.user.avatar.attached? %>
+                                    <%= image_tag comment.user.avatar.variant(:thumb), class: 'float-left w-8 h-8 rounded-full mr-4 mb-2'%>
+                                  <% else %>
+                                   <%=image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'float-left mr-4 mb-2 w-8 h-8 rounded-full') %>
+                                  <% end %>
+                                    <%=link_to h(comment.user.username), user_blogs_path(comment.user.username), class: "text-blue-400 hover:underline" %>
+                                    <span class="text-sm font-thin text-gray-500"> <%=comment.created_at.strftime("Published on %b %d, %Y")%></span>
+                                </div>
+                            <!-- Rate -->
+                            <div>
+                                <%!current_user.nil?%>
+                                <div class="float-right" x-data="{ count: <%=comment.likes.size%>, liked: <%=!comment.likes.find_by(user_id: current_user.id).nil?%> }">
+                                    <a href="javascript:add_like(<%=!current_user.nil? ? current_user.id : -1 %>,<%=comment.id%>)" @click="if (liked) {count -=1; liked = false;} else { count +=1; liked = true;}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" id="comment-heart-<%=comment.id%>" class="<%='text-red-600' if (!current_user.nil? && comment.likes.find_by(user_id: current_user.id))%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                                          </svg>
+                                    <div id = "comment-count-<%=comment.id%>" x-text = "count" class = "float-left"><%="#{comment.likes.size}"%></div>
+                                    </a>
+                            </div>
+                            <% end %>
+                            </div>
+                            </div>
+                            <!-- Context -->
+                            <div class="p-1" style="line-height: 100%;
+                            display: flex;
+                            justify-content: left;
+                            flex-wrap: wrap;
+                            white-space: pre-wrap;">
+                            <p class="text-gray-900 border-l-2 px-1 border-blue-500 bg-gray-100 rounded break-all"><%=h(comment.body)%></p>
+
+                            </div>
+                        </div>
+                        </div>
+   <% end%>
+<% end %>
+
+
+        </section>
+
+
+</div>
+):
+1:    <% content_for(:html_title) { @blog.blog_title } %>
+2:    <div class="container mx-auto flex flex-wrap py-6">
+3:            <!-- Post Section -->
+4:            <section class="w-full md:w-2/3 flex flex-col items-center px-3 mx-auto">
+5:    
+6:                <article class="flex flex-col shadow my-4" style="min-width:100%!important;">
+7:                    <!-- Article Image -->
+8:                    <div class="bg-white flex flex-col justify-start p-6">
+9:                              <% if current_user.present?  && current_user.id == @blog.user_id %>
+10:              <%=link_to "Edit", edit_blog_url(@blog.hashid)%>
+11:              <% end %>
+12:                        <h3 class="text-3xl font-bold pb-4"><%=h(@blog.blog_title)%></h3>
+13:    
+14:    
+15:                        <!-- component -->
+16:    <div class = "mb-4">
+17:    
+18:    <% if @blog.categories %>
+19:        <% @blog.categories.each do |cat| %>
+20:      <div
+21:        class="mr-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full bg-white text-gray-700 border"
+22:      >
+23:        <%=link_to cat.name, show_category_blogs_path(cat.name.parameterize), class: 'text-blue-600 hover:text-blue-800 visited:text-purple-600'%>
+24:      </div>
+25:        <% end %>
+26:    <% end %>
+27:    </div>
+28:    <hr>
+29:                        <p class="text-sm pb-2 mt-2">
+30:                            By <%=link_to h(@blog.user.username), user_blogs_path(@blog.user.username), class: 'font-semibold hover:text-gray-800'%>, <%=@blog.created_at.strftime("Published on %b %d, %Y")%>
+31:                        </p>
+32:                        <hr class="pb-2">
+33:                        <%= raw(@blog.blog_text) %>
+34:                        
+35:                    </div>
+36:                </article>
+37:                <div class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mb-4 p-6">
+38:                    <div class="flex-1 flex flex-col justify-center md:justify-start">
+39:                        <p class="font-semibold text-2xl">Author: <%=h(@blog.user.full_name)%></p>
+40:                    </div>
+41:                </div>
+42:    
+43:                <div class="w-full flex">
+44:                <% if @prev %>
+45:                    <a href="<%=show_blog_url(@prev.hashid)%>" class="w-1/2 bg-white shadow hover:shadow-md text-left p-6">
+46:                        <p class="text-lg text-blue-800 font-bold flex items-center"><i class="fas fa-arrow-left pr-1"></i> Previous</p>
+47:                        <p class="pt-2"><%=@prev.blog_title%></p></p>
+48:                    </a>
+49:                    <% end %>
+50:                    <% if @next %>
+51:                    <a href="<%=show_blog_url(@next.hashid)%>" class="w-1/2 bg-white shadow hover:shadow-md text-right p-6">
+52:                        <p class="text-lg text-blue-800 font-bold flex items-center justify-end">Next <i class="fas fa-arrow-right pl-1"></i></p>
+53:                        <p class="pt-2"><%=@next.blog_title%></p>
+54:                    </a>
+55:                    <% end %>
+56:                </div>
+57:    
+58:                <h4 class="py-5">Comments(<%=@blog.comments.size%>)</h4>
+59:                                    <!-- comment form -->
+60:                <div class="w-full flex mx-auto items-center justify-center shadow-lg mt-4 mx-8 mb-4">
+61:                <%= form_with(url: save_new_comment_path, html: { method: :put, class: "w-full bg-white rounded-lg px-4 pt-2" }) do |f| %>
+62:                             <% if @comment.errors.full_messages.any? %>
+63:                                <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+64:                                <% @comment.errors.full_messages.each do |error_message| %>
+65:                                  <%=error_message %><br>
+66:                                <% end %>
+67:                                </div>
+68:                            <% end %>
+69:                  <%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
+70:                    <div class="flex flex-wrap -mx-3 mb-6">
+71:                        <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Add a new comment</h2>
+72:                        <div class="w-full md:w-full px-3 mb-2 mt-2">
+73:                            <textarea class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" placeholder='Type Your Comment' required></textarea>
+74:                        </div>
+75:                        <div class="w-full md:w-full flex items-start md:w-full px-3">
+76:                            <div class="flex items-start w-1/2 text-gray-700 px-2 mr-auto">
+77:                            </div>
+78:                            <div class="-mr-1">
+79:                            <input type='submit' class="bg-white text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-gray-100" value='Post Comment'>
+80:                            </div>
+81:                        </div>
+82:                    <% end %>
+83:                </div>
+84:                </div>
+85:    <!-- component -->
+86:    <% unless @blog.comments.empty? %>
+87:    <% @blog.comments.each do |comment| %>
+88:                <div class="w-full my-2 mx-1 flex gap-3 rounded-md bg-white p-2 text-black shadow">
+89:                            
+90:                            <!-- Content -->
+91:                            <div class = "w-full">
+92:                                <!-- Header -->
+93:                                <div class="flex items-center justify-between py-1 pr-2">
+94:                                <!-- Author -->
+95:                                    <div>
+96:                                        <% if comment.user.avatar.attached? %>
+97:                                        <%= image_tag comment.user.avatar.variant(:thumb), class: 'float-left w-8 h-8 rounded-full mr-4 mb-2'%>
+98:                                      <% else %>
+99:                                       <%=image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'float-left mr-4 mb-2 w-8 h-8 rounded-full') %>
+100:                                      <% end %>
+101:                                        <%=link_to h(comment.user.username), user_blogs_path(comment.user.username), class: "text-blue-400 hover:underline" %>
+102:                                        <span class="text-sm font-thin text-gray-500"> <%=comment.created_at.strftime("Published on %b %d, %Y")%></span>
+103:                                    </div>
+104:                                <!-- Rate -->
+105:                                <div>
+106:                                    <%!current_user.nil?%>
+107:                                    <div class="float-right" x-data="{ count: <%=comment.likes.size%>, liked: <%=!comment.likes.find_by(user_id: current_user.id).nil?%> }">
+108:                                        <a href="javascript:add_like(<%=!current_user.nil? ? current_user.id : -1 %>,<%=comment.id%>)" @click="if (liked) {count -=1; liked = false;} else { count +=1; liked = true;}">
+109:                                            <svg xmlns="http://www.w3.org/2000/svg" id="comment-heart-<%=comment.id%>" class="<%='text-red-600' if (!current_user.nil? && comment.likes.find_by(user_id: current_user.id))%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+110:                                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+111:                                              </svg>
+112:                                        <div id = "comment-count-<%=comment.id%>" x-text = "count" class = "float-left"><%="#{comment.likes.size}"%></div>
+113:                                        </a>
+114:                                </div>
+115:                                <% end %>
+116:                                </div>
+117:                                </div>
+118:                                <!-- Context -->
+119:                                <div class="p-1" style="line-height: 100%;
+120:                                display: flex;
+121:                                justify-content: left;
+122:                                flex-wrap: wrap;
+123:                                white-space: pre-wrap;">
+124:                                <p class="text-gray-900 border-l-2 px-1 border-blue-500 bg-gray-100 rounded break-all"><%=h(comment.body)%></p>
+125:    
+126:                                </div>
+127:                            </div>
+128:                            </div>
+129:       <% end%>
+130:    <% end %>
+131:    
+132:    
+133:            </section>
+134:    
+135:    
+136:    </div>
+  
+app/views/blogs/post.html.erb:138: syntax error, unexpected `end', expecting end-of-input
+app/views/blogs/post.html.erb:138: syntax error, unexpected `end', expecting end-of-input
+app/views/blogs/post.html.erb:138: syntax error, unexpected `end', expecting end-of-input
+app/views/blogs/post.html.erb:138: syntax error, unexpected `end', expecting end-of-input
+app/views/blogs/post.html.erb:138: syntax error, unexpected `end', expecting end-of-input
+app/views/blogs/post.html.erb:138: syntax error, unexpected `end', expecting end-of-input
+app/controllers/blogs_controller.rb:71:in `show'
+Started GET "/en/blog/DkqhME" for 127.0.0.1 at 2022-06-15 11:55:39 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"DkqhME"}
+  [1m[35mSQL (0.7ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (0.7ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 15], ["id", 15]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 8.8ms | Allocations: 7277)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | Allocations: 1970)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 14381)
+Completed 200 OK in 25ms (Views: 14.0ms | ActiveRecord: 2.8ms | Allocations: 22092)
+
+
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBJQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d9ae5d9c76b655b399bfbe7d3140a2fc895299ba/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVdscGFRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--349c4bc8071dc5559d31ed7a19390d65b62d933b/dfg?locale=en" for 127.0.0.1 at 2022-06-15 11:55:39 +0400
+Processing by ActiveStorage::Representations::RedirectController#show as HTML
+  Parameters: {"locale"=>"en", "signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBJQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d9ae5d9c76b655b399bfbe7d3140a2fc895299ba", "variation_key"=>"[FILTERED]", "filename"=>"dfg"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = $1 AND "active_storage_variant_records"."variation_digest" = $2 LIMIT $3[0m  [["blob_id", 27], ["variation_digest", "zb4vCT5wC8085pi3RzGKpLqHkaA="], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 10], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: 3zjgym4nxd1lyylmdh3brh7h6dyy (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNM3BxWjNsdE5HNTRaREZzZVhsc2JXUm9NMkp5YURkb05tUjVlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTzJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbVp5NXFjR1ZuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlka1ptY3VhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjItMDYtMTVUMDg6MDA6MzkuNzE1WiIsInB1ciI6ImJsb2Jfa2V5In19--cb832f114b141cb6c05a8e0d23dbeafbb456941e/dfg.jpeg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNM3BxWjNsdE5HNTRaREZzZVhsc2JXUm9NMkp5YURkb05tUjVlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTzJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbVp5NXFjR1ZuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlka1ptY3VhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjItMDYtMTVUMDg6MDA6MzkuNzE1WiIsInB1ciI6ImJsb2Jfa2V5In19--cb832f114b141cb6c05a8e0d23dbeafbb456941e/dfg.jpeg
+Completed 302 Found in 16ms (ActiveRecord: 2.6ms | Allocations: 11274)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNM3BxWjNsdE5HNTRaREZzZVhsc2JXUm9NMkp5YURkb05tUjVlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTzJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbVp5NXFjR1ZuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlka1ptY3VhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjItMDYtMTVUMDg6MDA6MzkuNzE1WiIsInB1ciI6ImJsb2Jfa2V5In19--cb832f114b141cb6c05a8e0d23dbeafbb456941e/dfg.jpeg" for 127.0.0.1 at 2022-06-15 11:55:39 +0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"dfg"}
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms | Allocations: 325)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/en/blog/DkqhME" for 127.0.0.1 at 2022-06-15 11:55:49 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"DkqhME"}
+  [1m[35mSQL (0.6ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (0.7ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 15], ["id", 15]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.3ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 9.7ms | Allocations: 7266)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 1299)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 12228)
+Completed 200 OK in 29ms (Views: 15.6ms | ActiveRecord: 3.4ms | Allocations: 19915)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNM3BxWjNsdE5HNTRaREZzZVhsc2JXUm9NMkp5YURkb05tUjVlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTzJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbVp5NXFjR1ZuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlka1ptY3VhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjItMDYtMTVUMDg6MDA6MzkuNzE1WiIsInB1ciI6ImJsb2Jfa2V5In19--cb832f114b141cb6c05a8e0d23dbeafbb456941e/dfg.jpeg" for 127.0.0.1 at 2022-06-15 11:55:49 +0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"dfg"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 181)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/?locale=en" for 127.0.0.1 at 2022-06-15 11:55:50 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 1.0ms | Allocations: 289)
+  [1m[36mBlog Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.8ms | Allocations: 4558)
+  Rendered blogs/_blog.html.erb (Duration: 1.5ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3594)
+  [1m[36mBlog Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 28.4ms | Allocations: 42960)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 572)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 46591)
+Completed 200 OK in 37ms (Views: 32.2ms | ActiveRecord: 1.8ms | Allocations: 47321)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/en/blog/DkqhME" for 127.0.0.1 at 2022-06-15 11:55:51 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"DkqhME"}
+  [1m[35mSQL (0.4ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (0.5ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 15], ["id", 15]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.2ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 7.0ms | Allocations: 5764)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 562)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 9253)
+Completed 200 OK in 18ms (Views: 9.1ms | ActiveRecord: 2.6ms | Allocations: 16340)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNM3BxWjNsdE5HNTRaREZzZVhsc2JXUm9NMkp5YURkb05tUjVlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTzJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbVp5NXFjR1ZuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlka1ptY3VhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjItMDYtMTVUMDg6MDA6MzkuNzE1WiIsInB1ciI6ImJsb2Jfa2V5In19--cb832f114b141cb6c05a8e0d23dbeafbb456941e/dfg.jpeg" for 127.0.0.1 at 2022-06-15 11:55:51 +0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"dfg"}
+Completed 304 Not Modified in 0ms (ActiveRecord: 0.0ms | Allocations: 174)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/?locale=en" for 127.0.0.1 at 2022-06-15 11:55:52 +0400
+Processing by BlogsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.2ms | Allocations: 107)
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  Rendered blogs/_blog.html.erb (Duration: 2.2ms | Allocations: 3863)
+  Rendered blogs/_blog.html.erb (Duration: 1.3ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3593)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 4.1ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3595)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 3594)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3594)
+  [1m[36mBlog Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 24.6ms | Allocations: 38719)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 545)
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | Allocations: 42186)
+Completed 200 OK in 28ms (Views: 25.6ms | ActiveRecord: 1.9ms | Allocations: 42711)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/en/blog/DkqhME" for 127.0.0.1 at 2022-06-15 11:55:53 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"DkqhME"}
+  [1m[35mSQL (0.7ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (0.7ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 15], ["id", 15]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.2ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 7.6ms | Allocations: 5673)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 562)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 9162)
+Completed 200 OK in 22ms (Views: 10.1ms | ActiveRecord: 3.0ms | Allocations: 15942)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNM3BxWjNsdE5HNTRaREZzZVhsc2JXUm9NMkp5YURkb05tUjVlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTzJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbVp5NXFjR1ZuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlka1ptY3VhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjItMDYtMTVUMDg6MDA6MzkuNzE1WiIsInB1ciI6ImJsb2Jfa2V5In19--cb832f114b141cb6c05a8e0d23dbeafbb456941e/dfg.jpeg" for 127.0.0.1 at 2022-06-15 11:55:53 +0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"dfg"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 152)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  
+Started GET "/ka/blog/DkqhME" for 127.0.0.1 at 2022-06-15 11:55:55 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"ka", "id"=>"DkqhME"}
+  [1m[35mSQL (1.1ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (1.5ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 15], ["id", 15]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.3ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:96
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:97
+  Rendered blogs/post.html.erb within layouts/application (Duration: 9.2ms | Allocations: 5703)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 566)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 9196)
+Completed 200 OK in 30ms (Views: 11.3ms | ActiveRecord: 5.1ms | Allocations: 16055)
+
+
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBJQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d9ae5d9c76b655b399bfbe7d3140a2fc895299ba/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVdscGFRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--349c4bc8071dc5559d31ed7a19390d65b62d933b/dfg?locale=ka" for 127.0.0.1 at 2022-06-15 11:55:55 +0400
+Processing by ActiveStorage::Representations::RedirectController#show as HTML
+  Parameters: {"locale"=>"ka", "signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBJQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d9ae5d9c76b655b399bfbe7d3140a2fc895299ba", "variation_key"=>"[FILTERED]", "filename"=>"dfg"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mActiveStorage::VariantRecord Load (0.3ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = $1 AND "active_storage_variant_records"."variation_digest" = $2 LIMIT $3[0m  [["blob_id", 27], ["variation_digest", "zb4vCT5wC8085pi3RzGKpLqHkaA="], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 10], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+[36m  Disk Storage (0.4ms) [0m[34mGenerated URL for file at key: 3zjgym4nxd1lyylmdh3brh7h6dyy (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNM3BxWjNsdE5HNTRaREZzZVhsc2JXUm9NMkp5YURkb05tUjVlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTzJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbVp5NXFjR1ZuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlka1ptY3VhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjItMDYtMTVUMDg6MDA6NTUuNTQ4WiIsInB1ciI6ImJsb2Jfa2V5In19--77fd80b57372fd0f1efeb58498bb42e2cf8c3a65/dfg.jpeg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNM3BxWjNsdE5HNTRaREZzZVhsc2JXUm9NMkp5YURkb05tUjVlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTzJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbVp5NXFjR1ZuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlka1ptY3VhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjItMDYtMTVUMDg6MDA6NTUuNTQ4WiIsInB1ciI6ImJsb2Jfa2V5In19--77fd80b57372fd0f1efeb58498bb42e2cf8c3a65/dfg.jpeg
+Completed 302 Found in 10ms (ActiveRecord: 1.0ms | Allocations: 5171)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNM3BxWjNsdE5HNTRaREZzZVhsc2JXUm9NMkp5YURkb05tUjVlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTzJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbVp5NXFjR1ZuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlka1ptY3VhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjItMDYtMTVUMDg6MDA6NTUuNTQ4WiIsInB1ciI6ImJsb2Jfa2V5In19--77fd80b57372fd0f1efeb58498bb42e2cf8c3a65/dfg.jpeg" for 127.0.0.1 at 2022-06-15 11:55:55 +0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"dfg"}
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms | Allocations: 170)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/custom"):
+  

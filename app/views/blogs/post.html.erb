@@ -103,6 +103,7 @@
                                 </div>
                             <!-- Rate -->
                             <div>
+                                <% unless current_user.nil?%>
                                 <div class="float-right" x-data="{ count: <%=comment.likes.size%>, liked: <%=!comment.likes.find_by(user_id: current_user.id).nil?%> }">
                                     <a href="javascript:add_like(<%=!current_user.nil? ? current_user.id : -1 %>,<%=comment.id%>)" @click="if (liked) {count -=1; liked = false;} else { count +=1; liked = true;}">
                                         <svg xmlns="http://www.w3.org/2000/svg" id="comment-heart-<%=comment.id%>" class="<%='text-red-600' if (!current_user.nil? && comment.likes.find_by(user_id: current_user.id))%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -111,6 +112,7 @@
                                     <div id = "comment-count-<%=comment.id%>" x-text = "count" class = "float-left"><%="#{comment.likes.size}"%></div>
                                     </a>
                             </div>
+                            <% end %>
                             </div>
                             </div>
                             <!-- Context -->
