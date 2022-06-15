@@ -127,9 +127,9 @@
                             <!-- Rate -->
                             <div>
                                 <% unless current_user.nil?%>
-                                <div class="float-right" x-data="{ count: <%=comment.likes.size%>, liked: <%=!comment.likes.map{|item| item.user_id == current_user.id}.empty?%> }">
+                                <div class="float-right" x-data="{ count: <%=comment.likes.size%>, liked: <%=!comment.likes.select{|item| item.user_id == current_user.id}.empty?%> }">
                                     <a href="javascript:add_like(<%=!current_user.nil? ? current_user.id : -1 %>,<%=comment.id%>)" @click="if (liked) {count -=1; liked = false;} else { count +=1; liked = true;}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" id="comment-heart-<%=comment.id%>" class="<%='text-red-600' if (!current_user.nil? && !comment.likes.map{|item| item.user_id == current_user.id}.empty?)%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <svg xmlns="http://www.w3.org/2000/svg" id="comment-heart-<%=comment.id%>" class="<%='text-red-600' if (!current_user.nil? && !comment.likes.select{|item| item.user_id == current_user.id}.empty?)%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
                                           </svg>
                                     <div id = "comment-count-<%=comment.id%>" x-text = "count" class = "float-left"><%="#{comment.likes.size}"%></div>
