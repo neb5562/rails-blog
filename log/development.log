@@ -23922,3 +23922,111 @@ Processing by ActiveStorage::DiskController#show as JPEG
 Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 188)
 
 
+Started GET "/" for 127.0.0.1 at 2022-06-15 15:18:52 +0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BlogsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.6ms | Allocations: 661)
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 16], ["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:16
+  Rendered blogs/_blog.html.erb (Duration: 5.4ms | Allocations: 6565)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 4176)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 4176)
+  Rendered blogs/_blog.html.erb (Duration: 10.9ms | Allocations: 4178)
+  Rendered blogs/_blog.html.erb (Duration: 1.5ms | Allocations: 4178)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 4178)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 4178)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 4177)
+  Rendered blogs/_blog.html.erb (Duration: 1.2ms | Allocations: 4177)
+  [1m[36mBlog Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 57.6ms | Allocations: 69600)
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:27
+  Rendered layouts/_navbar.html.erb (Duration: 23.4ms | Allocations: 20921)
+  Rendered layout layouts/application.html.erb (Duration: 108.3ms | Allocations: 122762)
+Completed 200 OK in 120ms (Views: 100.4ms | ActiveRecord: 11.6ms | Allocations: 131706)
+
+
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBJQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d9ae5d9c76b655b399bfbe7d3140a2fc895299ba/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVdscGFRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--349c4bc8071dc5559d31ed7a19390d65b62d933b/dfg?locale=en" for 127.0.0.1 at 2022-06-15 15:18:52 +0400
+Processing by ActiveStorage::Representations::RedirectController#show as HTML
+  Parameters: {"locale"=>"en", "signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBJQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d9ae5d9c76b655b399bfbe7d3140a2fc895299ba", "variation_key"=>"[FILTERED]", "filename"=>"dfg"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mActiveStorage::VariantRecord Load (0.3ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = $1 AND "active_storage_variant_records"."variation_digest" = $2 LIMIT $3[0m  [["blob_id", 27], ["variation_digest", "zb4vCT5wC8085pi3RzGKpLqHkaA="], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 10], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+[36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: 3zjgym4nxd1lyylmdh3brh7h6dyy (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNM3BxWjNsdE5HNTRaREZzZVhsc2JXUm9NMkp5YURkb05tUjVlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTzJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbVp5NXFjR1ZuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlka1ptY3VhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjItMDYtMTVUMTE6MjM6NTIuMzM1WiIsInB1ciI6ImJsb2Jfa2V5In19--a20e857c1a862512f772e87dd37951087f9fc764/dfg.jpeg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNM3BxWjNsdE5HNTRaREZzZVhsc2JXUm9NMkp5YURkb05tUjVlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTzJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbVp5NXFjR1ZuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlka1ptY3VhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjItMDYtMTVUMTE6MjM6NTIuMzM1WiIsInB1ciI6ImJsb2Jfa2V5In19--a20e857c1a862512f772e87dd37951087f9fc764/dfg.jpeg
+Completed 302 Found in 17ms (ActiveRecord: 3.7ms | Allocations: 11314)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNM3BxWjNsdE5HNTRaREZzZVhsc2JXUm9NMkp5YURkb05tUjVlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTzJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbVp5NXFjR1ZuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlka1ptY3VhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjItMDYtMTVUMTE6MjM6NTIuMzM1WiIsInB1ciI6ImJsb2Jfa2V5In19--a20e857c1a862512f772e87dd37951087f9fc764/dfg.jpeg" for 127.0.0.1 at 2022-06-15 15:18:52 +0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"dfg"}
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms | Allocations: 325)
+
+
+Started GET "/en/blog/DkqhME" for 127.0.0.1 at 2022-06-15 15:19:04 +0400
+Processing by BlogsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"DkqhME"}
+  [1m[35mSQL (0.9ms)[0m  [1m[34mSELECT DISTINCT comments.created_at AS alias_0, "blogs"."id" FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 ORDER BY comments.created_at desc LIMIT $3[0m  [["active", true], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[35mSQL (0.6ms)[0m  [1m[34mSELECT "blogs"."id" AS t0_r0, "blogs"."blog_title" AS t0_r1, "blogs"."blog_text" AS t0_r2, "blogs"."comments_count" AS t0_r3, "blogs"."created_at" AS t0_r4, "blogs"."updated_at" AS t0_r5, "blogs"."user_id" AS t0_r6, "blogs"."active" AS t0_r7, "blogs"."blog_description" AS t0_r8, "comments"."id" AS t1_r0, "comments"."body" AS t1_r1, "comments"."user_id" AS t1_r2, "comments"."blog_id" AS t1_r3, "comments"."likes_count" AS t1_r4, "comments"."created_at" AS t1_r5, "comments"."updated_at" AS t1_r6, "users"."id" AS t2_r0, "users"."email" AS t2_r1, "users"."encrypted_password" AS t2_r2, "users"."blogs_count" AS t2_r3, "users"."likes_count" AS t2_r4, "users"."comments_count" AS t2_r5, "users"."reset_password_token" AS t2_r6, "users"."reset_password_sent_at" AS t2_r7, "users"."remember_created_at" AS t2_r8, "users"."created_at" AS t2_r9, "users"."updated_at" AS t2_r10, "users"."full_name" AS t2_r11, "users"."username" AS t2_r12, "likes"."id" AS t3_r0, "likes"."user_id" AS t3_r1, "likes"."comment_id" AS t3_r2, "likes"."created_at" AS t3_r3, "likes"."updated_at" AS t3_r4 FROM "blogs" LEFT OUTER JOIN "comments" ON "comments"."blog_id" = "blogs"."id" LEFT OUTER JOIN "users" ON "users"."id" = "comments"."user_id" LEFT OUTER JOIN "likes" ON "likes"."comment_id" = "comments"."id" WHERE "blogs"."active" = $1 AND "blogs"."id" = $2 AND "blogs"."id" = $3 ORDER BY comments.created_at desc[0m  [["active", true], ["id", 15], ["id", 15]]
+  ↳ app/controllers/blogs_controller.rb:66:in `show'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id < 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" DESC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:21:in `prev'
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE (id > 15) AND "blogs"."active" = $1 ORDER BY "blogs"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  ↳ app/models/blog.rb:16:in `next'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  [1m[36mRailsSettings::SettingObject Load (0.2ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:70:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/post.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:9
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "blog_categories" ON "categories"."id" = "blog_categories"."category_id" WHERE "blog_categories"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/views/blogs/post.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:119
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:120
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."comment_id" = $1 AND "likes"."user_id" = $2 LIMIT $3[0m  [["comment_id", 6], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:130
+  [1m[36mCACHE Like Load (0.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."comment_id" = $1 AND "likes"."user_id" = $2 LIMIT $3[0m  [["comment_id", 6], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:132
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."comment_id" = $1 AND "likes"."user_id" = $2 LIMIT $3[0m  [["comment_id", 5], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:130
+  [1m[36mCACHE Like Load (0.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."comment_id" = $1 AND "likes"."user_id" = $2 LIMIT $3[0m  [["comment_id", 5], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:132
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."comment_id" = $1 AND "likes"."user_id" = $2 LIMIT $3[0m  [["comment_id", 4], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:130
+  [1m[36mCACHE Like Load (0.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."comment_id" = $1 AND "likes"."user_id" = $2 LIMIT $3[0m  [["comment_id", 4], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/post.html.erb:132
+  Rendered blogs/post.html.erb within layouts/application (Duration: 30.9ms | Allocations: 32007)
+  [1m[36mCACHE ActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  [1m[36mCACHE ActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:27
+  Rendered layouts/_navbar.html.erb (Duration: 2.8ms | Allocations: 2398)
+  Rendered layout layouts/application.html.erb (Duration: 36.0ms | Allocations: 37456)
+Completed 200 OK in 61ms (Views: 32.8ms | ActiveRecord: 9.4ms | Allocations: 55203)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNM3BxWjNsdE5HNTRaREZzZVhsc2JXUm9NMkp5YURkb05tUjVlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTzJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbVp5NXFjR1ZuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0Snlka1ptY3VhbkJsWndZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraUQybHRZV2RsTDJwd1pXY0dPd1pVT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjItMDYtMTVUMTE6MjM6NTIuMzM1WiIsInB1ciI6ImJsb2Jfa2V5In19--a20e857c1a862512f772e87dd37951087f9fc764/dfg.jpeg" for 127.0.0.1 at 2022-06-15 15:19:04 +0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"dfg"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 194)
+
+
