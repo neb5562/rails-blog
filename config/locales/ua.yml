@@ -1,0 +1,57 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   "true": "foo"
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+ua:
+   home: Дім
+   sign_in: увійти
+   sign_up: Зареєструватися
+   hello_user: Привіт, %{username}
+   dashboard: приладова панель
+   log_out: Вийти
+   search: Пошук
+   search_blogs: Пошук у блогах...
+   my_blogs: Мої блоги
+   blog_categories: Категорії блогу
+   settings: Налаштування
+   edit_profile: редагувати профіль
+   profile_picture: зображення профілю
+   browse: Огляд
+   blog_template_color: Колір шаблону мого блогу
+   save: Зберегти
+   email: електронна пошта
+   username: Ім'я користувача
+   full_name: Повне ім'я
+   password: Пароль
+   password_confirmation: підтвердження пароля
+   current_password: поточний пароль
+   update: Оновлення
+   delete_my_account: видалити мій обліковий запис
+   back: Назад

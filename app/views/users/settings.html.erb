@@ -10,7 +10,7 @@
 			<div class="mt-5">
           <%=form_with(url: save_user_settings_path, method: :post) do |form| %>
 					<div class="md:space-y-2 mb-3">
-						<label class="block font-bold mb-1">Profile picture<abbr class="hidden" title="required">*</abbr></label>
+						<label class="block font-bold mb-1"><%=t('profile_picture')%><abbr class="hidden" title="required">*</abbr></label>
 						<div class="flex items-center py-6">
 							<div class="w-12 h-12 mr-4 flex-none rounded-xl border overflow-hidden">
 								<% if current_user.avatar.attached? %>
@@ -20,7 +20,7 @@
 							<% end %>
                 </div>
 								<label class="cursor-pointer ">
-                  <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Browse</span>
+                  <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"><%=t('browse')%></span>
                   <!-- <input type="file" class="hidden" :multiple="false" :accept="accept" name="avatar"> -->
 									<%= form.file_field :'[settings]avatar', hidden:true %>
 
@@ -36,7 +36,7 @@
 								<div class="mb-5">
 									<div class="flex items-center">
 										<div>
-											<label for="colorSelected" class="block font-bold mb-1">My Blog Template Color</label>
+											<label for="colorSelected" class="block font-bold mb-1"><%=t('blog_template_color')%></label>
 											<input name = "[settings]user_blog_color" id="colorSelected" type="text" placeholder="Pick a color"
 												class="border border-transparent shadow px-4 py-2 leading-normal text-gray-700 bg-white rounded-md focus:outline-none focus:shadow-outline"
 												readonly 
@@ -141,7 +141,7 @@
                 -->
 
 								<div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
-									<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save</button>
+									<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"><%=t('save')%></button>
 								</div>
 							</div>
 						</div>
