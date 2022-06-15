@@ -27732,3 +27732,469 @@ Processing by ActiveStorage::DiskController#show as JPEG
 Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 152)
 
 
+Started GET "/" for 127.0.0.1 at 2022-06-15 17:18:49 +0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BlogsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.7ms | Allocations: 661)
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."active" = $1 LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."active" = $1 ORDER BY created_at desc LIMIT $2 OFFSET $3[0m  [["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4], ["blog_id", 3]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:16
+  Rendered blogs/_blog.html.erb (Duration: 5.0ms | Allocations: 5925)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3575)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3577)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3577)
+  Rendered blogs/_blog.html.erb (Duration: 12.4ms | Allocations: 3577)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3577)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3576)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3576)
+  Rendered blogs/_blog.html.erb (Duration: 1.3ms | Allocations: 3576)
+  [1m[36mBlog Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."active" = $1[0m  [["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 58.0ms | Allocations: 64165)
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 7.5ms | Allocations: 6044)
+  Rendered layout layouts/application.html.erb (Duration: 94.0ms | Allocations: 102421)
+Completed 200 OK in 105ms (Views: 87.7ms | ActiveRecord: 10.0ms | Allocations: 111351)
+
+
+Started GET "/en/user/neb3/blogs" for 127.0.0.1 at 2022-06-15 17:18:52 +0400
+Processing by BlogsController#user_blogs as HTML
+  Parameters: {"locale"=>"en", "username"=>"neb3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "neb3"], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:15:in `user_blogs'
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."user_id" = $1 AND "blogs"."active" = $2 ORDER BY created_at desc LIMIT $3 OFFSET $4[0m  [["user_id", 1], ["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/controllers/blogs_controller.rb:17:in `user_blogs'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/controllers/blogs_controller.rb:17:in `user_blogs'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/blogs_controller.rb:17:in `user_blogs'
+  [1m[36mRailsSettings::SettingObject Load (0.5ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:17:in `user_blogs'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.3ms | Allocations: 212)
+  [1m[36mBlog Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."user_id" = $1 AND "blogs"."active" = $2 LIMIT $3 OFFSET $4[0m  [["user_id", 1], ["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."user_id" = $1 AND "blogs"."active" = $2 ORDER BY created_at desc LIMIT $3 OFFSET $4[0m  [["user_id", 1], ["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4], ["blog_id", 3]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:16
+  Rendered blogs/_blog.html.erb (Duration: 2.7ms | Allocations: 4823)
+  Rendered blogs/_blog.html.erb (Duration: 1.5ms | Allocations: 3575)
+  Rendered blogs/_blog.html.erb (Duration: 8.0ms | Allocations: 3577)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3577)
+  Rendered blogs/_blog.html.erb (Duration: 0.7ms | Allocations: 3577)
+  Rendered blogs/_blog.html.erb (Duration: 0.8ms | Allocations: 3577)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3576)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3576)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3576)
+  [1m[36mBlog Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."user_id" = $1 AND "blogs"."active" = $2[0m  [["user_id", 1], ["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 25.7ms | Allocations: 39819)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 2.5ms | Allocations: 1599)
+  Rendered layout layouts/application.html.erb (Duration: 30.4ms | Allocations: 44466)
+Completed 200 OK in 53ms (Views: 28.8ms | ActiveRecord: 7.0ms | Allocations: 53589)
+
+
+Started GET "/en/user/neb3" for 127.0.0.1 at 2022-06-15 17:18:54 +0400
+Processing by UsersController#timeline as HTML
+  Parameters: {"locale"=>"en", "username"=>"neb3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/timeline.html.erb within layouts/application
+  Rendered users/timeline.html.erb within layouts/application (Duration: 0.6ms | Allocations: 185)
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 3.8ms | Allocations: 1911)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 5273)
+Completed 200 OK in 13ms (Views: 8.6ms | ActiveRecord: 1.0ms | Allocations: 7796)
+
+
+Started GET "/docs/images/people/profile-picture-3.jpg" for 127.0.0.1 at 2022-06-15 17:18:54 +0400
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-3"}
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.1ms | Allocations: 10)
+Started GET "/docs/images/people/profile-picture-5.jpg" for 127.0.0.1 at 2022-06-15 17:18:54 +0400
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 6.5ms | Allocations: 3129)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 6648)
+Completed 404 Not Found in 14ms (Views: 12.4ms | ActiveRecord: 1.2ms | Allocations: 7146)
+
+
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-5"}
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.0ms | Allocations: 5)
+Started GET "/docs/images/people/profile-picture-1.jpg" for 127.0.0.1 at 2022-06-15 17:18:54 +0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 5.0ms | Allocations: 2653)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 6153)
+Completed 404 Not Found in 10ms (Views: 9.7ms | ActiveRecord: 0.3ms | Allocations: 6399)
+
+
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-1"}
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.0ms | Allocations: 5)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 4.0ms | Allocations: 2534)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 5703)
+Completed 404 Not Found in 7ms (Views: 6.6ms | ActiveRecord: 0.4ms | Allocations: 5944)
+
+
+Started GET "/docs/images/people/profile-picture-3.jpg" for 127.0.0.1 at 2022-06-15 17:18:54 +0400
+Started GET "/docs/images/people/profile-picture-1.jpg" for 127.0.0.1 at 2022-06-15 17:18:54 +0400
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-3"}
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.1ms | Allocations: 13)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+Started GET "/docs/images/people/profile-picture-5.jpg" for 127.0.0.1 at 2022-06-15 17:18:54 +0400
+  Rendered layouts/_navbar.html.erb (Duration: 4.5ms | Allocations: 2830)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 6279)
+Completed 404 Not Found in 9ms (Views: 8.1ms | ActiveRecord: 0.5ms | Allocations: 6562)
+
+
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-1"}
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.1ms | Allocations: 11)
+Processing by ApplicationController#error_page as JPEG
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Parameters: {"all"=>"docs/images/people/profile-picture-5"}
+  ↳ app/views/layouts/_navbar.html.erb:12
+  Rendering layout layouts/application.html.erb
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  Rendering public/404.html within layouts/application
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 4.5ms | Allocations: 3192)
+  Rendered public/404.html within layouts/application (Duration: 0.7ms | Allocations: 629)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 6561)
+Completed 404 Not Found in 14ms (Views: 9.0ms | ActiveRecord: 1.0ms | Allocations: 7522)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 3.6ms | Allocations: 2538)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 7419)
+Completed 404 Not Found in 9ms (Views: 8.1ms | ActiveRecord: 0.2ms | Allocations: 8191)
+
+
+Started GET "/en/user/neb3" for 127.0.0.1 at 2022-06-15 17:19:38 +0400
+Processing by UsersController#timeline as HTML
+  Parameters: {"locale"=>"en", "username"=>"neb3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/timeline.html.erb within layouts/application
+  Rendered users/timeline.html.erb within layouts/application (Duration: 0.6ms | Allocations: 187)
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 3.5ms | Allocations: 2561)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 6461)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 0.5ms | Allocations: 8688)
+
+
+Started GET "/docs/images/people/profile-picture-3.jpg" for 127.0.0.1 at 2022-06-15 17:19:38 +0400
+Started GET "/docs/images/people/profile-picture-5.jpg" for 127.0.0.1 at 2022-06-15 17:19:38 +0400
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-3"}
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.2ms | Allocations: 12)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 4.7ms | Allocations: 3142)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 6777)
+Completed 404 Not Found in 11ms (Views: 9.9ms | ActiveRecord: 0.5ms | Allocations: 7332)
+
+
+Started GET "/docs/images/people/profile-picture-1.jpg" for 127.0.0.1 at 2022-06-15 17:19:38 +0400
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-5"}
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.1ms | Allocations: 7)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 3.5ms | Allocations: 2661)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 5919)
+Completed 404 Not Found in 7ms (Views: 6.6ms | ActiveRecord: 0.3ms | Allocations: 6205)
+
+
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-1"}
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.0ms | Allocations: 5)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 4.8ms | Allocations: 2534)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 5685)
+Completed 404 Not Found in 8ms (Views: 7.0ms | ActiveRecord: 0.5ms | Allocations: 5928)
+
+
+Started GET "/docs/images/people/profile-picture-3.jpg" for 127.0.0.1 at 2022-06-15 17:19:38 +0400
+Started GET "/docs/images/people/profile-picture-5.jpg" for 127.0.0.1 at 2022-06-15 17:19:38 +0400
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-3"}
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.1ms | Allocations: 19)
+Started GET "/docs/images/people/profile-picture-1.jpg" for 127.0.0.1 at 2022-06-15 17:19:38 +0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 4.3ms | Allocations: 2785)
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-5"}
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 6686)
+Completed 404 Not Found in 12ms (Views: 11.0ms | ActiveRecord: 0.5ms | Allocations: 7048)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.1ms | Allocations: 14)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-1"}
+  ↳ app/views/layouts/_navbar.html.erb:12
+  Rendering layout layouts/application.html.erb
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  Rendering public/404.html within layouts/application
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 6.9ms | Allocations: 3257)
+  Rendered public/404.html within layouts/application (Duration: 1.2ms | Allocations: 615)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 6635)
+Completed 404 Not Found in 14ms (Views: 11.8ms | ActiveRecord: 0.9ms | Allocations: 8079)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 3.2ms | Allocations: 2538)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 7451)
+Completed 404 Not Found in 11ms (Views: 9.4ms | ActiveRecord: 0.3ms | Allocations: 8221)
+
+
+Started GET "/en/user/neb3" for 127.0.0.1 at 2022-06-15 17:20:16 +0400
+Processing by UsersController#timeline as HTML
+  Parameters: {"locale"=>"en", "username"=>"neb3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/timeline.html.erb within layouts/application
+  Rendered users/timeline.html.erb within layouts/application (Duration: 0.0ms | Allocations: 18)
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 3.7ms | Allocations: 1570)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 4511)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.5ms | Allocations: 6272)
+
+
+Started GET "/docs/images/people/profile-picture-5.jpg" for 127.0.0.1 at 2022-06-15 17:20:16 +0400
+Started GET "/docs/images/people/profile-picture-1.jpg" for 127.0.0.1 at 2022-06-15 17:20:16 +0400
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-5"}
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.2ms | Allocations: 24)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+Started GET "/docs/images/people/profile-picture-3.jpg" for 127.0.0.1 at 2022-06-15 17:20:16 +0400
+  Rendered layouts/_navbar.html.erb (Duration: 4.2ms | Allocations: 2832)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 6266)
+Completed 404 Not Found in 9ms (Views: 8.2ms | ActiveRecord: 0.3ms | Allocations: 6563)
+
+
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-3"}
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.0ms | Allocations: 7)
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-1"}
+  Rendering layout layouts/application.html.erb
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering public/404.html within layouts/application
+  ↳ app/views/layouts/_navbar.html.erb:12
+  Rendered public/404.html within layouts/application (Duration: 1.1ms | Allocations: 492)
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 6.8ms | Allocations: 3913)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 7257)
+Completed 404 Not Found in 13ms (Views: 11.4ms | ActiveRecord: 1.3ms | Allocations: 7580)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 3.4ms | Allocations: 2538)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 8532)
+Completed 404 Not Found in 13ms (Views: 11.5ms | ActiveRecord: 0.3ms | Allocations: 8943)
+
+
+Started GET "/docs/images/people/profile-picture-5.jpg" for 127.0.0.1 at 2022-06-15 17:20:16 +0400
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-5"}
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.0ms | Allocations: 5)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 5.6ms | Allocations: 2534)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 5695)
+Completed 404 Not Found in 11ms (Views: 10.4ms | ActiveRecord: 0.4ms | Allocations: 5936)
+
+
+Started GET "/en/user/neb3" for 127.0.0.1 at 2022-06-15 17:20:27 +0400
+Processing by UsersController#timeline as HTML
+  Parameters: {"locale"=>"en", "username"=>"neb3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/timeline.html.erb within layouts/application
+  Rendered users/timeline.html.erb within layouts/application (Duration: 0.5ms | Allocations: 189)
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 3.0ms | Allocations: 2559)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 6457)
+Completed 200 OK in 13ms (Views: 8.8ms | ActiveRecord: 0.6ms | Allocations: 8696)
+
+
+Started GET "/docs/images/people/profile-picture-1.jpg" for 127.0.0.1 at 2022-06-15 17:20:27 +0400
+Processing by ApplicationController#error_page as JPEG
+Started GET "/docs/images/people/profile-picture-3.jpg" for 127.0.0.1 at 2022-06-15 17:20:27 +0400
+  Parameters: {"all"=>"docs/images/people/profile-picture-1"}
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-3"}
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.0ms | Allocations: 8)
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.4ms | Allocations: 332)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 6.5ms | Allocations: 4473)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 10329)
+Completed 404 Not Found in 17ms (Views: 15.8ms | ActiveRecord: 0.7ms | Allocations: 10657)
+
+
+Started GET "/docs/images/people/profile-picture-5.jpg" for 127.0.0.1 at 2022-06-15 17:20:27 +0400
+Processing by ApplicationController#error_page as JPEG
+  Parameters: {"all"=>"docs/images/people/profile-picture-5"}
+  Rendering layout layouts/application.html.erb
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.0ms | Allocations: 7)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 4.4ms | Allocations: 2573)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 5750)
+Completed 404 Not Found in 8ms (Views: 7.1ms | ActiveRecord: 0.3ms | Allocations: 6009)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:12
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 28.9ms | Allocations: 15837)
+  Rendered layout layouts/application.html.erb (Duration: 39.8ms | Allocations: 22192)
+Completed 404 Not Found in 46ms (Views: 40.4ms | ActiveRecord: 5.0ms | Allocations: 24702)
+
+
+Started GET "/en/user/neb3/blogs" for 127.0.0.1 at 2022-06-15 17:21:26 +0400
+Processing by BlogsController#user_blogs as HTML
+  Parameters: {"locale"=>"en", "username"=>"neb3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "neb3"], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:15:in `user_blogs'
+  [1m[36mBlog Load (1.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."user_id" = $1 AND "blogs"."active" = $2 ORDER BY created_at desc LIMIT $3 OFFSET $4[0m  [["user_id", 1], ["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/controllers/blogs_controller.rb:17:in `user_blogs'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = $1[0m  [["blog_id", 15]]
+  ↳ app/controllers/blogs_controller.rb:17:in `user_blogs'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/blogs_controller.rb:17:in `user_blogs'
+  [1m[36mRailsSettings::SettingObject Load (0.3ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."target_id" = $1 AND "settings"."target_type" = $2[0m  [["target_id", 1], ["target_type", "User"]]
+  ↳ app/controllers/blogs_controller.rb:17:in `user_blogs'
+  Rendering layout layouts/application.html.erb
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered layouts/_search_form.html.erb (Duration: 0.5ms | Allocations: 410)
+  [1m[36mBlog Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "blogs" WHERE "blogs"."user_id" = $1 AND "blogs"."active" = $2 LIMIT $3 OFFSET $4[0m  [["user_id", 1], ["active", true], ["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:11
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."user_id" = $1 AND "blogs"."active" = $2 ORDER BY created_at desc LIMIT $3 OFFSET $4[0m  [["user_id", 1], ["active", true], ["LIMIT", 9], ["OFFSET", 0]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["blog_id", 15], ["blog_id", 14], ["blog_id", 13], ["blog_id", 12], ["blog_id", 11], ["blog_id", 6], ["blog_id", 5], ["blog_id", 4], ["blog_id", 3]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/blogs/index.html.erb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/blogs/_blog.html.erb:16
+  Rendered blogs/_blog.html.erb (Duration: 3.7ms | Allocations: 5300)
+  Rendered blogs/_blog.html.erb (Duration: 1.1ms | Allocations: 3575)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3577)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3577)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3577)
+  Rendered blogs/_blog.html.erb (Duration: 0.9ms | Allocations: 3577)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3576)
+  Rendered blogs/_blog.html.erb (Duration: 1.0ms | Allocations: 3576)
+  Rendered blogs/_blog.html.erb (Duration: 1.4ms | Allocations: 3576)
+  [1m[36mBlog Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."user_id" = $1 AND "blogs"."active" = $2[0m  [["user_id", 1], ["active", true]]
+  ↳ app/views/blogs/index.html.erb:27
+  Rendered blogs/index.html.erb within layouts/application (Duration: 30.4ms | Allocations: 41984)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:26
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 1632)
+  Rendered layout layouts/application.html.erb (Duration: 35.1ms | Allocations: 46745)
+Completed 200 OK in 48ms (Views: 33.8ms | ActiveRecord: 4.8ms | Allocations: 51625)
+
+

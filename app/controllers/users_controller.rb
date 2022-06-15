@@ -20,4 +20,8 @@ class UsersController < ApplicationController
     params.permit(:avatar)
   end
 
+  def timeline 
+    
+  end
+
 end

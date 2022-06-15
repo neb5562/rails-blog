@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get "/profile/blogs", to: "blogs#user_blogs_list", as: :user_blogs_list
     get "/profile/settings", to: "users#settings", as: :user_settings
     post "/profile/settings", to: "users#save_settings", as: :save_user_settings
+    get "/user/:username", to: "users#timeline", as: :user_timeline
     put "/blog/:id/add_comment", to: "comments#save", as: :save_new_comment
 
     delete "/blogs/:id/delete", to: "blogs#delete_user_blog", as: :delete_user_blog
