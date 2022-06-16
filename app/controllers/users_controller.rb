@@ -1,7 +1,15 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
-  def settings;end
+  def index;end
+
+  def index
+    @registered = User.find_by(username: params[:username])
+    @blogs = @registered.blogs
+    @comments = @registered.comments
+    @likes = @registered.likes
+    @activity = (@blogs + @comments + @likes).group_by{|x| x.created_at.strftime("%b %d, %Y")}.sort.reverse
+  end
 
   def save_settings 
     @user_avatar = current_user.avatar.attach(params[:settings][:avatar]) unless params[:settings][:avatar].nil? 
@@ -18,10 +26,6 @@ class UsersController < ApplicationController
 
   def user_settings
     params.permit(:avatar)
-  end
-
-  def timeline 
-    
   end
 
 end
