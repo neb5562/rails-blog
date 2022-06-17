@@ -9,9 +9,9 @@ end
   <div class="container px-5 py-6 mx-auto">
     <div class="flex flex-wrap -m-4">
   <% unless @blogs.empty? %>
-    <% @blogs.each do |blog| @blog = blog%>
+    <% @blogs.each do |blog| %>
       <% cache blog do %>
-       <%=render 'blogs/blog' %>
+        <%=render 'blogs/blog', {blog: blog}  %>
       <% end %>
     <% end %>
     <br>
