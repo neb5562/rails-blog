@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :blogs
   has_many :likes
   has_many :comments
+  has_many :addresses
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_fill: [100, 100]
   end

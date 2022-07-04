@@ -1,0 +1,17 @@
+- if action_name == 'category_blogs'
+- content_for(:html_title) { 'Category: ' + 'sdfsd'.titleize } 
+/ params[:name]
+br
+=render "layouts/search_form"
+section.text-gray-600.body-font
+  div.container.px-5.py-6.mx-auto
+    div.flex.flex-wrap.-m-4
+      - unless @blogs.empty?
+        - @blogs.each do |blog|
+          - cache blog do
+            =render 'blogs/blog', {blog: blog}
+        br
+      - else
+        div.p-4.text-sm.text-gray-700.bg-gray-100.rounded-lg.dark:bg-gray-700.dark:text-gray-300[role="alert"]
+          |  no blogs found 
+    div.mx-auto.text-center.mt-10 == paginate @blogs

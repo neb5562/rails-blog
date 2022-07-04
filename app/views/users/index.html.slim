@@ -1,0 +1,97 @@
+.mt-12.w-full.content-center
+.rounded-3xl.shadow-xl.w-96.mx-auto.my-3.bg-indigo-500
+  .flex.justify-center.-mt-8
+    - if @registered.avatar.attached?
+      = image_tag @registered.avatar.variant(:thumb), class: 'rounded-full border-solid border-white border-2 -mt-3'
+    - else
+      =image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'rounded-full shadow-lg')
+  .text-center.px-3.pb-6.pt-2
+    h3.text-white.text-sm.bold.font-sans
+      =h(@registered.full_name)
+  .flex.justify-center.pb-3.text-white
+    .text-center
+      h2
+        =link_to 'View ' + @registered.blogs.size.to_s + ' Blogs', user_blogs_path(@registered.username)
+ol.relative.border-l.border-gray-200.dark:border-gray-700
+  - @activity.each do |activity_type|
+    - activity_type.each do |activity_item|
+      - if activity_item.class.name == 'Array'
+        - activity_item.each do |item|
+          - if item.class.name == 'Blog'
+            li.mb-4.ml-6
+
+            span.flex.absolute.-left-3.justify-center.items-center.w-6.h-6.bg-blue-200.rounded-full.ring-8.ring-white.dark:ring-gray-900.dark:bg-blue-900
+              - if item.user.avatar.attached?
+                = image_tag item.user.avatar.variant(:thumb), class: 'rounded-full shadow-lg'
+              - else
+                =image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'rounded-full shadow-lg')
+            .justify-between.items-center.p-4.bg-white.rounded-lg.border.border-gray-200.shadow-sm.sm:flex.dark:bg-gray-700.dark:border-gray-600
+              time.mb-1.text-xs.font-normal.text-gray-400.sm:order-last.sm:mb-0
+                = time_ago_in_words(item.created_at).to_s + " ago"
+            .text-sm.font-normal.text-gray-500.lex.dark:text-gray-300
+              =h(item.user.username)
+              |  has created new Blog <a target = "_blank" href="
+              =show_blog_url(item.hashid)
+              | " class="font-semibold text-blue-600 dark:text-blue-500 hover:underline">
+              =item.blog_title
+            .p-3.text-sm.font-normal.text-gray-500.bg-gray-50.rounded-lg.border.border-gray-200.dark:bg-gray-600.dark:border-gray-500.dark:text-gray-300
+              =render 'blogs/blog', {blog: item}
+          - elsif item.class.name == 'Comment'
+            li.mb-10.ml-6
+
+            span.flex.absolute.-left-3.justify-center.items-center.w-6.h-6.bg-blue-200.rounded-full.ring-8.ring-white.dark:ring-gray-900.dark:bg-blue-900
+              - if item.user.avatar.attached?
+                = image_tag item.user.avatar.variant(:thumb), class: 'rounded-full shadow-lg'
+              - else
+                =image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'rounded-full shadow-lg')
+            .p-4.bg-white.rounded-lg.border.border-gray-200.shadow-sm.dark:bg-gray-700.dark:border-gray-600
+
+            .justify-between.items-center.mb-3.sm:flex
+              time.mb-1.text-xs.font-normal.text-gray-400.sm:order-last.sm:mb-0
+                = time_ago_in_words(item.created_at).to_s + " ago"
+            .text-sm.font-normal.text-gray-500.lex.dark:text-gray-300
+              =h(item.user.username)
+              |  has commented on <a target = "_blank" href="
+              =show_blog_url(item.blog.hashid)
+              | " class="font-semibold text-blue-600 dark:text-blue-500 hover:underline">
+              =item.blog.blog_title
+            .p-3.text-sm.font-normal.text-gray-500.bg-gray-50.rounded-lg.border.border-gray-200.dark:bg-gray-600.dark:border-gray-500.dark:text-gray-300
+              =item.body
+          - else
+            li.mb-10.ml-6
+
+            span.flex.absolute.-left-3.justify-center.items-center.w-6.h-6.bg-blue-200.rounded-full.ring-8.ring-white.dark:ring-gray-900.dark:bg-blue-900
+              - if item.user.avatar.attached?
+                = image_tag item.user.avatar.variant(:thumb), class: 'rounded-full shadow-lg'
+              - else
+                =image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'rounded-full shadow-lg')
+            .p-4.bg-white.rounded-lg.border.border-gray-200.shadow-sm.dark:bg-gray-700.dark:border-gray-600
+
+            .justify-between.items-center.mb-3.sm:flex
+              time.mb-1.text-xs.font-normal.text-gray-400.sm:order-last.sm:mb-0
+                = time_ago_in_words(item.created_at).to_s + " ago"
+            .text-sm.font-normal.text-gray-500.lex.dark:text-gray-300
+              =h(item.user.username)
+              |  has ❤️ comment on <a target = "_blank" href="
+              =show_blog_url(item.comment.blog.hashid)
+              | " class="font-semibold text-blue-600 dark:text-blue-500 hover:underline">
+              =item.comment.blog.blog_title
+            .p-3.text-sm.font-normal.text-gray-500.bg-gray-50.rounded-lg.border.border-gray-200.dark:bg-gray-600.dark:border-gray-500.dark:text-gray-300
+              =item.comment.body
+      - else
+        li.text-xl.mb-6.text-center.bold
+          =activity_item
+  li.text-xl.mb-6.text-center.bold
+    =@registered.created_at.strftime("%b %d, %Y")
+  li.mb-10.ml-6
+    span.flex.absolute.-left-3.justify-center.items-center.w-6.h-6.bg-blue-200.rounded-full.ring-8.ring-white.dark:ring-gray-900.dark:bg-blue-900
+      - if @registered.avatar.attached?
+        = image_tag @registered.avatar.variant(:thumb), class: 'rounded-full shadow-lg'
+      - else
+        =image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'rounded-full shadow-lg')
+    .justify-between.items-center.p-4.bg-white.rounded-lg.border.border-gray-200.shadow-sm.sm:flex.dark:bg-gray-700.dark:border-gray-600
+      time.mb-1.text-xs.font-normal.text-gray-400.sm:order-last.sm:mb-0
+        = time_ago_in_words(@registered.created_at).to_s + " ago"
+      .text-sm.font-normal.text-gray-500.lex.dark:text-gray-300
+        =h(@registered.username)
+        |  Registered 

@@ -1,0 +1,42 @@
+doctype html
+html[lang="en"]
+  head
+    meta[charset="UTF-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    title
+      = content_for?(:html_title) ? yield(:html_title) : "Simple blog on RoR"
+    meta[name="author" content="Gia Nebieridze"]
+    meta[name="description" content=""]
+    link[href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet"]
+    style
+      |  @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap'); .font-family-karla { font-family: karla; } .current-pag { padding-left: .75rem; padding-right: .75rem; line-height: 1.2; padding-top: .4rem; padding-bottom: .5rem; margin-top: -6px; background-color: #d2d2d2; border-width: 1px; --tw-border-opacity: 1; border-color: rgba(209,213,219,var(--tw-border-opacity)); } <ruby code=" if @color "> .user-color-bg{ background-color:<ruby code="=@color"></ruby>!important; } </ruby> 
+    =stylesheet_link_tag "style.css"
+    =stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+    script[src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"]
+    script[src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer]
+    script[src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"]
+    = javascript_importmap_tags
+    = javascript_include_tag "application", "jquery", "toastr", "like"
+    = csrf_meta_tag
+  body.bg-gray-100.font-family-karla
+    =render 'layouts/navbar'
+    / header.w-full.container.mx-auto
+    / div.flex.flex-col.items-center.py-12
+    / a.font-bold.text-gray-800.uppercase.hover:text-gray-700.text-5xl[href="#"]
+    /  |  Minimal Blog
+    / .p.text-lg.text-gray-600
+    /   |  Lorem Ipsum Dolor Sit Amet
+    - if notice
+      .p-4.mb-4.text-sm.text-yellow-700.bg-yellow-100.rounded-lg.dark:bg-yellow-200.dark:text-yellow-800[role="alert"]
+        = notice
+    - if alert
+      .p-4.mb-4.text-sm.text-red-700.bg-red-100.rounded-lg.dark:bg-red-200.dark:text-red-800[role="alert"]
+        = alert
+    .container.mx-auto.w-8/12
+      = yield
+    footer.clear-both.w-full.border-t.bg-white.pb-12
+      .w-full.container.mx-auto.flex.flex-col.items-center
+
+      .uppercase.pb-6
+        | © 
+        =request.base_url

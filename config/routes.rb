@@ -18,7 +18,13 @@ Rails.application.routes.draw do
     get "/blog/:id/toggle_status", to: "blogs#toggle_blog_status", as: :toggle_blog_status
     get "/profile/blogs", to: "blogs#user_blogs_list", as: :user_blogs_list
     get "/profile/settings", to: "users#settings", as: :user_settings
-    post "/profile/settings", to: "users#save_settings", as: :save_user_settings
+    get "/profile/avatar", to: "users#avatar", as: :avatar
+    get "/profile/appearance", to: "users#appearance", as: :appearance
+    post "/profile/appearance", to: "users#save_appearance", as: :save_appearance
+    post "/profile/avatar", to: "users#save_avatar", as: :save_user_avatar
+    get "/profile/addresses", to: "users#address", as: :address
+    get "/profile/addresses/new", to: "users#new_address", as: :new_address
+    post "/profile/addresses/new", to: "users#find_address", as: :find_address
     put "/blog/:id/add_comment", to: "comments#save", as: :save_new_comment
     get "/user/:username", to: "users#index", as: :user_profile
     delete "/blogs/:id/delete", to: "blogs#delete_user_blog", as: :delete_user_blog
