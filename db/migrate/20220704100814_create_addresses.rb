@@ -1,7 +1,6 @@
 class CreateAddresses < ActiveRecord::Migration[7.0]
   def change
     create_table :addresses do |t|
-      t.string :name, null: false, default: 'Address name'
       t.string :street, null: true
       t.string :number, null: true
       t.string :region, null: true

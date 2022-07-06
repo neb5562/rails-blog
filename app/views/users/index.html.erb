@@ -11,12 +11,18 @@
 <div class="text-center px-3 pb-6 pt-2">
   <h3 class="text-white text-sm bold font-sans"><%=h(@registered.full_name)%></h3>
 </div>
+<hr>
+    <%=link_to "https://www.google.com/maps/search/?api=1&query=#{@address.latitude},#{@address.longitude}", target: "_blank" do %>
+        <%=image_tag("#{@address_map_image}", height: '300', width: '400')%>
+    <% end %>
+<hr>
   <div class="flex justify-center pb-3 text-white">
     <div class="text-center">
       <h2><%=link_to 'View ' + @registered.blogs.size.to_s + ' Blogs', user_blogs_path(@registered.username)%> </h2>
     </div>
   </div>
 </div>
+
 
 
 <ol class="relative border-l border-gray-200 dark:border-gray-700">   

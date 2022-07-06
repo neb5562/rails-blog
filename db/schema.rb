@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_04_100814) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_06_053623) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,7 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_04_100814) do
   end
 
   create_table "addresses", force: :cascade do |t|
-    t.string "name", default: "Address name", null: false
     t.string "street"
     t.string "number"
     t.string "region"
@@ -55,9 +54,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_04_100814) do
     t.string "latitude"
     t.string "longitude"
     t.string "label"
+    t.integer "addresses_count", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["latitude", "longitude"], name: "index_addresses_on_latitude_and_longitude", unique: true
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -134,6 +135,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_04_100814) do
     t.datetime "updated_at", null: false
     t.string "full_name"
     t.string "username"
+    t.integer "addresses_count"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

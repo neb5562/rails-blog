@@ -1,4 +1,4 @@
-<% content_for(:html_title) { 'New Category' } %>
+<% content_for(:html_title) { 'New Address' } %>
 <%=render "layouts/users_sidebar" %>
 <%=render "layouts/settings_nav" %>
 <div class="py-12">
@@ -6,24 +6,110 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <%= form_with(url:find_address_path, html: { method: :post, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" }) do |f| %>
-                       <% if @address.errors.full_messages.any? %>
-                            <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
-                            <% @address.errors.full_messages.each do |error_message| %>
-                              <%=error_message %><br>
-                            <% end %>
-                            </div>
-                        <% end %>
-                        <div class="mb-4">
-                            <label class="text-xl text-gray-600">Enter address: example(Merab Kostava St 11, Kutaisi, Imereti, Georgia")<span class="text-red-500">*</span></label></br>
+                       
+                    <% if @address.errors.full_messages.any? %>
+                    <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                    <% @address.errors.full_messages.each do |error_message| %>
+                      <%=error_message %><br>
+                    <% end %>
+                    </div>
+                <% end %>
+
+                    <div class="mb-4">
+                            <label class="text-xl text-gray-600">Enter address: example(Merab Kostava St 11, Kutaisi, Imereti, Georgia)<span class="text-red-500">*</span></label></br>
                             <input type="text", required = true, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="query" id="title" value="" >
                         </div>
 
 
                         <div class="flex p-1">
-                            <button role="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400" required>Find</button>
+                            <button role="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400"><%=t('find')%></button>
+
                         </div>
                     <% end %>
+                </div>
+                <div class="p-6 bg-white border-b border-gray-200">
+
+
+
+
+
+
+                    <div class="container my-12 mx-auto px-4 md:px-12">
+                        <div class="flex flex-wrap -mx-1 lg:-mx-4">
+                            
+                            <% unless @addresses.nil? %>
+                            <!-- Column -->
+                            <% @addresses.each do |address|%>
+                            <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+                    
+                                <!-- Article -->
+                                
+                                <article class="overflow-hidden rounded-lg shadow-lg">
+                    
+                                    <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                                        <h1 class="text-lg">
+                                            <p class="no-underline hover:underline text-black" href="#">
+                                                <%=address['label']%>
+                                            </p>
+                                        </h1>
+                                    </header>
+
+                                    <hr>
+                                    <div class="p-2 md:p-4">
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        <bold class="font-bold">Street:</bold> <%="#{address['street']}"%>
+                                    </p>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        <bold class="font-bold">Street number:</bold> <%="#{address['number']}"%>
+                                    </p>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        <bold class="font-bold">postal code:</bold> <%="#{address['postal_code']}"%>
+                                    </p>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        <bold class="font-bold">region:</bold> <%="#{address['region']}"%>
+                                    </p>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        <bold class="font-bold">county:</bold> <%="#{address['county']}"%>
+                                    </p>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        <bold class="font-bold">country:</bold> <%="#{address['country']}"%>
+                                    </p>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        <bold class="font-bold">Street:</bold> <%="#{address['street']}"%>
+                                    </p>
+
+                                    </div>
+                                    <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+                                        <%= form_with(url: save_address_path, html: { method: :put}) do |f| %>
+                                        <%= f.hidden_field :label , value: address['label']%>
+                                        <%= f.hidden_field :street , value: address['street']%>
+                                        <%= f.hidden_field :number , value: address['number']%>
+                                        <%= f.hidden_field :postal_code , value: address['postal_code']%>
+                                        <%= f.hidden_field :region , value: address['region']%>
+                                        <%= f.hidden_field :county , value: address['county']%>
+                                        <%= f.hidden_field :country , value: address['country']%>
+                                        <%= f.hidden_field :longitude , value: address['longitude']%>
+                                        <%= f.hidden_field :latitude , value: address['latitude']%>
+                                        <button type="submit" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                            <%=t('choose')%>
+                                        </button>
+                                        <% end %>
+                                    </footer>
+                    
+                                </article>
+                                <!-- END Article -->
+                    
+                            </div>
+                            <% end %>
+
+                            <% end %>
+                            <!-- END Column -->
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
+
+

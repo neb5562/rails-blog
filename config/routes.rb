@@ -22,9 +22,10 @@ Rails.application.routes.draw do
     get "/profile/appearance", to: "users#appearance", as: :appearance
     post "/profile/appearance", to: "users#save_appearance", as: :save_appearance
     post "/profile/avatar", to: "users#save_avatar", as: :save_user_avatar
-    get "/profile/addresses", to: "users#address", as: :address
-    get "/profile/addresses/new", to: "users#new_address", as: :new_address
-    post "/profile/addresses/new", to: "users#find_address", as: :find_address
+    get "/profile/addresses", to: "addresses#address", as: :address
+    get "/profile/addresses/new", to: "addresses#new_address", as: :new_address
+    post "/profile/addresses/new", to: "addresses#new_address", as: :find_address
+    put "/addresses/new", to: "addresses#new", as: :save_address    
     put "/blog/:id/add_comment", to: "comments#save", as: :save_new_comment
     get "/user/:username", to: "users#index", as: :user_profile
     delete "/blogs/:id/delete", to: "blogs#delete_user_blog", as: :delete_user_blog

@@ -1,24 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, :except => [:index]
 
-  def index;end
-
   def avatar;end
 
   def appearance;end
-
-  def address;end
-
-  def new_address
-    @address = Address.new
-    @addresses = current_user.addresses.all
-    render 'addresses/new'
-  end
-
-  def find_address
-    addresses = AddressFinder.new(params[:query])
-    render addresses
-  end
 
   def save_appearance
     current_user.settings(:settings).user_blog_color = params[:settings][:user_blog_color] unless params[:settings][:user_blog_color].nil? 
@@ -45,6 +30,8 @@ class UsersController < ApplicationController
     @blogs = @registered.blogs
     @comments = @registered.comments
     @likes = @registered.likes
+    @address = @registered.addresses.first
+    @address_map_image = StaticMap.new(@address.latitude, @address.longitude).get_image
     @activity = (@blogs + @comments + @likes).group_by{|x| x.created_at.strftime("%b %d, %Y")}.sort.reverse
   end
 
