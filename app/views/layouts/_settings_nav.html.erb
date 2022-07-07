@@ -1,4 +1,4 @@
-<div class="grid col-auto gap-4 pt-10 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
+<div class="grid col-auto gap-4 pt-10 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
   <%= link_to avatar_path do %>
 	<div class="p-4 bg-indigo-500 text-white text-center rounded"><%=t("profile_picture")%></div>
 	<% end %>
@@ -6,7 +6,7 @@
   <div class="p-4 bg-indigo-500 text-white text-center rounded"><%=t("blog_appearance_settings")%></div>
   <% end %>
   
-  <div class="inline-flex" role="group">
+  <div class="inline-flex w-full" role="group">
     <%= link_to address_path, class: "inline-flex p-4 bg-indigo-500 text-white text-center rounded-l" do %>
       <%=t("addresses")%>
     <% end %>
@@ -17,6 +17,16 @@
     <% end %>
   </div>
 
+  <div class="inline-flex w-full" role="group">
+    <%= link_to phone_path, class: "inline-flex p-4 bg-indigo-500 text-white text-center rounded-l" do %>
+      <%=t("phones")%>
+    <% end %>
+    <%= link_to new_phone_path, class: "inline-flex p-4 bg-indigo-600 text-white text-center rounded-r" do %>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+    </svg>
+    <% end %>
+  </div>
 
   
 </div>

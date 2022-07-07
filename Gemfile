@@ -45,6 +45,9 @@ gem 'mini_magick'
 
 gem 'ledermann-rails-settings'
 
+gem 'telephone_number'
+
+gem 'country_select', '~> 6.0'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

@@ -3,9 +3,12 @@ class User < ApplicationRecord
   has_many :likes
   has_many :comments
   has_many :addresses
+  has_many :phones
+
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_fill: [100, 100]
   end
+
   has_settings do |s|
     s.key :settings, :defaults => { :user_blog_color => '#3b82f680' }
   end
@@ -24,5 +27,10 @@ class User < ApplicationRecord
   # def after_confirmation
   #   UserMailer.with(user: self).welcome_email.deliver_later
   # end
+
+
+  def phone?
+    @phone
+  end
   
 end

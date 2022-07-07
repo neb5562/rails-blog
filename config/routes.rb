@@ -25,10 +25,14 @@ Rails.application.routes.draw do
     get "/profile/addresses", to: "addresses#address", as: :address
     get "/profile/addresses/new", to: "addresses#new_address", as: :new_address
     post "/profile/addresses/new", to: "addresses#new_address", as: :find_address
-    put "/addresses/new", to: "addresses#new", as: :save_address    
+    put "/profile/addresses/new", to: "addresses#new", as: :save_address    
     put "/blog/:id/add_comment", to: "comments#save", as: :save_new_comment
     get "/user/:username", to: "users#index", as: :user_profile
     delete "/blogs/:id/delete", to: "blogs#delete_user_blog", as: :delete_user_blog
+    get "/profile/phones/new", to: "phones#new", as: :new_phone
+    put "/profile/phones/new", to: "phones#save_new_phone", as: :save_phone   
+    get "/profile/phones", to: "phones#index", as: :phone
+    delete "/profile/phone/:phone/delete", to: "phones#delete", as: :delete_phone
 
     get "/categories/new", to: "categories#new", as: :new_category
     put "/categories/new", to: "categories#create", as: :save_new_category

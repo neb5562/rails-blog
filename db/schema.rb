@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_06_053623) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_06_101632) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,7 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_053623) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["latitude", "longitude"], name: "index_addresses_on_latitude_and_longitude", unique: true
+    t.index ["latitude", "longitude", "user_id"], name: "index_addresses_on_latitude_and_longitude_and_user_id", unique: true
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -111,6 +111,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_053623) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "phones", force: :cascade do |t|
+    t.string "phone"
+    t.string "country"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "phone"], name: "index_phones_on_user_id_and_phone", unique: true
+    t.index ["user_id"], name: "index_phones_on_user_id"
+  end
+
   create_table "settings", id: :serial, force: :cascade do |t|
     t.string "var", null: false
     t.text "value"
@@ -150,4 +160,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_053623) do
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "comments"
   add_foreign_key "likes", "users"
+  add_foreign_key "phones", "users", on_delete: :cascade
 end
