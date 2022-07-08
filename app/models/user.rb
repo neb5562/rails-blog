@@ -19,6 +19,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  devise :omniauthable, omniauth_providers: [:google_oauth2]
+
   validates :full_name, presence: true,  length: { minimum: 2, maximum: 255 }
   validates :username, presence: true,  length: { minimum: 4, maximum: 12 }
   validates :username, format: { without: /\s/ }
@@ -32,5 +34,21 @@ class User < ApplicationRecord
   def phone?
     @phone
   end
-  
+
+  def self.from_omniauth(access_token)
+    data = access_token.info
+    user = User.where(email: data['email']).first
+
+    # Uncomment the section below if you want users to be created if they don't exist
+    unless user
+        user = User.create(
+           full_name: data['name'],
+           email: data['email'],
+           username: data['name'].gsub(/\s+/, "")[0,12],
+           password: Devise.friendly_token[0,20]
+        )
+    end
+    user
+end
+
 end

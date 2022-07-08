@@ -49,6 +49,12 @@ gem 'telephone_number'
 
 gem 'country_select', '~> 6.0'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'omniauth-google-oauth2'
+
+gem "omniauth-rails_csrf_protection"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

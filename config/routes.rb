@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   root "blogs#index"
   
+  devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
+
   scope "/:locale", locale: /en|ka|ua/ do
-    devise_for :users, controllers: {
+    devise_for :users, skip: :omniauth_callbacks, controllers: {
       sessions: 'users/sessions'
     }
+
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
     # Defines the root path route ("/")
@@ -40,11 +43,12 @@ Rails.application.routes.draw do
     get "/category/:name", to: "categories#category_blogs", as: :show_category_blogs
     match '/search',  to: 'blogs#search_blogs', via: 'get', as: :search
 
-
+    match '/auth/:provider/callback', :to => 'omniauth#google_oauth2', :via => [:get, :post]
   end
-  get '*all', to: 'application#error_page', constraints: lambda { |req|
-    req.path.exclude? 'rails/active_storage'
-  }
+  
+  # get '*all', to: 'application#error_page', constraints: lambda { |req|
+  #   req.path.exclude? 'rails/active_storage'
+  # }
   post "/likes/save", to: "likes#save", as: :save_like
   # get '*unmatched_route', to: 'application#error_page'
 
