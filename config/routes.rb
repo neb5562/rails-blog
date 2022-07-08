@@ -46,9 +46,9 @@ Rails.application.routes.draw do
     match '/auth/:provider/callback', :to => 'omniauth#google_oauth2', :via => [:get, :post]
   end
   
-  # get '*all', to: 'application#error_page', constraints: lambda { |req|
-  #   req.path.exclude? 'rails/active_storage'
-  # }
+  get '*all', to: 'application#error_page', constraints: lambda { |req|
+    req.path.exclude? 'rails/active_storage'
+  }
   post "/likes/save", to: "likes#save", as: :save_like
   # get '*unmatched_route', to: 'application#error_page'
 
