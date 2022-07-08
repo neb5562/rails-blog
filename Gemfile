@@ -49,7 +49,7 @@ gem 'telephone_number'
 
 gem 'country_select', '~> 6.0'
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails'
 
 gem 'omniauth-google-oauth2'
 
