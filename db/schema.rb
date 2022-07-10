@@ -54,7 +54,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_101632) do
     t.string "latitude"
     t.string "longitude"
     t.string "label"
-    t.integer "addresses_count", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -62,30 +61,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_101632) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "blog_categories", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "blog_id", null: false
-    t.bigint "category_id", null: false
-    t.index ["blog_id"], name: "index_blog_categories_on_blog_id"
-    t.index ["category_id"], name: "index_blog_categories_on_category_id"
-  end
-
-  create_table "blogs", force: :cascade do |t|
-    t.string "blog_title"
-    t.text "blog_text"
-    t.integer "comments_count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.boolean "active", default: false
-    t.string "blog_description"
-    t.index ["user_id"], name: "index_blogs_on_user_id"
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "blogs_count"
+    t.integer "posts_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_categories_on_name", unique: true
@@ -94,11 +72,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_101632) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.bigint "user_id", null: false
-    t.bigint "blog_id", null: false
+    t.bigint "post_id", null: false
     t.integer "likes_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["blog_id"], name: "index_comments_on_blog_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -121,6 +99,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_101632) do
     t.index ["user_id"], name: "index_phones_on_user_id"
   end
 
+  create_table "post_categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "post_id", null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_post_categories_on_category_id"
+    t.index ["post_id"], name: "index_post_categories_on_post_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.integer "comments_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.boolean "active", default: false
+    t.string "description"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
   create_table "settings", id: :serial, force: :cascade do |t|
     t.string "var", null: false
     t.text "value"
@@ -135,7 +134,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_101632) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.integer "blogs_count"
+    t.integer "posts_count"
     t.integer "likes_count"
     t.integer "comments_count"
     t.string "reset_password_token"
@@ -153,12 +152,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_101632) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "users", on_delete: :cascade
-  add_foreign_key "blog_categories", "blogs"
-  add_foreign_key "blog_categories", "categories"
-  add_foreign_key "blogs", "users"
-  add_foreign_key "comments", "blogs"
+  add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "comments"
   add_foreign_key "likes", "users"
   add_foreign_key "phones", "users", on_delete: :cascade
+  add_foreign_key "post_categories", "categories", on_delete: :cascade
+  add_foreign_key "post_categories", "posts", on_delete: :cascade
+  add_foreign_key "posts", "users"
 end

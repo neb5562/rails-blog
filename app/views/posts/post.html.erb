@@ -1,0 +1,159 @@
+<% content_for(:html_title) { @post.title } %>
+<div class="container mx-auto flex flex-wrap py-6">
+        <!-- Post Section -->
+        <section class="w-full md:w-2/3 flex flex-col items-center px-3 mx-auto">
+
+            <article class="flex flex-col shadow my-4" style="min-width:100%!important;">
+                <!-- Article Image -->
+                <div class="bg-white flex flex-col justify-start p-6">
+                          <% if current_user.present?  && current_user.id == @post.user_id %>
+          <%=link_to "Edit", edit_post_url(@post.hashid)%>
+          <% end %>
+                    <h3 class="text-3xl font-bold pb-4"><%=h(@post.title)%></h3>
+
+
+                    <!-- component -->
+<div class = "mb-4">
+
+<% if @post.categories %>
+    <% @post.categories.each do |cat| %>
+  <div
+    class="mr-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full bg-white text-gray-700 border"
+  >
+    <%=link_to cat.name, show_category_posts_path(cat.name.parameterize), class: 'text-blue-600 hover:text-blue-800 visited:text-purple-600'%>
+  </div>
+    <% end %>
+<% end %>
+</div>
+<hr>
+                    <p class="text-sm pb-2 mt-2">
+                        By <%=link_to h(@post.user.username), user_posts_path(@post.user.username), class: 'font-semibold hover:text-gray-800'%>, <%=@post.created_at.strftime("Published on %b %d, %Y")%>
+                    </p>
+                    <hr class="pb-2">
+                    <%= raw(@post.text) %>
+                    
+        <div class="">
+			<div class="pt-10 pb-10 sm:my-auto bg-white rounded-3xl">
+
+    <div class="flex items-center float-right space-x-3">
+    Share -   
+    <a href="https://www.facebook.com/sharer/sharer.php?u=#<%=request.original_url%>" target = "_blank" class="bg-blue-500 px-4 py-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <span>Facebook</span>
+    </a>
+    <a href="https://twitter.com/intent/tweet?url=<%=request.original_url%>" target = "_blank" class="bg-blue-300 px-4 py-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+        <span>Twitter</span>
+</a>
+    </div>
+			</div>
+		</div>
+                </div>
+            </article>
+            <div class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mb-4 p-6">
+                <div class="flex-1 flex flex-col justify-center md:justify-start">
+                    <p class="font-semibold text-2xl">Author: <%=h(@post.user.full_name)%></p>
+                </div>
+                
+            </div>
+
+            <div class="w-full flex">
+            <% if @prev %>
+                <a href="<%=show_post_url(@prev.hashid)%>" class="w-1/2 bg-white shadow hover:shadow-md text-left p-6">
+                    <p class="text-lg text-blue-800 font-bold flex items-center"><i class="fas fa-arrow-left pr-1"></i> Previous</p>
+                    <p class="pt-2"><%=@prev.title%></p></p>
+                </a>
+                <% end %>
+                <% if @next %>
+                <a href="<%=show_post_url(@next.hashid)%>" class="w-1/2 bg-white shadow hover:shadow-md text-right p-6">
+                    <p class="text-lg text-blue-800 font-bold flex items-center justify-end">Next <i class="fas fa-arrow-right pl-1"></i></p>
+                    <p class="pt-2"><%=@next.title%></p>
+                </a>
+                <% end %>
+            </div>
+
+            <h4 class="py-5">Comments(<%=@post.comments.size%>)</h4>
+                                <!-- comment form -->
+            <div class="w-full flex mx-auto items-center justify-center shadow-lg mt-4 mx-8 mb-4">
+            <%= form_with(url: save_new_comment_path, html: { method: :put, class: "w-full bg-white rounded-lg px-4 pt-2" }) do |f| %>
+                         <% if @comment.errors.full_messages.any? %>
+                            <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                            <% @comment.errors.full_messages.each do |error_message| %>
+                              <%=error_message %><br>
+                            <% end %>
+                            </div>
+                        <% end %>
+              <%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Add a new comment</h2>
+                    <div class="w-full md:w-full px-3 mb-2 mt-2">
+                        <textarea class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" placeholder='Type Your Comment' required></textarea>
+                    </div>
+                    <div class="w-full md:w-full flex items-start md:w-full px-3">
+                        <div class="flex items-start w-1/2 text-gray-700 px-2 mr-auto">
+                        </div>
+                        <div class="-mr-1">
+                        <input type='submit' class="bg-white text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-gray-100" value='Post Comment'>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+
+
+
+
+
+
+            </div>
+<!-- component -->
+<% unless @post.comments.empty? %>
+<% @post.comments.each do |comment| %>
+            <div class="w-full my-2 mx-1 flex gap-3 rounded-md bg-white p-2 text-black shadow">
+                        
+                        <!-- Content -->
+                        <div class = "w-full">
+                            <!-- Header -->
+                            <div class="flex items-center justify-between py-1 pr-2">
+                            <!-- Author -->
+                                <div>
+                                    <% if comment.user.avatar.attached? %>
+                                    <%= image_tag comment.user.avatar.variant(:thumb), class: 'float-left w-8 h-8 rounded-full mr-4 mb-2'%>
+                                  <% else %>
+                                   <%=image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'float-left mr-4 mb-2 w-8 h-8 rounded-full') %>
+                                  <% end %>
+                                    <%=link_to h(comment.user.username), user_posts_path(comment.user.username), class: "text-blue-400 hover:underline" %>
+                                    <span class="text-sm font-thin text-gray-500"> <%=comment.created_at.strftime("Published on %b %d, %Y")%></span>
+                                </div>
+                            <!-- Rate -->
+                            <div>
+                                <% unless current_user.nil?%>
+                                <div class="float-right" x-data="{ count: <%=comment.likes.size%>, liked: <%=!comment.likes.select{|item| item.user_id == current_user.id}.empty?%> }">
+                                    <a href="javascript:add_like(<%=!current_user.nil? ? current_user.id : -1 %>,<%=comment.id%>)" @click="if (liked) {count -=1; liked = false;} else { count +=1; liked = true;}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" id="comment-heart-<%=comment.id%>" class="<%='text-red-600' if (!current_user.nil? && !comment.likes.select{|item| item.user_id == current_user.id}.empty?)%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                                          </svg>
+                                    <div id = "comment-count-<%=comment.id%>" x-text = "count" class = "float-left"><%="#{comment.likes.size}"%></div>
+                                    </a>
+                            </div>
+                            <% end %>
+                            </div>
+                            </div>
+                            <!-- Context -->
+                            <div class="p-1" style="line-height: 100%;
+                            display: flex;
+                            justify-content: left;
+                            flex-wrap: wrap;
+                            white-space: pre-wrap;">
+                            <p class="text-gray-900 border-l-2 px-1 border-blue-500 bg-gray-100 rounded break-all"><%=h(comment.body)%></p>
+
+                            </div>
+                        </div>
+                        </div>
+   <% end%>
+<% end %>
+
+
+        </section>
+
+
+</div>

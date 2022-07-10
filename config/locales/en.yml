@@ -37,14 +37,14 @@ en:
   dashboard: Dashboard
   log_out: Log Out
   search: Search
-  search_blogs: Search Blogs...
-  my_blogs: My Blogs
-  blog_categories: Blog Categories
+  search_posts: Search posts...
+  my_posts: My posts
+  post_categories: post Categories
   settings: Settings
   edit_profile: Edit Profile
   profile_picture: Profile picture
   browse: Browse
-  blog_template_color: My Blog Template Color
+  post_template_color: My post Template Color
   save: Save
   email: Email
   username: Username

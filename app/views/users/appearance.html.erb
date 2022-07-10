@@ -19,8 +19,8 @@
 								<div class="mb-5">
 									<div class="flex items-center">
 										<div>
-											<label for="colorSelected" class="block font-bold mb-1"><%=t('blog_template_color')%></label>
-											<input name = "[settings]user_blog_color" id="colorSelected" type="text" placeholder="Pick a color"
+											<label for="colorSelected" class="block font-bold mb-1"><%=t('post_template_color')%></label>
+											<input name = "[settings]user_post_color" id="colorSelected" type="text" placeholder="Pick a color"
 												class="border border-transparent shadow px-4 py-2 leading-normal text-gray-700 bg-white rounded-md focus:outline-none focus:shadow-outline"
 												readonly 
 												x-model="colorSelected">
@@ -79,7 +79,7 @@
 								return {
 									isOpen: false,
 									colors: ['#3b82f680', '#009688', '#9C27B0', '#FFEB3B', '#afbbc9', '#4CAF50', '#2d3748', '#f56565', '#ed64a6'],
-									colorSelected: "<%=current_user.settings(:settings).user_blog_color%>"
+									colorSelected: "<%=current_user.settings(:settings).user_post_color%>"
 								}
 							}
 						</script>

@@ -1,12 +1,12 @@
 class CategoriesController < ApplicationController
-  before_action :authenticate_user!, :except => [:category_blogs]
+  before_action :authenticate_user!, :except => [:category_posts]
 
   PER_PAGE = 9
 
-  def category_blogs
+  def category_posts
     begin
-      @blogs = Category.find_by(name: params["name"].titleize.downcase).blogs.order('created_at desc').page(params['page']).per(PER_PAGE)
-      render 'blogs/index'
+      @posts = Category.find_by(name: params["name"].titleize.downcase).posts.order('created_at desc').page(params['page']).per(PER_PAGE)
+      render 'posts/index'
     rescue
       error_page
    end

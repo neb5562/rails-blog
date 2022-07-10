@@ -1,0 +1,30 @@
+<% 
+if action_name == 'category_posts'
+  content_for(:html_title) { 'Category: ' + params[:name].titleize } 
+end 
+%>
+<br>
+<%=render "layouts/search_form" %>
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-6 mx-auto">
+    <div class="flex flex-wrap -m-4">
+  <% unless @posts.empty? %>
+    <% @posts.each do |post| %>
+      <% cache post do %>
+        <%=render 'posts/post', {post: post}  %>
+      <% end %>
+    <% end %>
+    <br>
+    <% else %>
+<div class="p-4 text-sm text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300" role="alert">
+    no posts found 
+</div>
+      
+  <% end %>
+  
+</div>
+    <div class="mx-auto text-center mt-10">
+      <%= paginate @posts %>
+    </div>
+</div>
+</section>

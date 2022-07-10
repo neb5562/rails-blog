@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def appearance;end
 
   def save_appearance
-    current_user.settings(:settings).user_blog_color = params[:settings][:user_blog_color] unless params[:settings][:user_blog_color].nil? 
+    current_user.settings(:settings).user_post_color = params[:settings][:user_post_color] unless params[:settings][:user_post_color].nil? 
     if current_user.save!
       flash[:notice] = 'Appearance settings updated Successfully!'
       redirect_to user_settings_path
@@ -27,12 +27,12 @@ class UsersController < ApplicationController
 
   def index
     @registered = User.find_by(username: params[:username])
-    @blogs = @registered.blogs
+    @posts = @registered.posts
     @comments = @registered.comments
     @likes = @registered.likes
     @address = @registered.addresses.first
-    @address_map_image = StaticMap.new(@address.latitude, @address.longitude).get_image
-    @activity = (@blogs + @comments + @likes).group_by{|x| x.created_at.strftime("%b %d, %Y")}.sort.reverse
+    @address_map_image = StaticMap.new(@address.latitude, @address.longitude).get_image if @address
+    @activity = (@posts + @comments + @likes).group_by{|x| x.created_at.strftime("%b %d, %Y")}.sort.reverse
   end
 
   private

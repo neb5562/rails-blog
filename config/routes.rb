@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "blogs#index"
+  root "posts#index"
   
   devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
 
@@ -12,43 +12,43 @@ Rails.application.routes.draw do
 
     # Defines the root path route ("/")
 
-    get "/user/:username/blogs", to: "blogs#user_blogs", as: :user_blogs
-    get "/blogs/new", to: "blogs#new_blog", as: :create_new_blog
-    get "/blog/:id/edit", to: "blogs#edit_blog", as: :edit_blog
-    put "/blog/:id/edit", to: "blogs#save_edit_blog", as: :save_edit_blog
-    get "/blog/:id", to: "blogs#show", as: :show_blog
-    put "/blogs/save", to: "blogs#save_new_blog", as: :save_new_blog
-    get "/blog/:id/toggle_status", to: "blogs#toggle_blog_status", as: :toggle_blog_status
-    get "/profile/blogs", to: "blogs#user_blogs_list", as: :user_blogs_list
+    get "/user/:username/posts", to: "posts#user_posts", as: :user_posts
+    get "/posts/new", to: "posts#new_post", as: :create_new_post
+    get "/post/:id/edit", to: "posts#edit_post", as: :edit_post
+    put "/post/:id/edit", to: "posts#save_edit_post", as: :save_edit_post
+    get "/post/:id", to: "posts#show", as: :show_post
+    put "/posts/save", to: "posts#save_new_post", as: :save_new_post
+    get "/post/:id/toggle_status", to: "posts#toggle_post_status", as: :toggle_post_status
+    get "/profile/posts", to: "posts#user_posts_list", as: :user_posts_list
     get "/profile/settings", to: "users#settings", as: :user_settings
-    get "/profile/avatar", to: "users#avatar", as: :avatar
-    get "/profile/appearance", to: "users#appearance", as: :appearance
+    get "/profile/settings/avatar", to: "users#avatar", as: :avatar
+    get "/profile/settings/appearance", to: "users#appearance", as: :appearance
     post "/profile/appearance", to: "users#save_appearance", as: :save_appearance
     post "/profile/avatar", to: "users#save_avatar", as: :save_user_avatar
-    get "/profile/addresses", to: "addresses#address", as: :address
-    get "/profile/addresses/new", to: "addresses#new_address", as: :new_address
+    get "/profile/settings/addresses", to: "addresses#address", as: :address
+    get "/profile/settings/addresses/new", to: "addresses#new_address", as: :new_address
     post "/profile/addresses/new", to: "addresses#new_address", as: :find_address
     put "/profile/addresses/new", to: "addresses#new", as: :save_address    
-    put "/blog/:id/add_comment", to: "comments#save", as: :save_new_comment
+    put "/post/:id/add_comment", to: "comments#save", as: :save_new_comment
     get "/user/:username", to: "users#index", as: :user_profile
-    delete "/blogs/:id/delete", to: "blogs#delete_user_blog", as: :delete_user_blog
-    get "/profile/phones/new", to: "phones#new", as: :new_phone
+    delete "/posts/:id/delete", to: "posts#delete_user_post", as: :delete_user_post
+    get "/profile/settings/phones/new", to: "phones#new", as: :new_phone
     put "/profile/phones/new", to: "phones#save_new_phone", as: :save_phone   
-    get "/profile/phones", to: "phones#index", as: :phone
+    get "/profile/settings/phones", to: "phones#index", as: :phone
     delete "/profile/phone/:phone/delete", to: "phones#delete", as: :delete_phone
 
     get "/categories/new", to: "categories#new", as: :new_category
     put "/categories/new", to: "categories#create", as: :save_new_category
-    get "/profile/categories", to: "categories#index", as: :user_blog_actegories
-    get "/category/:name", to: "categories#category_blogs", as: :show_category_blogs
-    match '/search',  to: 'blogs#search_blogs', via: 'get', as: :search
+    get "/profile/categories", to: "categories#index", as: :user_post_actegories
+    get "/category/:name", to: "categories#category_posts", as: :show_category_posts
+    match '/search',  to: 'posts#search_posts', via: 'get', as: :search
 
     match '/auth/:provider/callback', :to => 'omniauth#google_oauth2', :via => [:get, :post]
   end
   
-  get '*all', to: 'application#error_page', constraints: lambda { |req|
-    req.path.exclude? 'rails/active_storage'
-  }
+  # get '*all', to: 'application#error_page', constraints: lambda { |req|
+  #   req.path.exclude? 'rails/active_storage'
+  # }
   post "/likes/save", to: "likes#save", as: :save_like
   # get '*unmatched_route', to: 'application#error_page'
 

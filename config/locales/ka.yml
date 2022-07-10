@@ -37,14 +37,14 @@ ka:
   dashboard: მართვის პანელი
   log_out: გასვლა
   search: ძებნა
-  search_blogs: ძებნა ბლოგებში...
-  my_blogs: ჩემი ბლოგები
-  blog_categories: ბლოგის კატეგორიები
+  search_posts: ძებნა ბლოგებში...
+  my_posts: ჩემი ბლოგები
+  post_categories: ბლოგის კატეგორიები
   settings: პარამეტრები
   edit_profile: პროფილის რედაქტირება
   profile_picture: პროფილის ფოტო
   browse: აირჩიე
-  blog_template_color: ჩემი ბლოგის თემის ფერი
+  post_template_color: ჩემი ბლოგის თემის ფერი
   save: შენახვა
   email: ემაილი
   username: მომხმარებელი

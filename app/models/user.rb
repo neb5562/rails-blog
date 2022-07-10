@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :blogs
+  has_many :posts
   has_many :likes
   has_many :comments
   has_many :addresses
@@ -10,7 +10,7 @@ class User < ApplicationRecord
   end
 
   has_settings do |s|
-    s.key :settings, :defaults => { :user_blog_color => '#3b82f680' }
+    s.key :settings, :defaults => { :user_post_color => '#3b82f680' }
   end
 
   include Hashid::Rails
