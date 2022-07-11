@@ -5,6 +5,27 @@ end
 %>
 <br>
 <%=render "layouts/search_form" %>
+
+
+<%= form_with(url: save_new_post_path, html: { method: :put, class: "rounded pt-6 pb-8 mb-4" }) do |f| %>
+<% if @post.errors.full_messages.any? %>
+     <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+     <% @post.errors.full_messages.each do |error_message| %>
+       <%=error_message %><br>
+     <% end %>
+     </div>
+ <% end %>
+
+ <div class="mb-2">
+     <textarea name="text" rows="4" class="text-xl placeholder-gray-900 shadow border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Say Something..." ></textarea>
+ </div>
+
+ <div class="flex p-1 float-right">
+ <%= f.select :active, [['Save and Publish', true], ['Save Draft', false]], class: 'border-2 border-gray-300 border-r p-2' %>
+
+     <button role="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400" required>Submit</button>
+ </div>
+<% end %>
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-6 mx-auto">
     <div class="flex flex-wrap -m-4">

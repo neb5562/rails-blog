@@ -1,5 +1,8 @@
-<div class = "mt-12 w-full content-center"></div>
-<div class="rounded-3xl shadow-xl w-96 mx-auto my-3 bg-indigo-500">
+<% content_for(:html_title) { 'activity_logs' } %>
+<%=render "layouts/users_sidebar" %>
+
+<div class = "mt-10 float-left w-full max-w-4xl content-center">
+<div class="rounded-3xl shadow-xl my-3 bg-indigo-500">
   
   <div class="flex justify-center -mt-8">		
       <% if @registered.avatar.attached? %>
@@ -120,5 +123,5 @@
   </ol>
 
 
-
+</div>
 </div>

@@ -30,13 +30,14 @@ Rails.application.routes.draw do
     post "/profile/addresses/new", to: "addresses#new_address", as: :find_address
     put "/profile/addresses/new", to: "addresses#new", as: :save_address    
     put "/post/:id/add_comment", to: "comments#save", as: :save_new_comment
-    get "/user/:username", to: "users#index", as: :user_profile
+    get "/user/activity", to: "users#activity", as: :user_profile_activity
     delete "/posts/:id/delete", to: "posts#delete_user_post", as: :delete_user_post
     get "/profile/settings/phones/new", to: "phones#new", as: :new_phone
     put "/profile/phones/new", to: "phones#save_new_phone", as: :save_phone   
     get "/profile/settings/phones", to: "phones#index", as: :phone
     delete "/profile/phone/:phone/delete", to: "phones#delete", as: :delete_phone
 
+    get "/profile/settings/privacy", to: "users#privacy", as: :privacy
     get "/categories/new", to: "categories#new", as: :new_category
     put "/categories/new", to: "categories#create", as: :save_new_category
     get "/profile/categories", to: "categories#index", as: :user_post_actegories
@@ -46,9 +47,9 @@ Rails.application.routes.draw do
     match '/auth/:provider/callback', :to => 'omniauth#google_oauth2', :via => [:get, :post]
   end
   
-  # get '*all', to: 'application#error_page', constraints: lambda { |req|
-  #   req.path.exclude? 'rails/active_storage'
-  # }
+  get '*all', to: 'application#error_page', constraints: lambda { |req|
+    req.path.exclude? 'rails/active_storage'
+  }
   post "/likes/save", to: "likes#save", as: :save_like
   # get '*unmatched_route', to: 'application#error_page'
 

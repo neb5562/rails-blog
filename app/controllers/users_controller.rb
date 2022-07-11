@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :except => [:index]
+  before_action :authenticate_user!, :except => [:index, :activity]
 
   def avatar;end
 
@@ -25,14 +25,20 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-    @registered = User.find_by(username: params[:username])
+  def activity
+    @registered = current_user
     @posts = @registered.posts
     @comments = @registered.comments
     @likes = @registered.likes
     @address = @registered.addresses.first
     @address_map_image = StaticMap.new(@address.latitude, @address.longitude).get_image if @address
     @activity = (@posts + @comments + @likes).group_by{|x| x.created_at.strftime("%b %d, %Y")}.sort.reverse
+
+    render 'users/index'
+  end
+
+  def privacy 
+    
   end
 
   private

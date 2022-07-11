@@ -37,7 +37,7 @@
                 </div>
                 <ul class="py-1" aria-labelledby="dropdown">
                   <li><%= link_to t("dashboard"), edit_user_registration_path, class: 'block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %></li>
-                  <li><%= link_to t("public_profile"), user_profile_path(current_user.username), class: 'block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %></li>
+                  <li><%= link_to t("Activity logs"), user_profile_activity_path, class: 'block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %></li>
                   <li><%= link_to t("log_out"), destroy_user_session_path,  class: 'block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'%></li>
                 </ul>
               </div>

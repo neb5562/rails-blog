@@ -20,9 +20,6 @@
                 #
               </th>
               <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                post title
-              </th>
-              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                 Date created/updated
               </th>
               <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
@@ -39,9 +36,6 @@
             <tr class="bg-gray-100 border-b <%='border-b bg-yellow-100 border-yellow-200' unless post.active %>">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
               <%=link_to post.hashid, show_post_path(post.hashid), target: '_blank', class:'underline text-blue-600 hover:text-blue-800 visited:text-purple-600'%>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <%=link_to post.post_title, show_post_path(post.hashid), target: '_blank', class:'underline text-blue-600 hover:text-blue-800 visited:text-purple-600'%>
-              </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 <%=post.created_at.strftime("%b %d, %Y %H:%M")%>/<%=post.updated_at.strftime("%b %d, %Y %H:%M")%>
               </td>

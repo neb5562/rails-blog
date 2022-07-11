@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
 
   def index
+    @post = Post.new
     @posts = Post.where(active: true).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
     render 'posts/index'
   end
@@ -30,22 +31,22 @@ class PostsController < ApplicationController
   end
 
   def new_post 
-    @Post = Post.new
+    @post = Post.new
     render 'posts/new'
   end
 
   def save_new_post
-    @oost = current_user.posts.build(post_params)
-    categories = params[:categories].reject { |e| e.to_s.empty? }
-    post_categories = []
+    @post = current_user.posts.build(post_params)
+    # categories = params[:categories].reject { |e| e.to_s.empty? }
+    # post_categories = []
     
     ActiveRecord::Base.transaction do
       
-      categories.each do |cat_item|
-        post_categories << PostCategory.new(post_id: @post.id, category_id: cat_item )
-      end
+      # categories.each do |cat_item|
+      #   post_categories << PostCategory.new(post_id: @post.id, category_id: cat_item )
+      # end
 
-      @post.post_categories << post_categories
+      # @post.post_categories << post_categories
       @res = @post.save
      end
 
@@ -148,7 +149,7 @@ class PostsController < ApplicationController
   private 
 
   def post_params
-    params.permit(:title, :text, :description, :active)
+    params.permit(:text, :active)
   end
 
 end
