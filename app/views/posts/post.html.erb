@@ -1,4 +1,4 @@
-<% content_for(:html_title) { @post.title } %>
+<% content_for(:html_title) { @post.text[0,12] } %>
 <div class="container mx-auto flex flex-wrap py-6">
         <!-- Post Section -->
         <section class="w-full md:w-2/3 flex flex-col items-center px-3 mx-auto">
@@ -9,23 +9,8 @@
                           <% if current_user.present?  && current_user.id == @post.user_id %>
           <%=link_to "Edit", edit_post_url(@post.hashid)%>
           <% end %>
-                    <h3 class="text-3xl font-bold pb-4"><%=h(@post.title)%></h3>
-
-
                     <!-- component -->
-<div class = "mb-4">
 
-<% if @post.categories %>
-    <% @post.categories.each do |cat| %>
-  <div
-    class="mr-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full bg-white text-gray-700 border"
-  >
-    <%=link_to cat.name, show_category_posts_path(cat.name.parameterize), class: 'text-blue-600 hover:text-blue-800 visited:text-purple-600'%>
-  </div>
-    <% end %>
-<% end %>
-</div>
-<hr>
                     <p class="text-sm pb-2 mt-2">
                         By <%=link_to h(@post.user.username), user_posts_path(@post.user.username), class: 'font-semibold hover:text-gray-800'%>, <%=@post.created_at.strftime("Published on %b %d, %Y")%>
                     </p>
@@ -55,21 +40,6 @@
                     <p class="font-semibold text-2xl">Author: <%=h(@post.user.full_name)%></p>
                 </div>
                 
-            </div>
-
-            <div class="w-full flex">
-            <% if @prev %>
-                <a href="<%=show_post_url(@prev.hashid)%>" class="w-1/2 bg-white shadow hover:shadow-md text-left p-6">
-                    <p class="text-lg text-blue-800 font-bold flex items-center"><i class="fas fa-arrow-left pr-1"></i> Previous</p>
-                    <p class="pt-2"><%=@prev.title%></p></p>
-                </a>
-                <% end %>
-                <% if @next %>
-                <a href="<%=show_post_url(@next.hashid)%>" class="w-1/2 bg-white shadow hover:shadow-md text-right p-6">
-                    <p class="text-lg text-blue-800 font-bold flex items-center justify-end">Next <i class="fas fa-arrow-right pl-1"></i></p>
-                    <p class="pt-2"><%=@next.title%></p>
-                </a>
-                <% end %>
             </div>
 
             <h4 class="py-5">Comments(<%=@post.comments.size%>)</h4>

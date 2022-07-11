@@ -44,7 +44,7 @@ class User < ApplicationRecord
         user = User.create(
            full_name: data['name'],
            email: data['email'],
-           username: data['name'].gsub(/\s+/, "")[0,12],
+           username: data['email'].split("@").first.gsub(/[^0-9a-zA-Z]/i, '').downcase[0,12],
            password: Devise.friendly_token[0,20]
         )
     end

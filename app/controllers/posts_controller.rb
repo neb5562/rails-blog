@@ -61,14 +61,13 @@ class PostsController < ApplicationController
     end
   end
 
-  def show 
+  def post 
     begin
       @post = Post.includes(:comments => [:user, :likes]).where(active: true).order('comments.created_at desc').find_by_hashid(params[:id])
       @comment = Comment.new
       @prev = @post.prev 
       @next = @post.next
       @color = @post.user.settings(:settings).user_post_color
-      render 'posts/post'
     rescue
       error_page
     end

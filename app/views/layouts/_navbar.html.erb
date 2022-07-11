@@ -8,7 +8,10 @@
         <div class="w-8/12 container mx-auto flex flex-wrap items-center justify-between">
             <nav>
                 <ul class="flex items-center justify-between font-bold text-sm text-white no-underline">
-                  <li><%= link_to t('home'), root_path, class: 'hover:text-gray-200 hover:underline px-4' %></li>
+                  <li><%= link_to root_path, class: 'hover:text-gray-200 hover:underline' do %>
+                     <%=image_tag(image_url("logo.png"), width: "50", height: "auto")%>
+                    <% end %>
+                  </li>
                 <% unless signed_in? %>
                     <li><%= link_to t('sign_in'), new_user_session_path, class: 'hover:text-gray-200 hover:underline px-4' %></li>
                     <li><%= link_to t('sign_up'), new_user_registration_path, class: 'hover:text-gray-200 hover:underline px-4' %></li>
