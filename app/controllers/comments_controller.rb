@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(body: params['body'], user_id: current_user.id, post_id: @post.id)
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to show_post_url(params[:id]), notice: "Comment was successfully created." }
+        format.html { redirect_to show_post_url(@post.user.username, params[:id]), notice: "Comment was successfully created." }
         # format.json { render :show, status: :created, location: @blog }
       else
         format.html { redirect_to show_post_url(params[:id]), alert: "Comment was not created." }

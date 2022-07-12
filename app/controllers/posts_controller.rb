@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 
   PER_PAGE = 9
 
-
   def index
     @post = Post.new
     @posts = Post.where(active: true).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
@@ -22,12 +21,8 @@ class PostsController < ApplicationController
   end
 
   def search_posts 
-    # begin
       @posts = Post.search(params[:query]).where(active: true).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
       render 'posts/index'
-    # rescue
-      # error_page
-    # end
   end
 
   def new_post 
@@ -37,18 +32,7 @@ class PostsController < ApplicationController
 
   def save_new_post
     @post = current_user.posts.build(post_params)
-    # categories = params[:categories].reject { |e| e.to_s.empty? }
-    # post_categories = []
-    
-    ActiveRecord::Base.transaction do
-      
-      # categories.each do |cat_item|
-      #   post_categories << PostCategory.new(post_id: @post.id, category_id: cat_item )
-      # end
-
-      # @post.post_categories << post_categories
-      @res = @post.save
-     end
+    @res = @post.save
 
     respond_to do |format|
       if @res
@@ -92,7 +76,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to show_post_path(@post.hashid), notice: "post was successfully Edited." }
+        format.html { redirect_to show_post_path(@post.user.username, @post.hashid), notice: "post was successfully Edited." }
         format.json { render :'posts/edit', status: :created, location: @post }
       else
         format.html { render :'posts/edit', status: :unprocessable_entity }

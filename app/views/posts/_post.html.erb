@@ -4,7 +4,7 @@
             <% if post.user.avatar.attached? %>
               <%= image_tag post.user.avatar.variant(:thumb), class: 'w-12 h-12 rounded-full'%>
             <% else %>
-              <%=image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'w-12 h-12 rounded-full') %>
+              <%=image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :alt => "user photo", class: 'w-12 h-12 rounded-full') %>
             <% end %>
             <div class="ml-2 mt-0.5">
               <span class="block text-base leading-snug text-black dark:text-gray-100"><%=h(post.user.full_name) %></span>

@@ -24,7 +24,7 @@ ol.relative.border-l.border-gray-200.dark:border-gray-700
               - if item.user.avatar.attached?
                 = image_tag item.user.avatar.variant(:thumb), class: 'rounded-full shadow-lg'
               - else
-                =image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'rounded-full shadow-lg')
+                =image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :alt => "user photo", class: 'rounded-full shadow-lg')
             .justify-between.items-center.p-4.bg-white.rounded-lg.border.border-gray-200.shadow-sm.sm:flex.dark:bg-gray-700.dark:border-gray-600
               time.mb-1.text-xs.font-normal.text-gray-400.sm:order-last.sm:mb-0
                 = time_ago_in_words(item.created_at).to_s + " ago"
@@ -43,7 +43,7 @@ ol.relative.border-l.border-gray-200.dark:border-gray-700
               - if item.user.avatar.attached?
                 = image_tag item.user.avatar.variant(:thumb), class: 'rounded-full shadow-lg'
               - else
-                =image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'rounded-full shadow-lg')
+                =image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :alt => "user photo", class: 'rounded-full shadow-lg')
             .p-4.bg-white.rounded-lg.border.border-gray-200.shadow-sm.dark:bg-gray-700.dark:border-gray-600
 
             .justify-between.items-center.mb-3.sm:flex
@@ -88,7 +88,7 @@ ol.relative.border-l.border-gray-200.dark:border-gray-700
       - if @registered.avatar.attached?
         = image_tag @registered.avatar.variant(:thumb), class: 'rounded-full shadow-lg'
       - else
-        =image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'rounded-full shadow-lg')
+        =image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :alt => "user photo", class: 'rounded-full shadow-lg')
     .justify-between.items-center.p-4.bg-white.rounded-lg.border.border-gray-200.shadow-sm.sm:flex.dark:bg-gray-700.dark:border-gray-600
       time.mb-1.text-xs.font-normal.text-gray-400.sm:order-last.sm:mb-0
         = time_ago_in_words(@registered.created_at).to_s + " ago"

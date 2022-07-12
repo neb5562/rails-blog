@@ -29,7 +29,7 @@
                 <% if current_user.avatar.attached? %>
                   <%= image_tag current_user.avatar.variant(:thumb), class: 'w-8 h-8 rounded-full'%>
                 <% else %>
-                 <%=image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'w-8 h-8 rounded-full') %>
+                 <%=image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :alt => "user photo", class: 'w-8 h-8 rounded-full') %>
                 <% end %>
               </button>
         
