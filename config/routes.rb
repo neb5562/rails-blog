@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     get "/user/:username/posts", to: "posts#user_posts", as: :user_posts
     get "/posts/new", to: "posts#new_post", as: :create_new_post
     get "/post/:id/edit", to: "posts#edit_post", as: :edit_post
-    put "/post/:id/edit", to: "posts#save_edit_post", as: :save_edit_post
-    get "/post/:id", to: "posts#post", as: :show_post
+    put "/post/:id", to: "posts#save_edit_post", as: :save_edit_post
+    get "/:username/post/:id", to: "posts#post", as: :show_post
     put "/posts/save", to: "posts#save_new_post", as: :save_new_post
     get "/post/:id/toggle_status", to: "posts#toggle_post_status", as: :toggle_post_status
     get "/profile/posts", to: "posts#user_posts_list", as: :user_posts_list

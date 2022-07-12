@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, :except => [:index, :user_posts, :show, :search_posts]
+  before_action :authenticate_user!, :except => [:index, :user_posts, :post, :search_posts]
 
   PER_PAGE = 9
 
@@ -63,6 +63,7 @@ class PostsController < ApplicationController
 
   def post 
     begin
+      @user = User.where(username: params[:username]).first!
       @post = Post.includes(:comments => [:user, :likes]).where(active: true).order('comments.created_at desc').find_by_hashid(params[:id])
       @comment = Comment.new
       @prev = @post.prev 
@@ -84,30 +85,14 @@ class PostsController < ApplicationController
   
   def save_edit_post
     @post = current_user.posts.find_by_hashid(params[:id])
-    post_categories = []
-    @post.title = params[:title]
-    @post.description = params[:description]
     @post.text = params[:text]
-    @post.active = params[:active]
-    
-    categories = params[:categories].reject { |e| e.to_s.empty? }
-    post_categories = []
-    
-    ActiveRecord::Base.transaction do
-      @post.post_categories.destroy_all
-      categories.each do |cat_item|
-        post_categories << PostCategory.new(post_id: @post.id, category_id: cat_item )
-      end
-
-      @post.post_categories << post_categories
-      @res = @post.save
-     end
+    @res = @post.save
 
 
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to edit_post_path(@post.hashid), notice: "post was successfully Edited." }
+        format.html { redirect_to show_post_path(@post.hashid), notice: "post was successfully Edited." }
         format.json { render :'posts/edit', status: :created, location: @post }
       else
         format.html { render :'posts/edit', status: :unprocessable_entity }

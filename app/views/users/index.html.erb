@@ -68,7 +68,7 @@
                           <div class="p-4 bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-700 dark:border-gray-600">
                               <div class="justify-between items-center mb-3 sm:flex">
                                   <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0"><%= time_ago_in_words(item.created_at).to_s + " ago" %></time>
-                                  <div class="text-sm font-normal text-gray-500 lex dark:text-gray-300"><%=h(item.user.username)%> has commented on <a target = "_blank" href="<%=show_post_url(item.post.hashid)%>" class="font-semibold text-blue-600 dark:text-blue-500 hover:underline"><%=item.post.title%></a></div>
+                                  <div class="text-sm font-normal text-gray-500 lex dark:text-gray-300"><%=h(item.user.username)%> has commented on <a target = "_blank" href="<%=show_post_url(item.post.hashid)%>" class="font-semibold text-blue-600 dark:text-blue-500 hover:underline"><%=item.post.text[0,12]%></a></div>
                               </div>
                               <div class="p-3 text-sm font-normal text-gray-500 bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-300">
                                   <%=item.body%>
