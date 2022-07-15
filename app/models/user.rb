@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  rolify
   has_many :posts
   has_many :likes
   has_many :comments
@@ -26,6 +27,7 @@ class User < ApplicationRecord
   validates :username, format: { without: /\s/ }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
 
+  after_create :assign_default_role
   # def after_confirmation
   #   UserMailer.with(user: self).welcome_email.deliver_later
   # end
@@ -33,6 +35,10 @@ class User < ApplicationRecord
 
   def phone?
     @phone
+  end
+
+  def admin?
+    self.has_role? :admin
   end
 
   def self.from_omniauth(access_token)
@@ -49,6 +55,12 @@ class User < ApplicationRecord
         )
     end
     user
-end
+  end
+
+  private
+
+  def assign_default_role
+    self.add_role(:user) if self.roles.blank?
+  end
 
 end

@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  resourcify
   belongs_to :user, counter_cache: true 
   has_many :comments
   # has_many :post_categories, dependent: :delete_all
@@ -29,5 +30,8 @@ class Post < ApplicationRecord
     end
   end 
 
+  def active?
+    !!self.active
+  end
 
 end
