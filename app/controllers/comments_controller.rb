@@ -16,10 +16,25 @@ class CommentsController < ApplicationController
     end
   end
 
+  def update
+    @post = current_user.posts.find_by_hashid(params[:id])
+    @comment = @post.comments.find(params[:comment_id])
+    @comment.body = params[:body]
+
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_back_or_to show_post_path(@post.user.username, @post.hashid), notice: "comment was successfully Edited." }
+      else
+        format.html { redirect_to show_post_path(@post.user.username, @post.hashid), alert: "Comment was not updated." }
+      end
+    end
+  end
+
+
   private 
 
   def comment_params
-    params.permit(:body)
+    params.require(:comment).permit(:body, :comment_id)
   end
 
 end

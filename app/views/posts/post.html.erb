@@ -18,7 +18,7 @@
                         <button class="float-right" x-on:click="open = ! open, word = (word == 'Edit') ? 'Cancel' : 'Edit'" x-text="word">Edit</button>
                      
                         <div x-show="open">
-                            <%= form_with(url: save_edit_post_path, html: { method: :put}) do |f| %>
+                            <%= form_with(url: save_edit_post_path, html: { method: :patch}) do |f| %>
 
                                 <div class="mb-2">
                                     <textarea name="text", required = true, class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"><%=@post.text%></textarea>
@@ -39,7 +39,17 @@
                     <% end %>
                     <!-- component -->
 
-
+                    <% unless current_user.nil?%>
+                    <div class="float-right mt-4" x-data="{ count: <%=@post.likes.size%>, liked: <%=!@post.likes.select{|item| item.user_id == current_user.id}.empty?%> }">
+                        <a href="javascript:add_like(<%=!current_user.nil? ? current_user.id : -1 %>,null,<%=@post.id%>)" @click="if (liked) {count -=1; liked = false;} else { count +=1; liked = true;}">
+        
+                              <svg xmlns="http://www.w3.org/2000/svg" id="post-heart-<%=@post.id%>" class="<%='text-blue-600' if (!current_user.nil? && !@post.likes.select{|item| item.user_id == current_user.id}.empty?)%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+                              </svg>
+                              <span id = "comment-count-<%=@post.id%>" x-text = "count" class="float-left ml-1 text-gray-500 dark:text-gray-400  font-light"><%="#{@post.likes.size}"%></span>
+                        </a>
+                </div>
+                <% end %>
                     
                 </div>
             </article>
@@ -58,11 +68,9 @@
                     <div class="w-full md:w-full px-3 mb-2 mt-2">
                         <textarea class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" placeholder='Type Your Comment' required></textarea>
                     </div>
-                    <div class="w-full md:w-full flex items-start md:w-full px-3">
-                        <div class="flex items-start w-1/2 text-gray-700 px-2 mr-auto">
-                        </div>
+                    <div class="w-full md:w-full items-start md:w-full px-3 text-right">
                         <div class="-mr-1">
-                        <input type='submit' class="bg-white text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-gray-100" value='Post Comment'>
+                        <input type='submit' class="rounded-lg p-2 bg-blue-500 text-white hover:bg-blue-400" value='Post Comment'>
                         </div>
                     </div>
                 <% end %>
@@ -77,47 +85,72 @@
 <!-- component -->
 <% unless @post.comments.empty? %>
 <% @post.comments.each do |comment| %>
-            <div class="w-full my-2 mx-1 flex gap-3 rounded-md bg-white p-2 text-black shadow">
-                        
-                        <!-- Content -->
-                        <div class = "w-full">
-                            <!-- Header -->
-                            <div class="flex items-center justify-between py-1 pr-2">
-                            <!-- Author -->
-                                <div>
-                                    <% if comment.user.avatar.attached? %>
-                                    <%= image_tag comment.user.avatar.variant(:thumb), class: 'float-left w-8 h-8 rounded-full mr-4 mb-2'%>
-                                  <% else %>
-                                   <%=image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :alt => "user photo", class: 'float-left mr-4 mb-2 w-8 h-8 rounded-full') %>
-                                  <% end %>
-                                    <%=link_to h(comment.user.username), user_posts_path(comment.user.username), class: "text-blue-400 hover:underline" %>
-                                    <span class="text-sm font-thin text-gray-500"> <%=comment.created_at.strftime("Published on %b %d, %Y")%></span>
-                                </div>
-                            <!-- Rate -->
-                            <div>
-                                <% unless current_user.nil?%>
-                                <div class="float-right" x-data="{ count: <%=comment.likes.size%>, liked: <%=!comment.likes.select{|item| item.user_id == current_user.id}.empty?%> }">
-                                    <a href="javascript:add_like(<%=!current_user.nil? ? current_user.id : -1 %>,<%=comment.id%>)" @click="if (liked) {count -=1; liked = false;} else { count +=1; liked = true;}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" id="comment-heart-<%=comment.id%>" class="<%='text-red-600' if (!current_user.nil? && !comment.likes.select{|item| item.user_id == current_user.id}.empty?)%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
-                                          </svg>
-                                    <div id = "comment-count-<%=comment.id%>" x-text = "count" class = "float-left"><%="#{comment.likes.size}"%></div>
-                                    </a>
-                            </div>
-                            <% end %>
-                            </div>
-                            </div>
-                            <!-- Context -->
-                            <div class="p-1" style="line-height: 100%;
-                            display: flex;
-                            justify-content: left;
-                            flex-wrap: wrap;
-                            white-space: pre-wrap;">
-                            <p class="text-gray-900 border-l-2 px-1 border-blue-500 bg-gray-100 rounded break-all"><%=h(comment.body)%></p>
+    <div class="w-full my-2 mx-1 flex gap-3 rounded-md bg-white p-2 text-black shadow">
+                
+    <!-- Content -->
+    <div class = "w-full">
+                    <!-- Header -->
+        <div class="flex items-center justify-between py-1 pr-2">
+        <!-- Author -->
+            <div>
+                <% if comment.user.avatar.attached? %>
+                <%= image_tag comment.user.avatar.variant(:thumb), class: 'float-left w-8 h-8 rounded-full mr-4 mb-2'%>
+                <% else %>
+                <%=image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :alt => "user photo", class: 'float-left mr-4 mb-2 w-8 h-8 rounded-full') %>
+                <% end %>
+                <%=link_to h(comment.user.username), user_posts_path(comment.user.username), class: "text-blue-400 hover:underline" %>
+                <span class="text-sm font-thin text-gray-500"> <%=comment.created_at.strftime("Published on %b %d, %Y")%></span>
+            </div>
+        <!-- Rate -->
 
-                            </div>
+        </div>
+                            
+
+
+            <% if current_user.present?  && current_user.id == comment.user_id %>
+            <div x-data="{ open: false, word: 'Edit' }">
+                <button class="float-right" x-on:click="open = ! open, word = (word == 'Edit') ? 'Cancel' : 'Edit'" x-text="word">Edit</button>
+                <br>
+                <div x-show="open">
+                    <%= form_with(url: save_edit_comment_path(comment.post, comment.id), html: { method: :patch}) do |f| %>
+                    <%= hidden_field_tag 'comment_id', comment.id  %>
+                        <div class="mb-2">
+                            <textarea name="body", required = true, class="resize-y bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"><%=comment.body%></textarea>
                         </div>
-                        </div>
+
+                <div class="flex float-right">    
+                    <button role="submit" class="p-2 rounded-md bg-blue-500 text-white hover:bg-blue-400" required>Save</button>
+                </div>
+                    <% end %>
+                </div>
+
+                <div x-show="! open">
+                    <!-- Context -->
+                    <div class="p-1" style="line-height: 100%;display: flex;justify-content: left;flex-wrap: wrap;white-space: pre-wrap;">
+                        <%=simple_format(h(comment.body), { class: "leading-normal text-gray-900 border-l-2 px-1 border-blue-500 rounded break-all"})%>
+                    </div>
+                </div>
+                </div>
+            <% end %>
+
+
+            <div>
+                <% unless current_user.nil?%>
+                <div class="float-left mt-4" x-data="{ count: <%=comment.likes.size%>, liked: <%=!comment.likes.select{|item| item.user_id == current_user.id}.empty?%> }">
+                    <a href="javascript:add_like(<%=!current_user.nil? ? current_user.id : -1 %>,<%=comment.id%>, null)" @click="if (liked) {count -=1; liked = false;} else { count +=1; liked = true;}">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" id="comment-heart-<%=comment.id%>" class="<%='text-blue-600' if (!current_user.nil? && !comment.likes.select{|item| item.user_id == current_user.id}.empty?)%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+                            </svg>
+                            <span id = "comment-count-<%=comment.id%>" x-text = "count" class="float-left ml-1 text-gray-500 dark:text-gray-400  font-light"><%="#{comment.likes.size}"%></span>
+                    </a>
+            </div>
+            <% end %>
+            </div>
+
+
+        </div>
+        </div>
    <% end%>
 <% end %>
 

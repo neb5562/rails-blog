@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get "/user/:username/posts", to: "posts#user_posts", as: :user_posts
     get "/posts/new", to: "posts#new_post", as: :create_new_post
     get "/post/:id/edit", to: "posts#edit_post", as: :edit_post
-    put "/post/:id", to: "posts#save_edit_post", as: :save_edit_post
+    patch "/post/:id", to: "posts#save_edit_post", as: :save_edit_post
     get "/:username/post/:id", to: "posts#post", as: :show_post
     put "/posts/save", to: "posts#save_new_post", as: :save_new_post
     get "/post/:id/toggle_status", to: "posts#toggle_post_status", as: :toggle_post_status
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     post "/profile/addresses/new", to: "addresses#new_address", as: :find_address
     put "/profile/addresses/new", to: "addresses#new", as: :save_address    
     put "/post/:id/add_comment", to: "comments#save", as: :save_new_comment
+    patch "/post/:id/comments/:comment_id/update", to: "comments#update", as: :save_edit_comment
     get "/user/activity", to: "users#activity", as: :user_profile_activity
     delete "/posts/:id/delete", to: "posts#delete_user_post", as: :delete_user_post
     get "/profile/settings/phones/new", to: "phones#new", as: :new_phone

@@ -50,8 +50,6 @@ class PostsController < ApplicationController
       @user = User.where(username: params[:username]).first!
       @post = Post.includes(:comments => [:user, :likes]).where(active: true).order('comments.created_at desc').find_by_hashid(params[:id])
       @comment = Comment.new
-      @prev = @post.prev 
-      @next = @post.next
       @color = @post.user.settings(:settings).user_post_color
     rescue
       error_page
@@ -76,7 +74,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to show_post_path(@post.user.username, @post.hashid), notice: "post was successfully Edited." }
+        format.html { redirect_back_or_to show_post_path(@post.user.username, @post.hashid), notice: "post was successfully Edited." }
         format.json { render :'posts/edit', status: :created, location: @post }
       else
         format.html { render :'posts/edit', status: :unprocessable_entity }

@@ -1,4 +1,12 @@
 
+                            <hr class="pb-4">
+
+        
+        
+                            
+                        </div>
+
+
         <div class="mt-6 px-5 py-4 bg-white dark:bg-gray-800 shadow rounded-lg w-full">
           <div class="flex mb-4">
             <% if post.user.avatar.attached? %>
@@ -13,13 +21,48 @@
               <% end %>
               </div>
           </div>
+          
           <p class="text-gray-800 dark:text-gray-100 leading-snug md:leading-normal">
-            <%=simple_format(h(post.text)) %>
+            <% if current_user.present?  && current_user.id == post.user_id %>
+            <div x-data="{ open: false, word: 'Edit' }">
+                <button class="float-right" x-on:click="open = ! open, word = (word == 'Edit') ? 'Cancel' : 'Edit'" x-text="word">Edit</button>
+             
+                <div x-show="open">
+                    <%= form_with(url: save_edit_post_path(post.hashid), html: { method: :patch}) do |f| %>
+                    <%= hidden_field 'id', post.hashid  %>
+                        <div class="mb-2">
+                            <textarea name="text", required = true, class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"><%=post.text%></textarea>
+                        </div>
+
+                <div class="flex float-right">    
+                        <button role="submit" class="p-2 rounded-md bg-blue-500 text-white hover:bg-blue-400" required>Save</button>
+                    </div>
+                    <br>
+                    <% end %>
+                </div>
+
+                <div x-show="! open">
+
+                    <%=simple_format(h(post.text)) %>
+
+                </div>
+            </div>
+            <% end %>
+            <!-- component -->
                     </p>
           <div class="flex justify-between items-center mt-5">
           <div class="flex">
-            <svg class="p-0.5 h-6 w-6 rounded-full z-20 bg-white dark:bg-gray-800 " xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 16 16'><defs><linearGradient id='a1' x1='50%' x2='50%' y1='0%' y2='100%'><stop offset='0%' stop-color='#18AFFF'/><stop offset='100%' stop-color='#0062DF'/></linearGradient><filter id='c1' width='118.8%' height='118.8%' x='-9.4%' y='-9.4%' filterUnits='objectBoundingBox'><feGaussianBlur in='SourceAlpha' result='shadowBlurInner1' stdDeviation='1'/><feOffset dy='-1' in='shadowBlurInner1' result='shadowOffsetInner1'/><feComposite in='shadowOffsetInner1' in2='SourceAlpha' k2='-1' k3='1' operator='arithmetic' result='shadowInnerInner1'/><feColorMatrix in='shadowInnerInner1' values='0 0 0 0 0 0 0 0 0 0.299356041 0 0 0 0 0.681187726 0 0 0 0.3495684 0'/></filter><path id='b1' d='M8 0a8 8 0 00-8 8 8 8 0 1016 0 8 8 0 00-8-8z'/></defs><g fill='none'><use fill='url(#a1)' xlink:href='#b1'/><use fill='black' filter='url(#c1)' xlink:href='#b1'/><path fill='white' d='M12.162 7.338c.176.123.338.245.338.674 0 .43-.229.604-.474.725a.73.73 0 01.089.546c-.077.344-.392.611-.672.69.121.194.159.385.015.62-.185.295-.346.407-1.058.407H7.5c-.988 0-1.5-.546-1.5-1V7.665c0-1.23 1.467-2.275 1.467-3.13L7.361 3.47c-.005-.065.008-.224.058-.27.08-.079.301-.2.635-.2.218 0 .363.041.534.123.581.277.732.978.732 1.542 0 .271-.414 1.083-.47 1.364 0 0 .867-.192 1.879-.199 1.061-.006 1.749.19 1.749.842 0 .261-.219.523-.316.666zM3.6 7h.8a.6.6 0 01.6.6v3.8a.6.6 0 01-.6.6h-.8a.6.6 0 01-.6-.6V7.6a.6.6 0 01.6-.6z'/></g></svg>
-            <span class="ml-1 text-gray-500 dark:text-gray-400  font-light">8</span>
+            <% unless current_user.nil?%>
+            <div class="float-right" x-data="{ count: <%=post.likes.size%>, liked: <%=!post.likes.select{|item| item.user_id == current_user.id}.empty?%> }">
+                <a href="javascript:add_like(<%=!current_user.nil? ? current_user.id : -1 %>,null,<%=post.id%>)" @click="if (liked) {count -=1; liked = false;} else { count +=1; liked = true;}">
+
+                      <svg xmlns="http://www.w3.org/2000/svg" id="post-heart-<%=post.id%>" class="<%='text-blue-600' if (!current_user.nil? && !post.likes.select{|item| item.user_id == current_user.id}.empty?)%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+                      </svg>
+                      <span id = "comment-count-<%=post.id%>" x-text = "count" class="float-left ml-1 text-gray-500 dark:text-gray-400  font-light"><%="#{post.likes.size}"%></span>
+                </a>
+        </div>
+        <% end %>
           </div>  
           <%=link_to show_post_path(post.user.username, post.hashid) do%>
             <div class="ml-1 text-gray-500 dark:text-gray-400 font-light"><%=post.comments.size%> comments</div>
