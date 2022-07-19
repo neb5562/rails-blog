@@ -31,9 +31,7 @@ end
     <div class="flex flex-wrap -m-4">
   <% unless @posts.empty? %>
     <% @posts.each do |post| %>
-      <% cache post do %>
         <%=render 'posts/post', {post: post}  %>
-      <% end %>
     <% end %>
     <br>
     <% else %>
