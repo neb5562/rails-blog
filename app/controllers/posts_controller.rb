@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    @posts = Post.where(active: true).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
+    @posts = Post.where(active: true).order('created_at desc').includes(:comments => [:user, :likes]).page(params['page']).per(PER_PAGE)
     render 'posts/index'
   end
 
