@@ -28,7 +28,7 @@ end
 <% end %>
 <section class="text-gray-600 body-font">
   <div class="container py-6 mx-auto">
-    <div class="flex flex-wrap -m-4">
+    <div class="flex flex-wrap">
   <% unless @posts.empty? %>
     <% @posts.each do |post| %>
         <%=render 'posts/post', {post: post}  %>

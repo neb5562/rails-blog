@@ -21,6 +21,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'Avatar updated Successfully!'
       redirect_to user_settings_path
     else
+      flash.now[alert:] = "could not save avatar."
       render @user_avatar.errors, status: :unprocessable_entity
     end
   end

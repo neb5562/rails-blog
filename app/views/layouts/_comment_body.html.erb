@@ -1,0 +1,1 @@
+<%=simple_format(h(comment.body).gsub(/(#)\S+/, '<a href="/{loc}/hashtag/\0" class = "text-blue-800" >\0</a>').gsub(/(@)\S+/, '<a class = "text-blue-800" href="/{loc}/\0/posts">\0</a>').gsub('{loc}', I18n.locale.to_s).html_safe, { class: "leading-normal text-gray-900 border-l-2 px-1 border-blue-500 rounded break-all"}) %>

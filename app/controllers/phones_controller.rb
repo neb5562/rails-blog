@@ -16,6 +16,7 @@ class PhonesController < ApplicationController
       if @phone.save
         redirect_to phone_path, notice: "Phone was successfully created."
       else
+        flash.now[alert:] "could not save phone."
         render :new, status: :unprocessable_entity
       end
   end
@@ -26,6 +27,7 @@ class PhonesController < ApplicationController
       @phone.destroy
       redirect_to phone_path, notice: "Phone was successfully deleted."
     rescue
+      flash.now[alert:] "could not delete phone."
       render :index, status: :unprocessable_entity
     end
   end

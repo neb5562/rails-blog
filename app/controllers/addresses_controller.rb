@@ -3,14 +3,14 @@ class AddressesController < ApplicationController
   PER_PAGE = 6
 
   def new 
-    
+   
     begin
       @address = current_user.addresses.build(address_params)
       @address.save
       redirect_to address_path, notice: "address was successfully created."
     rescue
-      flash[:alert] = "Could not save address"
-      render :new, status: :unprocessable_entity
+      flash.now[:alert] = "Could not save address."
+      render :new
     end
 
   end
