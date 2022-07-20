@@ -21,8 +21,9 @@ class PostsController < ApplicationController
   end
 
   def search_posts 
-      @posts = Post.search(params[:query]).where(active: true).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
-      render 'posts/index'
+    @post = Post.new
+    @posts = Post.search(params[:query]).where(active: true).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
+    render 'posts/index'
   end
 
   def new_post 

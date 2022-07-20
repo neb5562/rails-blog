@@ -3,9 +3,6 @@ if action_name == 'category_posts'
   content_for(:html_title) { 'Category: ' + params[:name].titleize } 
 end 
 %>
-<br>
-<%=render "layouts/search_form" %>
-
 
 <%= form_with(url: save_new_post_path, html: { method: :put, class: "rounded pt-6 pb-8 mb-4" }) do |f| %>
 <% if @post.errors.full_messages.any? %>

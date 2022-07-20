@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   belongs_to :user, counter_cache: true 
   has_many :comments
   has_many :likes
-
+  belongs_to :notification, optional: true
   include Hashid::Rails
 
   validates :text, presence: true,  length: { maximum: 65000 }
@@ -11,7 +11,7 @@ class Post < ApplicationRecord
 
   def self.search(search)
     if search.present?
-      Post.where('lower(title) LIKE ?', "%#{search.downcase}%").or(Post.where('lower(text) LIKE ?', "%#{search.downcase}%"))
+      Post.where('lower(text) LIKE ?', "%#{search.downcase}%")#.or(Post.where('lower(text) LIKE ?', "%#{search.downcase}%"))
     end
   end 
 

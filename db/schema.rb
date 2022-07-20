@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_15_120614) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_20_100757) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -90,6 +90,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_15_120614) do
     t.index ["comment_id"], name: "index_likes_on_comment_id"
     t.index ["post_id"], name: "index_likes_on_post_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "from", null: false
+    t.integer "to", null: false
+    t.string "ntype", null: false
+    t.string "naction", null: false
+    t.string "non", null: false
+    t.boolean "seen", default: false
+    t.boolean "proceed", default: false
+    t.bigint "comment_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_notifications_on_comment_id"
+    t.index ["post_id"], name: "index_notifications_on_post_id"
   end
 
   create_table "phones", force: :cascade do |t|
@@ -175,6 +191,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_15_120614) do
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "users"
+  add_foreign_key "notifications", "comments", on_delete: :cascade
+  add_foreign_key "notifications", "posts", on_delete: :cascade
   add_foreign_key "phones", "users", on_delete: :cascade
   add_foreign_key "post_categories", "categories", on_delete: :cascade
   add_foreign_key "post_categories", "posts", on_delete: :cascade

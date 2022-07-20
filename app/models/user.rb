@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :addresses
   has_many :phones
-
+  has_many :notifications, class_name: 'Notification', foreign_key: 'to'
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_fill: [100, 100]
   end

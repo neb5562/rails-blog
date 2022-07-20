@@ -17,10 +17,11 @@
           </div>
           
           <p class="text-gray-800 dark:text-gray-100 leading-snug md:leading-normal">
-            <% if current_user.present?  && current_user.id == post.user_id %>
+            
             <div x-data="{ open: false, word: 'Edit' }">
+              <% if current_user.present?  && current_user.id == post.user_id %>
                 <button class="float-right" x-on:click="open = ! open, word = (word == 'Edit') ? 'Cancel' : 'Edit'" x-text="word">Edit</button>
-             
+                <% end %>
                 <div x-show="open">
                     <%= form_with(url: save_edit_post_path(post.hashid), html: { method: :patch}) do |f| %>
                     <%= hidden_field 'id', post.hashid  %>
@@ -41,7 +42,7 @@
 
                 </div>
             </div>
-            <% end %>
+            
             <!-- component -->
                     </p>
           <div class="flex justify-between items-center mt-5">
