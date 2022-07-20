@@ -93,7 +93,74 @@
             </div>
             -->
             <div class="uppercase pb-6">&copy; <%=request.base_url%></div>
+            <div class="flex">
+              <button id="states-button" data-dropdown-toggle="dropdown-states" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white dark:text-white" type="button">
+                <% if I18n.locale == I18n.default_locale %>
+                <img
+                src="https://flagcdn.com/w20/us.png"
+                srcset="https://flagcdn.com/w40/us.png 2x"
+                width="20"
+                alt="United States">
+                <% elsif I18n.locale == :ka%>
+                <img
+                src="https://flagcdn.com/w20/ge.png"
+                srcset="https://flagcdn.com/w40/ge.png 2x"
+                width="20"
+                alt="Georgia">
+                <% else %>
+                <img
+                src="https://flagcdn.com/w20/ua.png"
+                srcset="https://flagcdn.com/w40/ua.png 2x"
+                width="20"
+                alt="Ukraine">
+                <%end%>
+              </button>
+              <div id="dropdown-states" class="hidden bg-white z-10 w-auto rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="states-button">
+                      <li>
+                          <button type="button" class="inline-flex py-2 px-4 w-full text-sm text-gray-700 dark:text-gray-400  dark:hover:text-white">
+                              <div class="inline-flex items-center">
+                                  <%= link_to(locale: 'en') do %>
+                                  <img
+                                    src="https://flagcdn.com/w20/us.png"
+                                    srcset="https://flagcdn.com/w40/us.png 2x"
+                                    width="20"
+                                    alt="United States">
+                                    <% end %>
+                              </div>
+                          </button>
+                      </li>
+                      <li>
+                          <button type="button" class="inline-flex py-2 px-4 w-full text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white">
+                              <div class="inline-flex items-center">
+                                <%=   link_to(locale: :ka) do %>
+                                <img
+                                  src="https://flagcdn.com/w20/ge.png"
+                                  srcset="https://flagcdn.com/w40/ge.png 2x"
+                                  width="20"
+                                  alt="Georgia">
+                                <% end %>
+                              </div>
+                          </button>
+                      </li>
+                      <li>
+                          <button type="button" class="inline-flex py-2 px-4 w-full text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white">
+                              <div class="inline-flex items-center">
+                                <%=   link_to(locale: :ua) do %>
+                                <img
+                                src="https://flagcdn.com/w20/ua.png"
+                                srcset="https://flagcdn.com/w40/ua.png 2x"
+                                width="20"
+                                alt="Ukraine">
+                                <% end %>
+                              </div>
+                          </button>
+                      </li>
+                  </ul>
+              </div>
+          </div>
         </div>
+        
     </footer>
 
 </body>
