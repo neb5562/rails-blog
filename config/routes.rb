@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   scope "/:locale", locale: /en|ka|ua/ do
     devise_for :users, skip: :omniauth_callbacks, controllers: {
-      sessions: 'users/sessions'
+      sessions: 'users/sessions',
+      registrations: 'users/registrations'
     }
 
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -38,7 +39,8 @@ Rails.application.routes.draw do
     get "/profile/settings/phones", to: "phones#index", as: :phone
     delete "/profile/phone/:phone/delete", to: "phones#delete", as: :delete_phone
 
-    get "/profile/settings/privacy", to: "users#privacy", as: :privacy
+    get "/profile/settings/privacy", to: "privacy#index", as: :privacy
+    put "/profile/settings/privacy", to: "privacy#save", as: :save_privacy
     get "/categories/new", to: "categories#new", as: :new_category
     put "/categories/new", to: "categories#create", as: :save_new_category
     get "/profile/categories", to: "categories#index", as: :user_post_actegories

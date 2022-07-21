@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :except => [:index, :activity]
+  before_action :authenticate_user!
 
   def avatar;end
 
@@ -36,10 +36,6 @@ class UsersController < ApplicationController
     @activity = (@posts + @comments + @likes).group_by{|x| x.created_at.strftime("%b %d, %Y")}.sort.reverse
 
     render 'users/index'
-  end
-
-  def privacy 
-    
   end
 
   private

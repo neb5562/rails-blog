@@ -12,13 +12,14 @@ class User < ApplicationRecord
 
   has_settings do |s|
     s.key :settings, :defaults => { :user_post_color => '#3b82f680' }
+    s.key :privacy, :defaults => { :user_email_notify_on_new_ip => 'false' }
   end
 
   include Hashid::Rails
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :trackable
 
   devise :omniauthable, omniauth_providers: [:google_oauth2]
 
