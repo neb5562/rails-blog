@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_22_061151) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_22_104148) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -108,6 +108,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_061151) do
     t.index ["post_id"], name: "index_notifications_on_post_id"
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.boolean "status", default: false
+    t.string "payment_type", null: false
+    t.string "transaction_id"
+    t.bigint "user_id"
+    t.bigint "subscription_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subscription_id"], name: "index_payments_on_subscription_id"
+    t.index ["user_id"], name: "index_payments_on_user_id"
+  end
+
   create_table "phones", force: :cascade do |t|
     t.string "phone"
     t.string "country"
@@ -159,6 +171,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_061151) do
     t.index ["target_type", "target_id"], name: "index_settings_on_target_type_and_target_id"
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "start_at", null: false
+    t.datetime "end_at", null: false
+    t.decimal "price", precision: 8, scale: 2
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -202,8 +225,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_061151) do
   add_foreign_key "likes", "users"
   add_foreign_key "notifications", "comments", on_delete: :cascade
   add_foreign_key "notifications", "posts", on_delete: :cascade
+  add_foreign_key "payments", "subscriptions", on_delete: :cascade
+  add_foreign_key "payments", "users", on_delete: :cascade
   add_foreign_key "phones", "users", on_delete: :cascade
   add_foreign_key "post_categories", "categories", on_delete: :cascade
   add_foreign_key "post_categories", "posts", on_delete: :cascade
   add_foreign_key "posts", "users"
+  add_foreign_key "subscriptions", "users", on_delete: :cascade
 end

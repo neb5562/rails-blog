@@ -46,7 +46,8 @@ Rails.application.routes.draw do
     get "/profile/categories", to: "categories#index", as: :user_post_actegories
     get "/category/:name", to: "categories#category_posts", as: :show_category_posts
     match '/search',  to: 'posts#search_posts', via: 'get', as: :search
-
+    get "/charges/new", to: 'charges#new', as: :new_charges
+    post "/charges/new", to: 'charges#create', as: :charges
     match '/auth/:provider/callback', :to => 'omniauth#google_oauth2', :via => [:get, :post]
   end
   
