@@ -54,8 +54,9 @@ class User < ApplicationRecord
            username: data['email'].split("@").first.gsub(/[^0-9a-zA-Z]/i, '').downcase[0,12],
            password: Devise.friendly_token[0,20]
         )
+        return { user: user, new_user: true }
     end
-    user
+   { user: user, new_user: false }
   end
 
   private
