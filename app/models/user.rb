@@ -16,7 +16,7 @@ class User < ApplicationRecord
   end
 
   include Hashid::Rails
-  # Include default devise modules. Others available are:
+  # Include default devise modules. Others available are::database_authenticatable, :confirmable
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
@@ -64,5 +64,9 @@ class User < ApplicationRecord
   def assign_default_role
     self.add_role(:user) if self.roles.blank?
   end
+
+  # def after_confirmation
+  #   welcome_email
+  # end
 
 end
