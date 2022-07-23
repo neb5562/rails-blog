@@ -38,6 +38,13 @@ class UsersController < ApplicationController
     render 'users/index'
   end
 
+  def premium
+    flash[:notice] = "Payment success!" if params[:success] == 1
+    @subscription = current_user.subscriptions.order("end_at").last
+    # @payment = @subscription.payments.last
+    # @status = @subscription.end_at < Time.now && @payment.status == true
+  end
+
   private
 
   def user_settings

@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :addresses
   has_many :phones
-  has_one :subscription
+  has_many :subscriptions
   has_many :payments
   has_many :notifications, class_name: 'Notification', foreign_key: 'to'
   has_one_attached :avatar do |attachable|
@@ -42,6 +42,10 @@ class User < ApplicationRecord
 
   def admin?
     self.has_role? :admin
+  end
+
+  def premium?
+
   end
 
   def self.from_omniauth(access_token)
