@@ -21,7 +21,6 @@ class ChargesController < ApplicationController
           product: 'prod_M6wcKdUbCstfYH',
           unit_amount: price,
           currency: 'usd',
-          price: "price_1LOiizGxO3oVs6cuHTAXO2Wk"
         },
         quantity: 1,
       ],
