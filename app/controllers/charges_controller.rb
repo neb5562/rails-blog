@@ -10,7 +10,7 @@ class ChargesController < ApplicationController
     price = PRICES[params[:month]]
     transaction_id = SecureRandom.urlsafe_base64
 
-    generate_payment(transaction_id, price, params[:month])
+    gp = generate_payment(transaction_id, price, params[:month])
 
     @session = Stripe::Checkout::Session.create({
       payment_method_types: ['card'],
@@ -28,7 +28,7 @@ class ChargesController < ApplicationController
       success_url: "#{request.protocol + request.host_with_port}/#{I18n.locale}/premium?success=1&session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "#{request.protocol + request.host_with_port}/#{I18n.locale}/charges/new?success=0",
     })
-    redirect_to charges_path + '/?session_id=' + @session.id 
+    redirect_to charges_path + '/?session_id=' + @session.id
     
   rescue Stripe::CardError => e
     flash[:alert] = e.message
@@ -38,15 +38,13 @@ class ChargesController < ApplicationController
   private
 
   def generate_payment(transaction_id, price, months_count)
-    subscription = Subscription.new(name: "Premium", price: price.to_f / 100, start_at: nil, end_at: nil, months: months_count)
-    subscription.user = current_user
-
-    payment = Payment.new(transaction_id: transaction_id, status: false, payment_type: "stripe")
-    payment.subscription = subscription
-    payment.user = current_user
-  
     ActiveRecord::Base.transaction do
+      subscription = Subscription.new(name: "Premium", price: price.to_f / 100, start_at: nil, end_at: nil, months: months_count)
+      subscription.user = current_user
       subscription.save!
+      payment = Payment.new(transaction_id: transaction_id, status: false, payment_type: "stripe")
+      payment.subscription = subscription
+      payment.user = current_user
       payment.save!
     rescue
       flash[:alert] = "Something went wrong"
