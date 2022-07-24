@@ -12,11 +12,11 @@ end
     </div>
   <% end %>
   <div class="mb-2">
-    <textarea name="text" rows="4" class="dark:bg-gray-600 dark:text-white dark:placeholder-white text-xl placeholder-gray-900 shadow border dark:border-gray-800 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Say Something..." ></textarea>
+    <textarea name="text" rows="4" class="dark:bg-gray-600 dark:text-slate-200 dark:placeholder-white text-xl placeholder-gray-900 shadow border dark:border-gray-800 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Say Something..." ></textarea>
   </div>
   <div class="flex p-1 float-right">
-    <%= f.select :active, [['Save and Publish', true], ['Save Draft', false]], class: 'border-2 border-gray-300 border-r p-2' %>
-    <button role="submit" class="rounded-lg p-3 bg-blue-500 text-white hover:bg-blue-400" required>Submit</button>
+    <%= f.select :active, [['Save and Publish', true], ['Save Draft', false]], {}, { class: 'p-2 dark:bg-gray-700 text-sm dark:text-slate-200'} %>
+    <button role="submit" class="rounded-lg p-3 bg-blue-500 text-slate-200 hover:bg-blue-400" required>Submit</button>
   </div>
 <% end %>
 <section class="text-gray-600 body-font">

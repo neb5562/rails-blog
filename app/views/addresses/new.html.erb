@@ -18,7 +18,7 @@
           <input type="text", required = true, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="query" id="title" value="" >
         </div>
         <div class="flex p-1">
-          <button role="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400"><%=t('find')%></button>
+          <button role="submit" class="p-3 bg-blue-500 text-slate-200 hover:bg-blue-400"><%=t('find')%></button>
         </div>
       <% end %>
     </div>
@@ -73,7 +73,7 @@
                       <%= f.hidden_field :country , value: address['country']%>
                       <%= f.hidden_field :longitude , value: address['longitude']%>
                       <%= f.hidden_field :latitude , value: address['latitude']%>
-                      <button type="submit" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <button type="submit" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-slate-200 bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         <%=t('choose')%>
                       </button>
                     <% end %>

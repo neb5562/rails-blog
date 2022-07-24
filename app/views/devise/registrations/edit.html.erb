@@ -38,7 +38,7 @@
       <%= f.password_field :current_password, :required => true, autocomplete: "current-password", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  %>
     </div>
     <div class="flex items-baseline justify-between">
-      <%= f.submit t("update"), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+      <%= f.submit t("update"), class: 'bg-blue-500 hover:bg-blue-700 text-slate-200 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
     </div>
   <% end %>
   <div class="mb-0 m-auto w-full text-right">
@@ -57,7 +57,7 @@
             </p>
           </div>
         </div>
-        <%= button_to t("delete"), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'flex-no-shrink bg-red-500 px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-red-500 text-white rounded' %>
+        <%= button_to t("delete"), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'flex-no-shrink bg-red-500 px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-red-500 text-slate-200 rounded' %>
       </div>
     </div>
   </div>
