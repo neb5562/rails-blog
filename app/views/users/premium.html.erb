@@ -8,7 +8,7 @@
         <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="<%=image_url("premiumbadge.png")%>" alt="">
         <div class="flex flex-col justify-between p-4 leading-normal">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Your Premium plan is active</h5>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">ends in</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Days left: <%=(@subscription.end_at.to_date - Date.current).to_i%></p>
         </div>
     </div>
     <% else %>

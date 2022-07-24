@@ -41,7 +41,6 @@ class UsersController < ApplicationController
   def premium
     flash[:notice] = "Payment success!" if params[:success] == 1
     @subscription = current_user.subscriptions.last
-    # @payment = @subscription.payments.last
     @status = current_user.premium?
   end
 

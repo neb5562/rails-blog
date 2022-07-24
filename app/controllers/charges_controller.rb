@@ -6,6 +6,10 @@ class ChargesController < ApplicationController
   end
 
   def create_subscription
+    if current_user.premium? 
+      redirect_to premium_path 
+      return
+    end
     error_page unless PRICES.key?(params[:month])
     price = PRICES[params[:month]]
     transaction_id = SecureRandom.urlsafe_base64
