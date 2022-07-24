@@ -7,6 +7,7 @@ class ChargesController < ApplicationController
 
   def create_subscription
     if current_user.premium? 
+      flash[:alert] = "You already have premium!"
       redirect_to premium_path 
       return
     end
