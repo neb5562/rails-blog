@@ -46,9 +46,9 @@ class User < ApplicationRecord
 
   def premium?
     last_sub = subscriptions.last
-    false if last_sub.nil?
+    return false if last_sub.nil?
     last_p = last_sub.payments.last
-    false if last_p.nil?
+    return false if last_p.nil?
     last_sub.end_at > Time.now && last_p.status == true
   end
 
