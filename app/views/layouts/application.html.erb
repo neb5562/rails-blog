@@ -46,10 +46,10 @@
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 <%= javascript_importmap_tags %>
-<%= javascript_include_tag "application", "jquery", "toastr", "like" %>
+<%= javascript_include_tag "application", "jquery", "toastr", "like", "stripe" %>
 <%= csrf_meta_tag %>
 </head>
-<body class="bg-gray-100 font-family-karla">
+<body class="bg-gray-100 dark:bg-gray-700 font-family-karla">
     <!-- Top Bar Nav -->
 <%=render "layouts/navbar" %>
 
@@ -104,7 +104,7 @@
     <%= yield %>
  </div>
 
-<footer class="clear-both w-full border-t bg-white pb-12">
+<footer class="clear-both w-full border-t bg-white pb-12 dark:bg-gray-700">
 
         <div class="w-full container mx-auto flex flex-col items-center">
            <!-- <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
