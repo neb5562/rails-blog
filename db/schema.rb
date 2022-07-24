@@ -173,8 +173,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_104148) do
 
   create_table "subscriptions", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "start_at", null: false
-    t.datetime "end_at", null: false
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.integer "months", null: false
     t.decimal "price", precision: 8, scale: 2
     t.bigint "user_id"
     t.datetime "created_at", null: false

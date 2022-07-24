@@ -1,7 +1,6 @@
 class ChargesController < ApplicationController
   before_action :authenticate_user!
   PRICES = {'1' => 999, '3' => 2499, '6' => 4999, '12' => 9999}
-
   def new
     @amount = PRICES['1']
   end
@@ -29,12 +28,11 @@ class ChargesController < ApplicationController
       success_url: "#{request.protocol + request.host_with_port}/#{I18n.locale}/premium?success=1&session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "#{request.protocol + request.host_with_port}/#{I18n.locale}/charges/new?success=0",
     })
-    redirect_to charges_path + '/?session_id=' + @session.id
-    return
+    redirect_to charges_path + '/?session_id=' + @session.id 
     
   rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to new_charge_path
+    flash[:alert] = e.message
+    return false
   end
 
   private
@@ -52,7 +50,7 @@ class ChargesController < ApplicationController
       payment.save!
     rescue
       flash[:alert] = "Something went wrong"
-      redirect_to charges_path
+      return false
     end
   end
 end
