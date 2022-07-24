@@ -1,62 +1,51 @@
 <% content_for(:html_title) { 'Settings' } %>
 <%=render "layouts/users_sidebar" %>
 <%=render "layouts/settings_nav" %>
-
-
-
 <div class = "mt-10 float-left w-full max-w-4xl content-center">
   <div class="flex flex-wrap -mx-1 lg:-mx-4">
-      <% unless @addresses.nil? %>
+    <% unless @addresses.nil? %>
       <!-- Column -->
       <% @addresses.each do |address|%>
-      <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-
+        <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
           <!-- Article -->
-          
           <article class="overflow-hidden rounded-lg shadow-lg">
-
-              <header class="flex items-center justify-between leading-tight p-2 md:p-4">
-                  <h1 class="text-lg">
-                      <p class="no-underline hover:underline text-black" href="#">
-                          <%=address['label']%>
-                      </p>
-                  </h1>
-              </header>
-
-              <hr>
-              <div class="p-2 md:p-4">
+            <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+              <h1 class="text-lg">
+                <p class="no-underline hover:underline text-black" href="#">
+                  <%=address['label']%>
+                </p>
+              </h1>
+            </header>
+            <hr>
+            <div class="p-2 md:p-4">
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  <bold class="font-bold">Street:</bold> <%="#{address['street']}"%>
+                <bold class="font-bold">Street:</bold> <%="#{address['street']}"%>
               </p>
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  <bold class="font-bold">Street number:</bold> <%="#{address['number']}"%>
+                <bold class="font-bold">Street number:</bold> <%="#{address['number']}"%>
               </p>
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  <bold class="font-bold">postal code:</bold> <%="#{address['postal_code']}"%>
+                <bold class="font-bold">postal code:</bold> <%="#{address['postal_code']}"%>
               </p>
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  <bold class="font-bold">region:</bold> <%="#{address['region']}"%>
+                <bold class="font-bold">region:</bold> <%="#{address['region']}"%>
               </p>
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  <bold class="font-bold">county:</bold> <%="#{address['county']}"%>
+                <bold class="font-bold">county:</bold> <%="#{address['county']}"%>
               </p>
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  <bold class="font-bold">country:</bold> <%="#{address['country']}"%>
+                <bold class="font-bold">country:</bold> <%="#{address['country']}"%>
               </p>
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  <bold class="font-bold">Street:</bold> <%="#{address['street']}"%>
+                <bold class="font-bold">Street:</bold> <%="#{address['street']}"%>
               </p>
-
-              </div>
-
+            </div>
           </article>
           <!-- END Article -->
-
-      </div>
+        </div>
       <% end %>
-
-      <% end %>
-      <!-- END Column -->
+    <% end %>
+    <!-- END Column -->
   </div>
   <div class="mx-auto text-center mt-10 mb-10">
     <%= paginate @addresses %>

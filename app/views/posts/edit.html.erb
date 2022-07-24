@@ -1,23 +1,22 @@
 <% content_for(:html_title) { "Edit post: #{@post.post_title}" } %>
 <%=render "layouts/users_sidebar" %>
 <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                <%=link_to "View post", show_post_url(@post.hashid), target: "_blank"%>
-                    <%= form_with(url: save_edit_post_path, html: { method: :put, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" }) do |f| %>
-                       <% if @post.errors.full_messages.any? %>
-                            <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
-                            <% @post.errors.full_messages.each do |error_message| %>
-                              <%=error_message %><br>
-                            <% end %>
-                            </div>
-                        <% end %>
-                                                <div class="mb-4">
-                        
-                            <label class="text-xl text-gray-600">Category <span class="text-red-500">*</span></label></br>
-                            <i>you can select multiple categories when holding <b>ctrl</b></i>
-                            <%= f.collection_select :categories, Category.all, :id, :name, { :prompt => nil, :selected => @post.categories.pluck(:id)  }, { :multiple => true, :size => 5, :class => "form-select appearance-none
+  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+      <div class="p-6 bg-white border-b border-gray-200">
+        <%=link_to "View post", show_post_url(@post.hashid), target: "_blank"%>
+        <%= form_with(url: save_edit_post_path, html: { method: :put, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" }) do |f| %>
+          <% if @post.errors.full_messages.any? %>
+            <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+              <% @post.errors.full_messages.each do |error_message| %>
+                <%=error_message %><br>
+              <% end %>
+            </div>
+          <% end %>
+          <div class="mb-4">
+            <label class="text-xl text-gray-600">Category <span class="text-red-500">*</span></label></br>
+          <i>you can select multiple categories when holding <b>ctrl</b></i>
+          <%= f.collection_select :categories, Category.all, :id, :name, { :prompt => nil, :selected => @post.categories.pluck(:id)  }, { :multiple => true, :size => 5, :class => "form-select appearance-none
       block
       w-full
       px-3
@@ -32,40 +31,34 @@
       ease-in-out
       m-0
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" } %>
-                        </div>
-                        <div class="mb-4">
-                            <label class="text-xl text-gray-600">Title <span class="text-red-500">*</span></label></br>
-                            <input type="text", required = true, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="title" id="title" value="<%=@post.post_title%>" >
-                        </div>
-
-                        <div class="mb-4">
-                            <label class="text-xl text-gray-600">Description<span class="text-red-500">*</span></label></br>
-                            <input type="text", required = true, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="description" id="description" placeholder="" value = "<%=@post.post_description%>">
-                        </div>
-
-                        <div class="mb-8">
-                            <label class="text-xl text-gray-600">Content <span class="text-red-500">*</span></label></br>
-                            <textarea name="text", required = true, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label class="text-xl text-gray-600">Title <span class="text-red-500">*</span></label></br>
+        <input type="text", required = true, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="title" id="title" value="<%=@post.post_title%>" >
+      </div>
+      <div class="mb-4">
+        <label class="text-xl text-gray-600">Description<span class="text-red-500">*</span></label></br>
+      <input type="text", required = true, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="description" id="description" placeholder="" value = "<%=@post.post_description%>">
+    </div>
+    <div class="mb-8">
+      <label class="text-xl text-gray-600">Content <span class="text-red-500">*</span></label></br>
+    <textarea name="text", required = true, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                 <%=@post.post_text%>
                             </textarea>
-                        </div>
-
-                        <div class="flex p-1">
-                        <%= f.select :active, [['Save and Publish', true], ['Save Draft', false]], selected: @post.active, class: 'border-2 border-gray-300 border-r p-2' %>
-
-                            <button role="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400" required>Submit</button>
-                        </div>
-                    <% end %>
-                      <div class="mb-0 m-auto w-full text-right">
-<%= button_to "Delete post", delete_user_post_path(@post.hashid), data: { confirm: "Are you sure?" }, method: :delete, class: 'text-red-700' %>
+  </div>
+  <div class="flex p-1">
+    <%= f.select :active, [['Save and Publish', true], ['Save Draft', false]], selected: @post.active, class: 'border-2 border-gray-300 border-r p-2' %>
+    <button role="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400" required>Submit</button>
+  </div>
+<% end %>
+<div class="mb-0 m-auto w-full text-right">
+  <%= button_to "Delete post", delete_user_post_path(@post.hashid), data: { confirm: "Are you sure?" }, method: :delete, class: 'text-red-700' %>
 </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
-
-    <script>
-        CKEDITOR.replace( 'post_text' );
-    </script>
+</div>
+</div>
+</div>
+</div>
+<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script>
+  CKEDITOR.replace( 'post_text' );
+</script>

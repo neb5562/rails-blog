@@ -1,37 +1,33 @@
  <script src="https://js.stripe.com/v3/"></script>
 <script>
-change_price(999);
+  change_price(999);
 </script>
-
-
 <% if params[:session_id] %>
   <script>
-  var stripe = Stripe("<%=ENV['PUBLISHABLE_KEY']%>");
-    stripe.redirectToCheckout({
-      // Make the id field from the Checkout Session creation API response
-      // available to this file, so you can provide it as argument here
-      // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
-      sessionId: "<%=params[:session_id]%>"
-    }).then(function (result) {
-      // If `redirectToCheckout` fails due to a browser or network
-      // error, display the localized error message to your customer
-      // using `result.error.message`.
-    });
+    var stripe = Stripe("<%=ENV['PUBLISHABLE_KEY']%>");
+      stripe.redirectToCheckout({
+        // Make the id field from the Checkout Session creation API response
+        // available to this file, so you can provide it as argument here
+        // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+        sessionId: "<%=params[:session_id]%>"
+      }).then(function (result) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer
+        // using `result.error.message`.
+      });
   </script>
 <% end %>
-
-
 <style>
   .stripe-button-el {
-    
+
     border-radius: 0.2em !important;
     border: 0 !important;
     background-image: none !important;
     background-color: #2557D6 !important;
     font-weight: normal !important;
-}
+  }
 
-.stripe-button-el span {
+  .stripe-button-el span {
     font-family: sans-serif !important;
     -webkit-font-smoothing: antialiased;
     font-weight: normal !important;
@@ -41,65 +37,60 @@ change_price(999);
     background-image: none !important;
     background: #2557D6 !important;
     background-color: #2557D6 !important;
-}
+  }
 </style>
-
-
 <div class="container mx-auto flex flex-wrap py-6">
   <!-- Post Section -->
   <div class="w-full flex flex-col items-center px-3 mx-auto">
-
-  <div class="block mx-auto ml-2 mr-2 p-4 w-1/4 bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-    <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Premium plan</h5>
-    <div class="flex items-baseline text-gray-900 dark:text-white">
+    <div class="block mx-auto ml-2 mr-2 p-4 w-1/4 bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Premium plan</h5>
+      <div class="flex items-baseline text-gray-900 dark:text-white">
         <span class="text-3xl font-semibold">$</span>
         <span id = "premprice" class="text-5xl font-extrabold tracking-tight"><%=@amount.to_f / 100%></span>
         <span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span>
-    </div>
-    <%= form_tag charges_path do %>
-    <div class="flex items-center mt-2 pl-4 rounded border border-gray-200 dark:border-gray-700">
-      <input checked onchange="javascript:change_price(999);" id="bordered-radio-1" type="radio" value="1" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-      <label for="bordered-radio-1" class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">1 month</label>
-  </div>
-  <div class="flex items-center mt-2 pl-4 rounded border border-gray-200 dark:border-gray-700">
-      <input onchange="javascript:change_price(2499);"  id="bordered-radio-2" type="radio" value="3" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-      <label for="bordered-radio-2" class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">3 months</label>
-  </div>
-  <div class="flex items-center mt-2 pl-4 rounded border border-gray-200 dark:border-gray-700">
-    <input  onchange="javascript:change_price(4999);" id="bordered-radio-3" type="radio" value="6" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-    <label for="bordered-radio-3" class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">6 months</label>
-</div>
-<div class="flex items-center mt-2 pl-4 rounded border border-gray-200 dark:border-gray-700">
-  <input  onchange="javascript:change_price(9999);" id="bordered-radio-4" type="radio" value="12" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-  <label for="bordered-radio-4" class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">12 months</label>
-</div>
-
-    <!-- List -->
-    <ul role="list" class="my-7 space-y-5">
-        <li class="flex space-x-3">
+      </div>
+      <%= form_tag charges_path do %>
+        <div class="flex items-center mt-2 pl-4 rounded border border-gray-200 dark:border-gray-700">
+          <input checked onchange="javascript:change_price(999);" id="bordered-radio-1" type="radio" value="1" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+          <label for="bordered-radio-1" class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">1 month</label>
+        </div>
+        <div class="flex items-center mt-2 pl-4 rounded border border-gray-200 dark:border-gray-700">
+          <input onchange="javascript:change_price(2499);"  id="bordered-radio-2" type="radio" value="3" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+          <label for="bordered-radio-2" class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">3 months</label>
+        </div>
+        <div class="flex items-center mt-2 pl-4 rounded border border-gray-200 dark:border-gray-700">
+          <input  onchange="javascript:change_price(4999);" id="bordered-radio-3" type="radio" value="6" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+          <label for="bordered-radio-3" class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">6 months</label>
+        </div>
+        <div class="flex items-center mt-2 pl-4 rounded border border-gray-200 dark:border-gray-700">
+          <input  onchange="javascript:change_price(9999);" id="bordered-radio-4" type="radio" value="12" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+          <label for="bordered-radio-4" class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">12 months</label>
+        </div>
+        <!-- List -->
+        <ul role="list" class="my-7 space-y-5">
+          <li class="flex space-x-3">
             <!-- Icon -->
             <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Check icon</title><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
             <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">use reaction emojis</span>
-        </li>
-        <li class="flex space-x-3">
+          </li>
+          <li class="flex space-x-3">
             <!-- Icon -->
             <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Check icon</title><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
             <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">Cool badge on profile</span>
-        </li>
-        <li class="flex space-x-3">
+          </li>
+          <li class="flex space-x-3">
             <!-- Icon -->
             <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Check icon</title><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
             <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">See who visited my profile</span>
-        </li>
-        <li class="flex space-x-3">
-          <!-- Icon -->
-          <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Check icon</title><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-          <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">signature under comment</span>
-      </li>
-    </ul>
-    <button type="submit" class="text-white float-right bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buy</button>
-    </div>
-  <% end %>
+          </li>
+          <li class="flex space-x-3">
+            <!-- Icon -->
+            <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Check icon</title><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+            <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">signature under comment</span>
+          </li>
+        </ul>
+        <button type="submit" class="text-white float-right bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buy</button>
+      </div>
+    <% end %>
   </div>
-  </div>
-
+</div>

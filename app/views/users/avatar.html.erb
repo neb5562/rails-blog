@@ -1,37 +1,33 @@
 <% content_for(:html_title) { 'Settings' } %>
 <%=render "layouts/users_sidebar" %>
 <%=render "layouts/settings_nav" %>
-
 <div class = "mt-10 float-left w-full max-w-4xl content-center">
-	<div class="max-w-md w-full space-y-8 p-10 bg-white rounded-xl shadow-lg">
-<div class="grid  gap-8 grid-cols-1">
-	<div class="flex flex-col ">
-			<div class="flex flex-col sm:flex-row items-center">
-				<div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
-			</div>
-			<div class="mt-5">
+  <div class="max-w-md w-full space-y-8 p-10 bg-white rounded-xl shadow-lg">
+    <div class="grid  gap-8 grid-cols-1">
+      <div class="flex flex-col ">
+        <div class="flex flex-col sm:flex-row items-center">
+          <div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
+        </div>
+        <div class="mt-5">
           <%=form_with(url: save_user_avatar_path, method: :post) do |form| %>
-					<div class="md:space-y-2 mb-3">
-						<label class="block font-bold mb-1"><%=t('profile_picture')%><abbr class="hidden" title="required">*</abbr></label>
-						<div class="flex items-center py-6">
-							<div class="w-12 h-12 mr-4 flex-none rounded-xl border overflow-hidden">
-								<% if current_user.avatar.attached? %>
-								<%= image_tag current_user.avatar.variant(:thumb), class: 'w-12 h-12 full'%>
-							<% else %>
-							 <%=image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'w-12 h-12 rounded-full') %>
-							<% end %>
+            <div class="md:space-y-2 mb-3">
+              <label class="block font-bold mb-1"><%=t('profile_picture')%><abbr class="hidden" title="required">*</abbr></label>
+              <div class="flex items-center py-6">
+                <div class="w-12 h-12 mr-4 flex-none rounded-xl border overflow-hidden">
+                  <% if current_user.avatar.attached? %>
+                    <%= image_tag current_user.avatar.variant(:thumb), class: 'w-12 h-12 full'%>
+                  <% else %>
+                    <%=image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'w-12 h-12 rounded-full') %>
+                  <% end %>
                 </div>
-								<label class="cursor-pointer ">
+                <label class="cursor-pointer ">
                   <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"><%=t('browse')%></span>
                   <!-- <input type="file" class="hidden" :multiple="false" :accept="accept" name="avatar"> -->
-									<%= form.file_field :'[settings]avatar', hidden:true %>
-
+                  <%= form.file_field :'[settings]avatar', hidden:true %>
                 </label>
-							</div>
-						</div>
-
-
-<!--
+              </div>
+            </div>
+            <!--
 						<div class="mb-3 space-y-2 w-full text-xs">
 							<label class=" font-semibold text-gray-600 py-2">Company  Website</label>
 							<div class="flex flex-wrap items-stretch w-full mb-4 relative">
@@ -67,13 +63,11 @@
 									<p class="text-xs text-gray-400 text-left my-3">You inserted 0 characters</p>
 								</div>
                 -->
-
-								<div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
-									<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"><%=t('save')%></button>
-								</div>
-							</div>
-						</div>
-					</div>
-          
-				<% end %>
-			</div>
+            <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"><%=t('save')%></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>

@@ -1,56 +1,46 @@
 <% content_for(:html_title) { "Edit Profile" } %>
 <%=render "layouts/users_sidebar" %>
 <div class="mt-10 float-left w-full max-w-lg content-center">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" }) do |f| %>
-     <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" }) do |f| %>
+    <%= devise_error_messages! %>
     <% flash.each do |key, value| %>
-       <div class="flash <%= key %> text-red-700"><%= value %></div>
+      <div class="flash <%= key %> text-red-700"><%= value %></div>
     <% end %>
-
-
-  <div class="mb-4">
-    <%= f.label t('email'), class: 'block text-gray-700 text-sm font-bold' %><br />
-    <%= f.email_field :email, autofocus: true, :required => true, autocomplete: "email", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-  </div>
-
-  <div class="mb-4">
-    <%= f.label t('username'), class: 'block text-gray-700 text-sm font-bold' %><br />
-    <%= f.text_field :username, autofocus: true, :required => true, autocomplete: "email", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-  </div>
-
     <div class="mb-4">
-    <%= f.label t('full_name'), class: 'block text-gray-700 text-sm font-bold' %><br />
-    <%= f.text_field :full_name, autofocus: true, :required => true, autocomplete: "email", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="mb-4">
-    <%= f.label t('password'), class: 'block text-gray-700 text-sm font-bold' %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <%= f.label t('email'), class: 'block text-gray-700 text-sm font-bold' %><br />
+      <%= f.email_field :email, autofocus: true, :required => true, autocomplete: "email", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+    </div>
+    <div class="mb-4">
+      <%= f.label t('username'), class: 'block text-gray-700 text-sm font-bold' %><br />
+      <%= f.text_field :username, autofocus: true, :required => true, autocomplete: "email", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+    </div>
+    <div class="mb-4">
+      <%= f.label t('full_name'), class: 'block text-gray-700 text-sm font-bold' %><br />
+      <%= f.text_field :full_name, autofocus: true, :required => true, autocomplete: "email", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+    </div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-  </div>
-
-  <div class="mb-4">
-    <%= f.label t('password_confirmation'), class: 'block text-gray-700 text-sm font-bold' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  %>
-  </div>
-
-  <div class="mb-4">
-    <%= f.label t('current_password'), class: 'block text-gray-700 text-sm font-bold' %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, :required => true, autocomplete: "current-password", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  %>
-  </div>
-
-  <div class="flex items-baseline justify-between">
-    <%= f.submit t("update"), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
-  </div>
-
-<% end %>
+    <div class="mb-4">
+      <%= f.label t('password'), class: 'block text-gray-700 text-sm font-bold' %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+    <div class="mb-4">
+      <%= f.label t('password_confirmation'), class: 'block text-gray-700 text-sm font-bold' %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  %>
+    </div>
+    <div class="mb-4">
+      <%= f.label t('current_password'), class: 'block text-gray-700 text-sm font-bold' %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password, :required => true, autocomplete: "current-password", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  %>
+    </div>
+    <div class="flex items-baseline justify-between">
+      <%= f.submit t("update"), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+    </div>
+  <% end %>
   <div class="mb-0 m-auto w-full text-right">
     <div class="flex flex-col p-8 bg-white shadow-md hover:shodow-lg rounded">
       <div class="flex items-center justify-between">
@@ -70,14 +60,8 @@
         <%= button_to t("delete"), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'flex-no-shrink bg-red-500 px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-red-500 text-white rounded' %>
       </div>
     </div>
-
+  </div>
+  <div class="my-10 m-auto w-full max-w-xs text-center">
+    <%= link_to t("back"), :back %>
+  </div>
 </div>
-
-<div class="my-10 m-auto w-full max-w-xs text-center">
-<%= link_to t("back"), :back %>
-</div>
-</div>
-
-
-
-

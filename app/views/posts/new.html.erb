@@ -1,18 +1,18 @@
 <% content_for(:html_title) { 'New post' } %>
 <%=render "layouts/users_sidebar" %>
 <div class = "mt-10 float-left w-full max-w-4xl content-center">
-        <div>
-            <div>
-                <div>
-                    <%= form_with(url: save_new_post_path, html: { method: :put, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" }) do |f| %>
-                       <% if @post.errors.full_messages.any? %>
-                            <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
-                            <% @post.errors.full_messages.each do |error_message| %>
-                              <%=error_message %><br>
-                            <% end %>
-                            </div>
-                        <% end %>
-                        <!-- <div class="mb-4">
+  <div>
+    <div>
+      <div>
+        <%= form_with(url: save_new_post_path, html: { method: :put, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" }) do |f| %>
+          <% if @post.errors.full_messages.any? %>
+            <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+              <% @post.errors.full_messages.each do |error_message| %>
+                <%=error_message %><br>
+              <% end %>
+            </div>
+          <% end %>
+          <!-- <div class="mb-4">
                         
                             <label class="text-xl text-gray-600">Category <span class="text-red-500">*</span></label></br>
                             <i>you can select multiple categories when holding <b>ctrl</b></i>
@@ -32,24 +32,21 @@
       m-0
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" } %>
                         </div> -->
-
-                        <div class="mb-8">
-                            <label class="text-xl text-gray-600">Content <span class="text-red-500">*</span></label></br>
-                            <textarea name="text", required = true, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <div class="mb-8">
+            <label class="text-xl text-gray-600">Content <span class="text-red-500">*</span></label></br>
+          <textarea name="text", required = true, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                 
                             </textarea>
-                        </div>
-
-                        <div class="flex p-1">
-                        <%= f.select :active, [['Save and Publish', true], ['Save Draft', false]], class: 'border-2 border-gray-300 border-r p-2' %>
-
-                            <button role="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400" required>Submit</button>
-                        </div>
-                    <% end %>
-                </div>
-            </div>
         </div>
+        <div class="flex p-1">
+          <%= f.select :active, [['Save and Publish', true], ['Save Draft', false]], class: 'border-2 border-gray-300 border-r p-2' %>
+          <button role="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400" required>Submit</button>
+        </div>
+      <% end %>
     </div>
+  </div>
+</div>
+</div>
 <!-- 
     <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 

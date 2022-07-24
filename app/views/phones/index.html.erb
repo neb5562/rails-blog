@@ -1,42 +1,31 @@
 <% content_for(:html_title) { 'Phones' } %>
 <%=render "layouts/users_sidebar" %>
 <%=render "layouts/settings_nav" %>
-
-
 <div class = "mt-10 float-left w-full max-w-4xl content-center">
   <div class="flex flex-wrap -mx-1 lg:-mx-4">
-      <% unless @phones.nil? %>
+    <% unless @phones.nil? %>
       <!-- Column -->
       <% @phones.each do |phone|%>
-      <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-
+        <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
           <!-- Article -->
-          
           <article class="overflow-hidden rounded-lg shadow-lg">
-
-              <header class="flex items-center justify-between leading-tight p-2 md:p-4">
-
-                      <div class="flex items-center space-x-3">
-                        <%=image_tag("https://flagcdn.com/w20/#{phone.country.downcase}.png")%>
-                        <a class="text-slate-900 group-hover:text-white text-sm font-semibold"> <a href="tel:<%=TelephoneNumber.parse(phone.phone, phone.country).international_number%>"><%=TelephoneNumber.parse(phone.phone, phone.country).international_number%></a></h3>
-                      </div>
-                      <%= link_to delete_phone_path(phone), method: :delete do%>
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-600" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                      </svg>
-                      <% end %>
-              </header>
-
-           
-          
+            <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+              <div class="flex items-center space-x-3">
+                <%=image_tag("https://flagcdn.com/w20/#{phone.country.downcase}.png")%>
+                <a class="text-slate-900 group-hover:text-white text-sm font-semibold"> <a href="tel:<%=TelephoneNumber.parse(phone.phone, phone.country).international_number%>"><%=TelephoneNumber.parse(phone.phone, phone.country).international_number%></a></h3>
+              </div>
+              <%= link_to delete_phone_path(phone), method: :delete do%>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-600" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              <% end %>
+            </header>
           </article>
           <!-- END Article -->
-
-      </div>
+        </div>
       <% end %>
-
-      <% end %>
-      <!-- END Column -->
+    <% end %>
+    <!-- END Column -->
   </div>
   <div class="mx-auto text-center mt-10 mb-10">
     <%= paginate @phones %>

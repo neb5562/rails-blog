@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:html_title) ? yield(:html_title) : "Rocket" %></title>
@@ -10,49 +10,44 @@
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        
-        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
-        .font-family-karla {
-            font-family: karla;
-        }
-        .current-pag
-        {
-            padding-left: .75rem;
-            padding-right: .75rem;
-            line-height: 1.2;
-            padding-top: .4rem;
-            padding-bottom: .5rem;
-            margin-top: -6px;
-            background-color: #d2d2d2;
-            border-width: 1px;
-            --tw-border-opacity: 1;
-            border-color: rgba(209,213,219,var(--tw-border-opacity));
-        }
-        <% if @color %>
-        .user-color-bg{
-            background-color:<%=@color%>!important;
-        }
-        <% end %>
-
-
+      .font-family-karla {
+          font-family: karla;
+      }
+      .current-pag
+      {
+          padding-left: .75rem;
+          padding-right: .75rem;
+          line-height: 1.2;
+          padding-top: .4rem;
+          padding-bottom: .5rem;
+          margin-top: -6px;
+          background-color: #d2d2d2;
+          border-width: 1px;
+          --tw-border-opacity: 1;
+          border-color: rgba(209,213,219,var(--tw-border-opacity));
+      }
+      <% if @color %>
+      .user-color-bg{
+          background-color:<%=@color%>!important;
+      }
+      <% end %>
     </style>
     <%=stylesheet_link_tag "style.css"%>
     <%=stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"%>
-        
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-<%= javascript_importmap_tags %>
-<%= javascript_include_tag "application", "jquery", "toastr", "like", "stripe" %>
-<%= csrf_meta_tag %>
-</head>
-<body class="bg-gray-100 dark:bg-gray-700 font-family-karla">
+    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application", "jquery", "toastr", "like", "stripe" %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body class="bg-gray-100 dark:bg-gray-700 font-family-karla">
     <!-- Top Bar Nav -->
-<%=render "layouts/navbar" %>
-
+    <%=render "layouts/navbar" %>
     <!-- Text Header -->
     <%# <header class="w-full container mx-auto">
         <div class="flex flex-col items-center py-12">
@@ -64,111 +59,100 @@
             </p>
         </div>
     </header> %>
-
     <!-- Topic Nav -->
-
-
-<div class="container mx-auto w-8/12 relative">
-    <% if notice %>
-
-<div id="toast-success" class="flex  p-4 mb-4 mt-4 items-center w-full text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
-    <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
-        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-        <span class="sr-only">Check icon</span>
-    </div>
-    <div class="ml-3 text-sm font-normal"><%= notice %></div>
-    <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-success" aria-label="Close">
-        <span class="sr-only">Close</span>
-        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-    </button>
-</div>
-
-
-<% end %>
-
-<% if alert %>
+    <div class="container mx-auto w-8/12 relative">
+      <% if notice %>
+        <div id="toast-success" class="flex  p-4 mb-4 mt-4 items-center w-full text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+          <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span class="sr-only">Check icon</span>
+          </div>
+          <div class="ml-3 text-sm font-normal"><%= notice %></div>
+          <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-success" aria-label="Close">
+            <span class="sr-only">Close</span>
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      <% end %>
+      <% if alert %>
         <div id="toast-danger" class="flex mt-4 items-center p-4 mb-4 w-full text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
-    <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
-        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-        <span class="sr-only">Error icon</span>
+          <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            <span class="sr-only">Error icon</span>
+          </div>
+          <div class="ml-3 text-sm font-normal"><%= alert %></div>
+          <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-danger" aria-label="Close">
+            <span class="sr-only">Close</span>
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      <% end %>
+      <%= yield %>
     </div>
-    <div class="ml-3 text-sm font-normal"><%= alert %></div>
-    <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-danger" aria-label="Close">
-        <span class="sr-only">Close</span>
-        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-    </button>
-</div>
-
-
-<% end %>  
-    <%= yield %>
- </div>
-
-<footer class="clear-both w-full border-t bg-white pb-12 dark:bg-gray-700">
-
-        <div class="w-full container mx-auto flex flex-col items-center">
-           <!-- <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
+    <footer class="clear-both w-full border-t bg-white pb-12 dark:bg-gray-700">
+      <div class="w-full container mx-auto flex flex-col items-center">
+        <!-- <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
                 <a href="#" class="uppercase px-3">About Us</a>
                 <a href="#" class="uppercase px-3">Privacy Policy</a>
                 <a href="#" class="uppercase px-3">Terms & Conditions</a>
                 <a href="#" class="uppercase px-3">Contact Us</a>
             </div>
             -->
-            <div class="uppercase pb-6">&copy; <%=request.base_url%></div>
-            <div class="flex">
-              <button id="states-button" data-dropdown-toggle="dropdown-states" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white dark:text-white" type="button">
-                <% if I18n.locale == I18n.default_locale %>
-                <img
+        <div class="uppercase pb-6">&copy; <%=request.base_url%></div>
+        <div class="flex">
+          <button id="states-button" data-dropdown-toggle="dropdown-states" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white dark:text-white" type="button">
+            <% if I18n.locale == I18n.default_locale %>
+              <img
                 src="https://flagcdn.com/w20/us.png"
                 srcset="https://flagcdn.com/w40/us.png 2x"
                 width="20"
                 alt="United States">
-                <% elsif I18n.locale == :ka%>
+              <% elsif I18n.locale == :ka%>
                 <img
                 src="https://flagcdn.com/w20/ge.png"
                 srcset="https://flagcdn.com/w40/ge.png 2x"
                 width="20"
                 alt="Georgia">
                 <% else %>
-                <img
+                  <img
                 src="https://flagcdn.com/w20/ua.png"
                 srcset="https://flagcdn.com/w40/ua.png 2x"
                 width="20"
                 alt="Ukraine">
-                <%end%>
-              </button>
-              <div id="dropdown-states" class="hidden bg-white z-10 w-auto rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                  <%end%>
+                </button>
+                <div id="dropdown-states" class="hidden bg-white z-10 w-auto rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                   <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="states-button">
-                      <li>
-                          <button type="button" class="inline-flex py-2 px-4 w-full text-sm text-gray-700 dark:text-gray-400  dark:hover:text-white">
-                              <div class="inline-flex items-center">
-                                  <%= link_to(locale: 'en') do %>
-                                  <img
+                    <li>
+                      <button type="button" class="inline-flex py-2 px-4 w-full text-sm text-gray-700 dark:text-gray-400  dark:hover:text-white">
+                        <div class="inline-flex items-center">
+                          <%= link_to(locale: 'en') do %>
+                            <img
                                     src="https://flagcdn.com/w20/us.png"
                                     srcset="https://flagcdn.com/w40/us.png 2x"
                                     width="20"
                                     alt="United States">
-                                    <% end %>
-                              </div>
-                          </button>
+                            <% end %>
+                          </div>
+                        </button>
                       </li>
                       <li>
-                          <button type="button" class="inline-flex py-2 px-4 w-full text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white">
-                              <div class="inline-flex items-center">
-                                <%=   link_to(locale: :ka) do %>
-                                <img
+                        <button type="button" class="inline-flex py-2 px-4 w-full text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white">
+                          <div class="inline-flex items-center">
+                            <%=   link_to(locale: :ka) do %>
+                              <img
                                   src="https://flagcdn.com/w20/ge.png"
                                   srcset="https://flagcdn.com/w40/ge.png 2x"
                                   width="20"
                                   alt="Georgia">
-                                <% end %>
-                              </div>
+                              <% end %>
+                            </div>
                           </button>
-                      </li>
-                      <li>
+                        </li>
+                        <li>
                           <button type="button" class="inline-flex py-2 px-4 w-full text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white">
-                              <div class="inline-flex items-center">
-                                <%=   link_to(locale: :ua) do %>
+                            <div class="inline-flex items-center">
+                              <%=   link_to(locale: :ua) do %>
                                 <img
                                 src="https://flagcdn.com/w20/ua.png"
                                 srcset="https://flagcdn.com/w40/ua.png 2x"
@@ -176,14 +160,12 @@
                                 alt="Ukraine">
                                 <% end %>
                               </div>
-                          </button>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-        </div>
-        
-    </footer>
-
-</body>
-</html>
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+              </body>
+            </html>

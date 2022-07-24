@@ -1,168 +1,135 @@
 <% content_for(:html_title) { @post.text[0,12] } %>
 <div class="container mx-auto flex flex-wrap py-6">
-        <!-- Post Section -->
-        <section class="w-full flex flex-col items-center px-3 mx-auto">
-
-            <article class="flex flex-col shadow my-4" style="min-width:100%!important;">
-                <!-- Article Image -->
-                <div class="dark:bg-gray-800 bg-white flex flex-col justify-start p-6">
-
-                    <div class="flex mb-4">
-                        <% if @post.user.avatar.attached? %>
-                          <%= image_tag @post.user.avatar.variant(:thumb), class: 'w-12 h-12 rounded-full'%>
-                        <% else %>
-                          <%=image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :alt => "user photo", class: 'w-12 h-12 rounded-full') %>
-                        <% end %>
-                        <div class="ml-2 mt-0.5">
-                          <span class="block text-base leading-snug text-black dark:text-gray-100"><%=h(@post.user.full_name) %></span>
-                          <%=link_to show_post_path(@post.user.username, @post.hashid) do%>
-                            <%=render 'layouts/post_date_section', post: @post%>
-                          <% end %>
-                          </div>
-                      </div>
-                    <hr class="pb-4">
-                    <% if current_user.present?  && current_user.id == @post.user_id %>
-                    <div x-data="{ open: false, word: 'Edit' }">
-                        <button class="float-right" x-on:click="open = ! open, word = (word == 'Edit') ? 'Cancel' : 'Edit'" x-text="word">Edit</button>
-                     
-                        <div x-show="open">
-                            <%= form_with(url: save_edit_post_path, html: { method: :patch}) do |f| %>
-
-                                <div class="mb-2">
-                                    <textarea name="text", required = true, class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"><%=@post.text%></textarea>
-                                </div>
-
-                        <div class="flex float-right">    
-                                <button role="submit" class="p-2 rounded-md bg-blue-500 text-white hover:bg-blue-400" required>Save</button>
-                            </div>
-                            <% end %>
-                        </div>
-
-                        <div x-show="! open">
-
-                            <%= render 'layouts/post_text', post: @post %>
-
-                        </div>
-                    </div>
-                    <% end %>
-                    <!-- component -->
-
-                    <% unless current_user.nil?%>
-                    <div class="float-right mt-4" x-data="{ count: <%=@post.likes.size%>, liked: <%=!@post.likes.select{|item| item.user_id == current_user.id}.empty?%> }">
-                        <a href="javascript:add_like(<%=!current_user.nil? ? current_user.id : -1 %>,null,<%=@post.id%>)" @click="if (liked) {count -=1; liked = false;} else { count +=1; liked = true;}">
-        
-                              <svg xmlns="http://www.w3.org/2000/svg" id="post-heart-<%=@post.id%>" class="<%='text-blue-600' if (!current_user.nil? && !@post.likes.select{|item| item.user_id == current_user.id}.empty?)%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
-                              </svg>
-                              <span id = "post-count-<%=@post.id%>" x-text = "count" class="float-left ml-1 text-gray-500 dark:text-gray-400  font-light"><%="#{@post.likes.size}"%></span>
-                        </a>
+  <!-- Post Section -->
+  <section class="w-full flex flex-col items-center px-3 mx-auto">
+    <article class="flex flex-col shadow my-4" style="min-width:100%!important;">
+      <!-- Article Image -->
+      <div class="dark:bg-gray-800 bg-white flex flex-col justify-start p-6">
+        <div class="flex mb-4">
+          <% if @post.user.avatar.attached? %>
+            <%= image_tag @post.user.avatar.variant(:thumb), class: 'w-12 h-12 rounded-full'%>
+          <% else %>
+            <%=image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :alt => "user photo", class: 'w-12 h-12 rounded-full') %>
+          <% end %>
+          <div class="ml-2 mt-0.5">
+            <span class="block text-base leading-snug text-black dark:text-gray-100"><%=h(@post.user.full_name) %></span>
+            <%=link_to show_post_path(@post.user.username, @post.hashid) do%>
+              <%=render 'layouts/post_date_section', post: @post%>
+            <% end %>
+          </div>
+        </div>
+        <hr class="pb-4">
+        <% if current_user.present?  && current_user.id == @post.user_id %>
+          <div x-data="{ open: false, word: 'Edit' }">
+            <button class="float-right" x-on:click="open = ! open, word = (word == 'Edit') ? 'Cancel' : 'Edit'" x-text="word">Edit</button>
+            <div x-show="open">
+              <%= form_with(url: save_edit_post_path, html: { method: :patch}) do |f| %>
+                <div class="mb-2">
+                  <textarea name="text", required = true, class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"><%=@post.text%></textarea>
                 </div>
-                <% end %>
-                    
+                <div class="flex float-right">
+                  <button role="submit" class="p-2 rounded-md bg-blue-500 text-white hover:bg-blue-400" required>Save</button>
                 </div>
-            </article>
-            <div class="w-full flex mx-auto items-center justify-center shadow-lg mx-8 mb-4">
-            <%= form_with(url: save_new_comment_path, html: { method: :put, class: "w-full bg-white rounded-lg px-4 pt-2" }) do |f| %>
-                         <% if @comment.errors.full_messages.any? %>
-                            <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
-                            <% @comment.errors.full_messages.each do |error_message| %>
-                              <%=error_message %><br>
-                            <% end %>
-                            </div>
-                        <% end %>
-              <%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
-                <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full md:w-full px-3 mb-2 mt-2">
-                        <textarea class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" placeholder='Type Your Comment' required></textarea>
-                    </div>
-                    <div class="w-full md:w-full items-start md:w-full px-3 text-right">
-                        <div class="-mr-1">
-                        <input type='submit' class="rounded-lg p-2 bg-blue-500 text-white hover:bg-blue-400" value='Post Comment'>
-                        </div>
-                    </div>
-                <% end %>
+              <% end %>
             </div>
-
-
-
-
-
-
+            <div x-show="! open">
+              <%= render 'layouts/post_text', post: @post %>
             </div>
-<!-- component -->
-<% unless @post.comments.empty? %>
-<% @post.comments.each do |comment| %>
-    <div class="w-full my-2 mx-1 flex gap-3 rounded-md bg-white p-2 text-black shadow">
-                
-    <!-- Content -->
-    <div class = "w-full">
-                    <!-- Header -->
-        <div class="flex items-center justify-between py-1 pr-2">
-        <!-- Author -->
-            <div>
+          </div>
+        <% end %>
+        <!-- component -->
+        <% unless current_user.nil?%>
+          <div class="float-right mt-4" x-data="{ count: <%=@post.likes.size%>, liked: <%=!@post.likes.select{|item| item.user_id == current_user.id}.empty?%> }">
+            <a href="javascript:add_like(<%=!current_user.nil? ? current_user.id : -1 %>,null,<%=@post.id%>)" @click="if (liked) {count -=1; liked = false;} else { count +=1; liked = true;}">
+              <svg xmlns="http://www.w3.org/2000/svg" id="post-heart-<%=@post.id%>" class="<%='text-blue-600' if (!current_user.nil? && !@post.likes.select{|item| item.user_id == current_user.id}.empty?)%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+              </svg>
+              <span id = "post-count-<%=@post.id%>" x-text = "count" class="float-left ml-1 text-gray-500 dark:text-gray-400  font-light"><%="#{@post.likes.size}"%></span>
+            </a>
+          </div>
+        <% end %>
+      </div>
+    </article>
+    <div class="w-full flex mx-auto items-center justify-center shadow-lg mx-8 mb-4">
+      <%= form_with(url: save_new_comment_path, html: { method: :put, class: "w-full bg-white rounded-lg px-4 pt-2" }) do |f| %>
+        <% if @comment.errors.full_messages.any? %>
+          <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+            <% @comment.errors.full_messages.each do |error_message| %>
+              <%=error_message %><br>
+            <% end %>
+          </div>
+        <% end %>
+        <%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full md:w-full px-3 mb-2 mt-2">
+            <textarea class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" placeholder='Type Your Comment' required></textarea>
+          </div>
+          <div class="w-full md:w-full items-start md:w-full px-3 text-right">
+            <div class="-mr-1">
+              <input type='submit' class="rounded-lg p-2 bg-blue-500 text-white hover:bg-blue-400" value='Post Comment'>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <!-- component -->
+    <% unless @post.comments.empty? %>
+      <% @post.comments.each do |comment| %>
+        <div class="w-full my-2 mx-1 flex gap-3 rounded-md bg-white p-2 text-black shadow">
+          <!-- Content -->
+          <div class = "w-full">
+            <!-- Header -->
+            <div class="flex items-center justify-between py-1 pr-2">
+              <!-- Author -->
+              <div>
                 <% if comment.user.avatar.attached? %>
-                <%= image_tag comment.user.avatar.variant(:thumb), class: 'float-left w-8 h-8 rounded-full mr-4 mb-2'%>
+                  <%= image_tag comment.user.avatar.variant(:thumb), class: 'float-left w-8 h-8 rounded-full mr-4 mb-2'%>
                 <% else %>
-                <%=image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :alt => "user photo", class: 'float-left mr-4 mb-2 w-8 h-8 rounded-full') %>
+                  <%=image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :alt => "user photo", class: 'float-left mr-4 mb-2 w-8 h-8 rounded-full') %>
                 <% end %>
                 <%=link_to h(comment.user.username), user_posts_path(comment.user.username), class: "text-blue-400 hover:underline" %>
                 <span class="text-sm font-thin text-gray-500"> <%=comment.created_at.strftime("Published on %b %d, %Y")%></span>
+              </div>
+              <!-- Rate -->
             </div>
-        <!-- Rate -->
-
-        </div>
-                            
-
-
             <% if current_user.present?  && current_user.id == comment.user_id %>
-            <div x-data="{ open: false, word: 'Edit' }">
+              <div x-data="{ open: false, word: 'Edit' }">
                 <button class="float-right" x-on:click="open = ! open, word = (word == 'Edit') ? 'Cancel' : 'Edit'" x-text="word">Edit</button>
                 <br>
                 <div x-show="open">
-                    <%= form_with(url: save_edit_comment_path(comment.post, comment.id), html: { method: :patch}) do |f| %>
+                  <%= form_with(url: save_edit_comment_path(comment.post, comment.id), html: { method: :patch}) do |f| %>
                     <%= hidden_field_tag 'comment_id', comment.id  %>
-                        <div class="mb-2">
-                            <textarea name="body", required = true, class="resize-y bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"><%=comment.body%></textarea>
-                        </div>
-
-                <div class="flex float-right">    
-                    <button role="submit" class="p-2 rounded-md bg-blue-500 text-white hover:bg-blue-400" required>Save</button>
-                </div>
-                    <% end %>
-                </div>
-
-                <div x-show="! open">
-                    <!-- Context -->
-                    <div class="p-1" style="line-height: 100%;display: flex;justify-content: left;flex-wrap: wrap;white-space: pre-wrap;">
-                        <%=render 'layouts/comment_body', {comment: comment}  %>
+                    <div class="mb-2">
+                      <textarea name="body", required = true, class="resize-y bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"><%=comment.body%></textarea>
                     </div>
+                    <div class="flex float-right">
+                      <button role="submit" class="p-2 rounded-md bg-blue-500 text-white hover:bg-blue-400" required>Save</button>
+                    </div>
+                  <% end %>
                 </div>
+                <div x-show="! open">
+                  <!-- Context -->
+                  <div class="p-1" style="line-height: 100%;display: flex;justify-content: left;flex-wrap: wrap;white-space: pre-wrap;">
+                    <%=render 'layouts/comment_body', {comment: comment}  %>
+                  </div>
                 </div>
+              </div>
             <% end %>
-
-
             <div>
-                <% unless current_user.nil?%>
+              <% unless current_user.nil?%>
                 <div class="float-left mt-4" x-data="{ count: <%=comment.likes.size%>, liked: <%=!comment.likes.select{|item| item.user_id == current_user.id}.empty?%> }">
-                    <a href="javascript:add_like(<%=!current_user.nil? ? current_user.id : -1 %>,<%=comment.id%>, null)" @click="if (liked) {count -=1; liked = false;} else { count +=1; liked = true;}">
-
-                            <svg xmlns="http://www.w3.org/2000/svg" id="comment-heart-<%=comment.id%>" class="<%='text-blue-600' if (!current_user.nil? && !comment.likes.select{|item| item.user_id == current_user.id}.empty?)%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
-                            </svg>
-                            <span id = "comment-count-<%=comment.id%>" x-text = "count" class="float-left ml-1 text-gray-500 dark:text-gray-400  font-light"><%="#{comment.likes.size}"%></span>
-                    </a>
+                  <a href="javascript:add_like(<%=!current_user.nil? ? current_user.id : -1 %>,<%=comment.id%>, null)" @click="if (liked) {count -=1; liked = false;} else { count +=1; liked = true;}">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="comment-heart-<%=comment.id%>" class="<%='text-blue-600' if (!current_user.nil? && !comment.likes.select{|item| item.user_id == current_user.id}.empty?)%> float-left h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+                    </svg>
+                    <span id = "comment-count-<%=comment.id%>" x-text = "count" class="float-left ml-1 text-gray-500 dark:text-gray-400  font-light"><%="#{comment.likes.size}"%></span>
+                  </a>
+                </div>
+              <% end %>
             </div>
-            <% end %>
-            </div>
-
-
+          </div>
         </div>
-        </div>
-   <% end%>
-<% end %>
-
-
-        </section>
-
-
+      <% end%>
+    <% end %>
+  </section>
 </div>
