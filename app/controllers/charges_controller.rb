@@ -39,7 +39,7 @@ class ChargesController < ApplicationController
 
   def generate_payment(transaction_id, price, months_count)
     ActiveRecord::Base.transaction do
-      subscription = Subscription.new(name: "Premium", price: price, start_at: nil, end_at: nil, months: months_count)
+      subscription = Subscription.new(name: "Premium", price: nil, start_at: nil, end_at: nil, months: months_count)
       subscription.user = current_user
       subscription.save!
       payment = Payment.new(transaction_id: transaction_id, status: false, payment_type: "stripe")

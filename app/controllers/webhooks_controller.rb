@@ -28,6 +28,7 @@ class WebhooksController < ApplicationController
       subscription = payment.subscription
       subscription.start_at = Time.now
       subscription.end_at = Time.now + subscription.months.to_i.months
+      subscription.price = session.amount_total
       payment.status = true
       payment.save!
       subscription.save!
