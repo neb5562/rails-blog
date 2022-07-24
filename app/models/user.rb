@@ -45,7 +45,8 @@ class User < ApplicationRecord
   end
 
   def premium?
-
+    last_sub = subscriptions.last
+    last_sub.end_at > Time.now && last_sub.payments.last.status == true
   end
 
   def self.from_omniauth(access_token)

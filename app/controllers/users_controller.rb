@@ -40,9 +40,9 @@ class UsersController < ApplicationController
 
   def premium
     flash[:notice] = "Payment success!" if params[:success] == 1
-    @subscription = current_user.subscriptions.order("end_at").last
+    @subscription = current_user.subscriptions.last
     # @payment = @subscription.payments.last
-    # @status = @subscription.end_at < Time.now && @payment.status == true
+    @status = current_user.premium?
   end
 
   private
