@@ -55,7 +55,7 @@ Rails.application.routes.draw do
   get '*all', to: 'application#error_page', constraints: lambda { |req|
     req.path.exclude? 'rails/active_storage'
   }
-  resources :webhooks, only: [:create]
+  # resources :webhooks, only: [:create]
   post "/likes/save", to: "likes#save", as: :save_like
   # get '*unmatched_route', to: 'application#error_page'
 
