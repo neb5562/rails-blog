@@ -46,7 +46,10 @@ class User < ApplicationRecord
 
   def premium?
     last_sub = subscriptions.last
-    last_sub.end_at > Time.now && last_sub.payments.last.status == true
+    false if last_sub.nil?
+    last_p = last_sub.payments.last
+    false if last_p.nil?
+    last_sub.end_at > Time.now && last_p.status == true
   end
 
   def self.from_omniauth(access_token)
