@@ -28,7 +28,7 @@ class WebhooksController < ApplicationController
       subscription = payment.subscription
       subscription.start_at = Time.now
       subscription.end_at = Time.now + subscription.months.to_i.months
-      subscription.price = session.amount_total.to_f / 100
+      subscription.price = "99.99" #ActiveSupport::NumberHelper.number_to_currency(99.99, unit: '') 
       payment.status = true
       payment.save!
       subscription.save!
