@@ -107,3 +107,5 @@ gem "pundit", "~> 2.2"
 gem "rolify"
 
 gem 'stripe'
+
+gem "rack-cors"
