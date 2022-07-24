@@ -17,14 +17,12 @@ class ChargesController < ApplicationController
       customer_email: current_user.email,
       metadata: {transaction_id: transaction_id},
       line_items: [
-        price_data: {
-          product: 'prod_M6wcKdUbCstfYH',
-          unit_amount: price,
-          currency: 'usd',
-        },
-        quantity: 1,
+        {price: 'price_1LOiizGxO3oVs6cuHTAXO2Wk', quantity: 1},
+        {price: 'price_1LOiizGxO3oVs6cu5N9ir7wL', quantity: 1},
+        {price: 'price_1LOiizGxO3oVs6cuCuxfqROj', quantity: 1},
+        {price: 'price_1LOiizGxO3oVs6cu78hQo40Y', quantity: 1},
       ],
-      mode: 'payment',
+      mode: 'subscription',
       success_url: "#{request.protocol + request.host_with_port}/#{I18n.locale}/premium?success=1&session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "#{request.protocol + request.host_with_port}/#{I18n.locale}/charges/new?success=0",
     })

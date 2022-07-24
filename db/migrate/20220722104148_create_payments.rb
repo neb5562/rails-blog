@@ -4,6 +4,7 @@ class CreatePayments < ActiveRecord::Migration[7.0]
       t.boolean :status, default: false
       t.string :payment_type, null: false
       t.string :transaction_id, null: true
+      t.decimal :price, :precision => 8, :scale => 2
       t.references :user, null: true, index: true, foreign_key: {on_delete: :cascade}
       t.references :subscription, null: true, index: true, foreign_key: {on_delete: :cascade}
       t.timestamps
