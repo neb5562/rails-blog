@@ -5,3 +5,4 @@
 //= link jquery.js
 //= link toastr.js
 //= link like.js
+//= link stripe.js
