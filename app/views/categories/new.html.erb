@@ -13,11 +13,11 @@
             </div>
           <% end %>
           <div class="mb-4">
-            <label class="text-xl text-gray-600">Category name <span class="text-red-500">*</span></label></br>
+            <label class="text-xl text-gray-600"><%=t('category_name')%> <span class="text-red-500">*</span></label></br>
           <input type="text", required = true, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="name" id="title" value="" >
         </div>
         <div class="flex p-1">
-          <button role="submit" class="p-3 bg-blue-500 text-slate-200 hover:bg-blue-400" required>Submit</button>
+          <button role="submit" class="p-3 bg-blue-500 text-slate-200 hover:bg-blue-400" required><%=t('submit')%></button>
         </div>
       <% end %>
     </div>

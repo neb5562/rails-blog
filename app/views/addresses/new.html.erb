@@ -14,7 +14,7 @@
             </div>
           <% end %>
           <div class="mb-4">
-            <label class="text-xl text-gray-600">Enter address: example(Merab Kostava St 11, Kutaisi, Imereti, Georgia)<span class="text-red-500">*</span></label></br>
+            <label class="text-xl text-gray-600"><%=t('enter_address')%>: <%=t('example')%>(Merab Kostava St 11, Kutaisi, Imereti, Georgia)<span class="text-red-500">*</span></label></br>
           <input type="text", required = true, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="query" id="title" value="" >
         </div>
         <div class="flex p-1">
@@ -41,25 +41,22 @@
                   <hr>
                   <div class="p-2 md:p-4">
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                      <bold class="font-bold">Street:</bold> <%="#{address['street']}"%>
+                      <bold class="font-bold"><%=t('street')%>:</bold> <%="#{address['street']}"%>
                     </p>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                      <bold class="font-bold">Street number:</bold> <%="#{address['number']}"%>
+                      <bold class="font-bold"><%=t('street_number')%>:</bold> <%="#{address['number']}"%>
                     </p>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                      <bold class="font-bold">postal code:</bold> <%="#{address['postal_code']}"%>
+                      <bold class="font-bold"><%=t('postal_code')%>:</bold> <%="#{address['postal_code']}"%>
                     </p>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                      <bold class="font-bold">region:</bold> <%="#{address['region']}"%>
+                      <bold class="font-bold"><%=t('region')%>:</bold> <%="#{address['region']}"%>
                     </p>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                      <bold class="font-bold">county:</bold> <%="#{address['county']}"%>
+                      <bold class="font-bold"><%=t('county')%>:</bold> <%="#{address['county']}"%>
                     </p>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                      <bold class="font-bold">country:</bold> <%="#{address['country']}"%>
-                    </p>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                      <bold class="font-bold">Street:</bold> <%="#{address['street']}"%>
+                      <bold class="font-bold"><%=t('country')%>:</bold> <%="#{address['country']}"%>
                     </p>
                   </div>
                   <footer class="flex items-center justify-between leading-none p-2 md:p-4">

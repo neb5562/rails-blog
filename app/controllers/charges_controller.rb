@@ -33,7 +33,7 @@ class ChargesController < ApplicationController
       success_url: "#{request.protocol + request.host_with_port}/#{I18n.locale}/premium?success=1&session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "#{request.protocol + request.host_with_port}/#{I18n.locale}/charges/new?success=0",
     })
-    redirect_to charges_path + '/?session_id=' + @session.id
+    redirect_to @session.url, allow_other_host: true
     
   rescue Stripe::CardError => e
     flash[:alert] = e.message
