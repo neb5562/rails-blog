@@ -15,7 +15,7 @@
           <% end %>
           <div class="mb-4">
             <label class="text-xl text-gray-600">Category <span class="text-red-500">*</span></label></br>
-          <i>you can select multiple categories when holding <b>ctrl</b></i>
+          <i><%=t(:you_can_select_multiple_categories_with_ctrl)%></i>
           <%= f.collection_select :categories, Category.all, :id, :name, { :prompt => nil, :selected => @post.categories.pluck(:id)  }, { :multiple => true, :size => 5, :class => "form-select appearance-none
       block
       w-full
@@ -48,7 +48,7 @@
   </div>
   <div class="flex p-1">
     <%= f.select :active, [['Save and Publish', true], ['Save Draft', false]], selected: @post.active, class: 'border-2 border-gray-300 border-r p-2' %>
-    <button role="submit" class="p-3 bg-blue-500 text-slate-200 hover:bg-blue-400" required>Submit</button>
+    <button role="submit" class="p-3 bg-blue-500 text-slate-200 hover:bg-blue-400" required><%=t(:submit)%></button>
   </div>
 <% end %>
 <div class="mb-0 m-auto w-full text-right">

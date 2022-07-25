@@ -1,4 +1,4 @@
-<% content_for(:html_title) { "Edit Profile" } %>
+<% content_for(:html_title) { t("edit_profile") } %>
 <%=render "layouts/users_sidebar" %>
 <div class="mt-10 float-left w-full max-w-lg content-center">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" }) do |f| %>
@@ -26,7 +26,7 @@
       <%= f.password_field :password, autocomplete: "new-password", class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'  %>
       <% if @minimum_password_length %>
         <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
+        <em><%= @minimum_password_length %> <%=t(:haracters_minimum)%>c</em>
       <% end %>
     </div>
     <div class="mb-4">
@@ -52,8 +52,8 @@
               d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
           </svg>
           <div class="flex flex-col ml-3">
-            <div class="font-medium leading-none">Delete Your Acccount ?</div>
-            <p class="text-sm text-gray-600 leading-none mt-1">By deleting your account you will lose your all data
+            <div class="font-medium leading-none"><%=t(:delete_your_account?)%></div>
+            <p class="text-sm text-gray-600 leading-none mt-1"><%=t('consiquences_of_deleting_account')%>
             </p>
           </div>
         </div>

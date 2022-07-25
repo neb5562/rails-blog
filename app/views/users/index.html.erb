@@ -106,7 +106,7 @@
       </span>
       <div class="justify-between items-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
         <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0"><%= time_ago_in_words(@registered.created_at).to_s + " ago" %></time>
-        <div class="text-sm font-normal text-gray-500 lex dark:text-gray-300"><%=h(@registered.username)%> Registered  </div>
+        <div class="text-sm font-normal text-gray-500 lex dark:text-gray-300"><%=h(@registered.username)%> <%=t('registered')%>  </div>
       </div>
     </li>
   </ol>

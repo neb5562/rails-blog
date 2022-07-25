@@ -32,14 +32,14 @@
         <hr class="pb-4">
         <% if current_user.present?  && current_user.id == @post.user_id %>
           <div x-data="{ open: false, word: 'Edit' }">
-            <button class="dark:text-slate-200 float-right" x-on:click="open = ! open, word = (word == 'Edit') ? 'Cancel' : 'Edit'" x-text="word">Edit</button>
+            <button class="dark:text-slate-200 float-right" x-on:click="open = ! open, word = (word == 'Edit') ? 'Cancel' : 'Edit'" x-text="word"><%=t(:edit)%></button>
             <div x-show="open">
               <%= form_with(url: save_edit_post_path, html: { method: :patch}) do |f| %>
                 <div class="mb-2">
                   <textarea name="text", required = true, class="dark:bg-gray-600 dark:text-slate-200 dark:placeholder-white bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"><%=@post.text%></textarea>
                 </div>
                 <div class="flex float-right">
-                  <button role="submit" class="p-2 rounded-md bg-blue-500 text-slate-200 hover:bg-blue-400" required>Save</button>
+                  <button role="submit" class="p-2 rounded-md bg-blue-500 text-slate-200 hover:bg-blue-400" required><%=t(:save)%></button>
                 </div>
               <% end %>
             </div>

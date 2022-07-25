@@ -37,7 +37,7 @@ en:
   dashboard: Dashboard
   log_out: Log Out
   search: Search
-  search_posts: Search Rocket...
+  search_rocket: Search Rocket...
   my_posts: My posts
   post_categories: post Categories
   settings: Settings
@@ -56,3 +56,11 @@ en:
   delete_my_account: Delete my account
   back: Back
   profile_picture: Profile Picture
+  consiquences_of_deleting_account: By deleting your account you will lose your all data
+  email_notification_when_new_login_ip: Get email notification when new login is detected with new ip
+  new_comment_my_post_email_notification: Get email notification when someone comments on my post
+  new_like_my_post_email_notification: Get email notification when someone likes my post
+  new_like_my_comment_email_notification: Get email notification when someone likes my comment
+  new_message_email_notification: Get email notification when someone sends message
+  show_active_status: Show my active status
+  

@@ -15,8 +15,8 @@ end
     <textarea name="text" rows="4" class="dark:bg-gray-600 dark:text-slate-200 dark:placeholder-white text-xl placeholder-gray-900 shadow border dark:border-gray-800 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Say Something..." ></textarea>
   </div>
   <div class="flex p-1 float-right">
-    <%= f.select :active, [['Save and Publish', true], ['Save Draft', false]], {}, { class: 'p-2 dark:bg-gray-700 text-sm dark:text-slate-200'} %>
-    <button role="submit" class="rounded-lg p-3 bg-blue-500 text-slate-200 hover:bg-blue-400" required>Submit</button>
+    <%= f.select :active, [[t(:save_and_public), true], [t(:save_draft), false]], {}, { class: 'p-2 dark:bg-gray-700 text-sm dark:text-slate-200'} %>
+    <button role="submit" class="rounded-lg p-3 bg-blue-500 text-slate-200 hover:bg-blue-400" required><%=t(:submit)%></button>
   </div>
 <% end %>
 <section class="text-gray-600 body-font">
@@ -29,7 +29,7 @@ end
         <br>
       <% else %>
         <div class="p-4 text-sm text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300" role="alert">
-          no posts found 
+          <%=t(:no_posts_found)%>
         </div>
       <% end %>
     </div>
