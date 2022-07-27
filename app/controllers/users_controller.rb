@@ -32,7 +32,6 @@ class UsersController < ApplicationController
     @comments = @registered.comments
     @likes = @registered.likes
     @address = @registered.addresses.first
-    @address_map_image = StaticMap.new(@address.latitude, @address.longitude).get_image if @address
     @activity = (@posts + @comments + @likes).group_by{|x| x.created_at.strftime("%b %d, %Y")}.sort.reverse
 
     render 'users/index'
@@ -42,6 +41,10 @@ class UsersController < ApplicationController
     flash[:notice] = "Payment success!" if params[:success] == 1
     @subscription = current_user.subscriptions.last
     @status = current_user.premium?
+  end
+
+  def profile
+    @user = User.find_by(username: params[:username])
   end
 
   private

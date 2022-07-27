@@ -11,9 +11,11 @@ class PostsController < ApplicationController
 
   def user_posts
     begin
-      @user = User.find_by(username: params["username"])
+      @post = Post.new
+      @user = User.find_by(username: params[:username])
+      # content_for :html_title, "#{@user.full_name.to_s} s posts"
       @posts = Post.where(user_id: @user.id, active: true).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
-      @color = @Posts.first.user.settings(:settings).user_post_color
+      # @color = @Posts.first.user.settings(:settings).user_post_color
       render 'posts/index'
     rescue
       error_page

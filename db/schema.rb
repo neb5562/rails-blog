@@ -112,6 +112,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_104148) do
     t.boolean "status", default: false
     t.string "payment_type", null: false
     t.string "transaction_id"
+    t.decimal "price", precision: 8, scale: 2
     t.bigint "user_id"
     t.bigint "subscription_id"
     t.datetime "created_at", null: false
@@ -176,7 +177,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_104148) do
     t.datetime "start_at"
     t.datetime "end_at"
     t.integer "months", null: false
-    t.decimal "price", precision: 8, scale: 2
+    t.integer "price"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -222,8 +223,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_104148) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "users", on_delete: :cascade
   add_foreign_key "comments", "posts"
-  add_foreign_key "comments", "users"
-  add_foreign_key "likes", "users"
+  add_foreign_key "comments", "users", on_delete: :cascade
+  add_foreign_key "likes", "users", on_delete: :cascade
   add_foreign_key "notifications", "comments", on_delete: :cascade
   add_foreign_key "notifications", "posts", on_delete: :cascade
   add_foreign_key "payments", "subscriptions", on_delete: :cascade
@@ -231,6 +232,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_104148) do
   add_foreign_key "phones", "users", on_delete: :cascade
   add_foreign_key "post_categories", "categories", on_delete: :cascade
   add_foreign_key "post_categories", "posts", on_delete: :cascade
-  add_foreign_key "posts", "users"
+  add_foreign_key "posts", "users", on_delete: :cascade
   add_foreign_key "subscriptions", "users", on_delete: :cascade
 end
