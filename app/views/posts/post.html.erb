@@ -64,7 +64,7 @@
     <div class="w-full flex mx-auto items-center justify-center shadow-lg mx-8 mb-4">
       <%= form_with(url: save_new_comment_path, html: { method: :put, class: "dark:bg-gray-800 w-full bg-white rounded-lg px-4 pt-2" }) do |f| %>
         <% if @comment.errors.full_messages.any? %>
-          <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+          <div class="p-4 text-sm text-red-500 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
             <% @comment.errors.full_messages.each do |error_message| %>
               <%=error_message %><br>
             <% end %>

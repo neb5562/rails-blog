@@ -3,9 +3,9 @@ if action_name == 'category_posts'
   content_for(:html_title) { 'Category: ' + params[:name].titleize } 
 end 
 %>
-<%= form_with(url: save_new_post_path, html: { method: :put, class: "rounded pt-6 pb-8 mb-4" }) do |f| %>
+<%= form_with(url: save_new_post_path, html: { method: :put, class: "dark:text-slate-200 dark:bg-gray-800 rounded pt-6 pb-8 mb-4" }) do |f| %>
   <% if @post.errors.full_messages.any? %>
-    <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+    <div class="p-4 text-sm text-red-500 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
       <% @post.errors.full_messages.each do |error_message| %>
         <%=error_message %><br>
       <% end %>
