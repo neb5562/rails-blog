@@ -1,18 +1,18 @@
 <% content_for(:html_title) { 'Premium' } %>
 <%=render "layouts/users_sidebar" %>
 <div class = "mt-10 float-left w-full max-w-4xl content-center">
-  <div class="max-w-md w-full rounded">
+  <div class="max-w-md w-full rounded-lg ">
     <% if @subscription && @status %>
-      <div class="p-4 flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl dark:border-gray-700 dark:bg-gray-800">
-        <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="<%=image_url("premiumbadge.png")%>" alt="">
+      <div class="p-4 flex flex-col items-center bg-white rounded-lg  border shadow-md md:flex-row md:max-w-xl dark:border-gray-700 dark:bg-gray-800">
+        <img class="object-cover w-full h-96 rounded-lg -t-lg md:h-auto md:w-48 md:rounded-lg -none md:rounded-lg -l-lg" src="<%=image_url("premiumbadge.png")%>" alt="">
         <div class="flex flex-col justify-between p-4 leading-normal">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-slate-200"><%=t(:your_premium_plan_is_active)%></h5>
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-slate-300"><%=t(:your_premium_plan_is_active)%></h5>
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%=t('days_left')%>: <%=(@subscription.end_at.to_date - Date.current).to_i%></p>
         </div>
       </div>
     <% else %>
-      <div id="toast-danger" class="flex mt-4 items-center p-4 mb-4 w-full text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
-        <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-yellow-500 bg-yellow-100 rounded-lg dark:bg-yellow-800 dark:text-yellow-200">
+      <div id="toast-danger" class="flex mt-4 items-center p-4 mb-4 w-full text-gray-500 bg-white rounded-lg  shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+        <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-yellow-500 bg-yellow-100 rounded-lg  dark:bg-yellow-800 dark:text-yellow-200">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>

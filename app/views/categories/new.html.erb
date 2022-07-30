@@ -2,11 +2,11 @@
 <%=render "layouts/users_sidebar" %>
 <div class="py-12">
   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg ">
       <div class="p-6 bg-white border-b border-gray-200">
-        <%= form_with(url: save_new_category_path, html: { method: :put, class: "dark:text-slate-200 dark:bg-gray-800 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" }) do |f| %>
+        <%= form_with(url: save_new_category_path, html: { method: :put, class: "dark:text-slate-300 dark:bg-gray-800 bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4" }) do |f| %>
           <% if @category.errors.full_messages.any? %>
-            <div class="p-4 text-sm text-red-500 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+            <div class="p-4 text-sm text-red-500 bg-red-100 rounded-lg  dark:bg-red-200 dark:text-red-800" role="alert">
               <% @category.errors.full_messages.each do |error_message| %>
                 <%=error_message %><br>
               <% end %>
@@ -14,7 +14,7 @@
           <% end %>
           <div class="mb-4">
             <label class="text-xl text-gray-600"><%=t('category_name')%> <span class="text-red-500">*</span></label></br>
-          <input type="text", required = true, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="name" id="title" value="" >
+          <input type="text", required = true, class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="name" id="title" value="" >
         </div>
         <div class="flex p-1">
           <button role="submit" class="p-3 bg-blue-500 text-slate-200 hover:bg-blue-400" required><%=t('submit')%></button>

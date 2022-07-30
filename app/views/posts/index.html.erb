@@ -3,20 +3,20 @@ if action_name == 'category_posts'
   content_for(:html_title) { 'Category: ' + params[:name].titleize } 
 end 
 %>
-<%= form_with(url: save_new_post_path, html: { method: :put, class: "dark:text-slate-200 dark:bg-gray-800 rounded pt-6 pb-8 mb-4" }) do |f| %>
+<%= form_with(url: save_new_post_path, html: { method: :put, class: "dark:text-slate-300 rounded-lg  pt-6 pb-8 mb-4" }) do |f| %>
   <% if @post.errors.full_messages.any? %>
-    <div class="p-4 text-sm text-red-500 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+    <div class="p-4 text-sm text-red-500 bg-red-100 rounded-lg  dark:bg-red-200 dark:text-red-800" role="alert">
       <% @post.errors.full_messages.each do |error_message| %>
         <%=error_message %><br>
       <% end %>
     </div>
   <% end %>
   <div class="mb-2">
-    <textarea name="text" rows="4" class="dark:bg-gray-600 dark:text-slate-200 dark:placeholder-white text-xl placeholder-gray-900 shadow border dark:border-gray-800 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Say Something..." ></textarea>
+    <textarea name="text" rows="4" class="dark:bg-gray-600 dark:text-slate-300 dark:placeholder-white text-xl placeholder-gray-900 shadow border dark:border-gray-800 rounded-lg  w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Say Something..." ></textarea>
   </div>
   <div class="flex p-1 float-right">
-    <%= f.select :active, [[t(:save_and_public), true], [t(:save_draft), false]], {}, { class: 'p-2 dark:bg-gray-700 text-sm dark:text-slate-200'} %>
-    <button role="submit" class="rounded-lg p-3 bg-blue-500 text-slate-200 hover:bg-blue-400" required><%=t(:submit)%></button>
+    <%= f.select :active, [[t(:save_and_public), true], [t(:save_draft), false]], {}, { class: 'p-2 dark:bg-gray-700 text-sm dark:text-slate-300'} %>
+    <button role="submit" class="rounded-lg  p-3 bg-blue-500 text-slate-200 hover:bg-blue-400" required><%=t(:submit)%></button>
   </div>
 <% end %>
 <section class="text-gray-600 body-font">
@@ -28,7 +28,7 @@ end
         <% end %>
         <br>
       <% else %>
-        <div class="p-4 text-sm text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300" role="alert">
+        <div class="p-4 text-sm text-gray-700 bg-gray-100 rounded-lg  dark:bg-gray-700 dark:text-gray-300" role="alert">
           <%=t(:no_posts_found)%>
         </div>
       <% end %>

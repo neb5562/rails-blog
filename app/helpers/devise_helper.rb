@@ -8,7 +8,7 @@ module DeviseHelper
     resource: resource.class.model_name.human.downcase)
  
     html = <<-HTML
-    <div class="p-4 mb-4 text-sm text-gray-500 bg-white rounded shadow dark:text-gray-400 dark:bg-gray-600 border-2 border-rose-500" role="alert">
+    <div class="p-4 mb-4 text-sm text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-600 border-2 border-rose-500" role="alert">
      #{messages}
     </div>
     HTML

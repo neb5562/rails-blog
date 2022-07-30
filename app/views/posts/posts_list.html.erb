@@ -2,7 +2,7 @@
 <%=render "layouts/users_sidebar" %>
 <div class="mt-10 float-left w-full max-w-4xl content-center">
   <div class="flex items-baseline justify-between mx-4">
-    <a href = "<%=create_new_post_path%>" class="bg-blue-500 hover:bg-blue-700 text-slate-200 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+    <a href = "<%=create_new_post_path%>" class="bg-blue-500 hover:bg-blue-700 text-slate-200 font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline">
       New post
       <svg xmlns="http://www.w3.org/2000/svg" class="float-right h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -48,7 +48,7 @@
         </tbody>
       </table>
     <% else %>
-      <div class="p-4 text-sm text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300" role="alert">
+      <div class="p-4 text-sm text-gray-700 bg-gray-100 rounded-lg  dark:bg-gray-700 dark:text-gray-300" role="alert">
         no posts found 
       </div>
     <% end %>

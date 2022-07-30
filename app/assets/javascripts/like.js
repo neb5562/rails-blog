@@ -18,13 +18,13 @@ function add_like(user_id, comment_id, post_id)
       if (comment_id)
       {
         $("#comment-heart-" + comment_id).toggleClass("text-blue-500");
-        $("#comment-heart-" + comment_id).toggleClass("dark:text-slate-200");
+        $("#comment-heart-" + comment_id).toggleClass("dark:text-slate-300");
         $("#comment-heart-" + comment_id).toggleClass("dark:text-blue-500");
       }
       if (post_id)
       {
         $("#post-heart-" + post_id).toggleClass("text-blue-500");
-        $("#post-heart-" + post_id).toggleClass("dark:text-slate-200");
+        $("#post-heart-" + post_id).toggleClass("dark:text-slate-300");
         $("#post-heart-" + post_id).toggleClass("dark:text-blue-500");
       }
     },
