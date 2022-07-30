@@ -24,13 +24,9 @@
                 <%=image_tag("#{StaticMap.new(address.latitude, address.longitude).get_image}", id: "sk-image-address-#{StaticMap.to_md5(address.latitude, address.longitude)}", class: "hidden",  height: '256', width: '256')%>
               <% end %>
             </header>
-<<<<<<< HEAD
-=======
             <script>
               skeleton_image("sk-image-address-<%=StaticMap.to_md5(address.latitude, address.longitude)%>","sk-skeleton-address-<%=StaticMap.to_md5(address.latitude, address.longitude)%>")
             </script>
-            <hr>
->>>>>>> eb4bc684 (skeleton load for address map images)
             <div class="p-2 md:p-4">
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                 <bold class="font-bold"><%=t('street')%>:</bold> <%="#{address['street']}"%>
