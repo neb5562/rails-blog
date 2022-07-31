@@ -5,6 +5,13 @@ class Comment < ApplicationRecord
   belongs_to :notification, optional: true
   belongs_to :parent,  class_name: "Comment", optional: true, counter_cache: :count_of_replies #-> requires "parent_id" column
   has_many   :replies, class_name: "Comment", foreign_key: :parent_id, dependent: :destroy
+ 
+  scope :is_parent, -> {
+    where(:parent_id => nil)
+  }
+  scope :is_child, -> {
+    where("parent_id IS NOT NULL")
+  }
 
   validates :body, presence: true,  length: { minimum: 2, maximum: 555 }
   before_validation :strip_whitespace

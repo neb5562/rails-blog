@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def save
     # @comment = current_user.comments.build(comment_params)
     @post = Post.find_by_hashid(params[:id])
-    @comment = Comment.new(body: params['body'], user_id: current_user.id, post_id: @post.id)
+    @comment = Comment.new(body: params['body'], user_id: current_user.id, post_id: @post.id, parent_id: params['parent_id'])
     respond_to do |format|
       if @comment.save
         format.html { redirect_to show_post_url(@post.user.username, params[:id]), notice: "Comment was successfully created." }
@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
   private 
 
   def comment_params
-    params.require(:comment).permit(:body, :comment_id)
+    params.require(:comment).permit(:body, :comment_id, :parent_id)
   end
 
 end
