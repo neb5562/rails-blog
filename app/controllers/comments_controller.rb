@@ -17,8 +17,8 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @post = current_user.posts.find_by_hashid(params[:id])
-    @comment = @post.comments.find(params[:comment_id])
+    @post = Post.find_by_hashid(params[:id])
+    @comment = @post.comments.find_by(id: params[:comment_id], user_id: current_user.id)
     @comment.body = params[:body]
 
     respond_to do |format|
