@@ -49,15 +49,15 @@ class PostsController < ApplicationController
   end
 
   def post 
-    # begin
+    begin
       sort = @@post_sort.key?(params[:sort]) ? @@post_sort[params[:sort]] : @@post_sort['lt']
       @user = User.where(username: params[:username]).first!
-      @post = Post.includes(:comments => [:user, :likes, :replies]).where(active: true).order(sort).find_by_hashid(params[:id])
+      @post = Post.includes({comments: [{user: [:subscriptions]}, :likes, :replies]}).where(active: true).order(sort).find_by_hashid(params[:id])
       @comment = Comment.new
-      @color = @post.user.settings(:settings).user_post_color
-    # rescue
-    #   error_page
-    # end
+      # @color = @post.user.settings(:settings).user_post_color
+    rescue
+      error_page
+    end
   end
 
   def edit_post 
