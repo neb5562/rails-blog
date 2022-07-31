@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :user_posts, :post, :search_posts]
-  @@post_sort = { 'tl' => 'comments.likes_count desc', 'tr' => 'comments.count_of_replies asc', 'lt' => 'comments.created_at desc', 'ot' => 'comments.created_at asc'}
+  @@post_sort = { 'tl' => 'comments.likes_count desc', 'tr' => 'comments.count_of_replies desc', 'lt' => 'comments.created_at desc', 'ot' => 'comments.created_at asc'}
   PER_PAGE = 9
+  PER_PAGE_COMMENTS = 15
 
   def index
     @post = Post.new
@@ -13,9 +14,8 @@ class PostsController < ApplicationController
     begin
       @post = Post.new
       @user = User.find_by(username: params[:username])
-      # content_for :html_title, "#{@user.full_name.to_s} s posts"
       @posts = Post.where(user_id: @user.id, active: true).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
-      # @color = @Posts.first.user.settings(:settings).user_post_color
+      @posts = Post.select
       render 'posts/index'
     rescue
       error_page
@@ -49,15 +49,15 @@ class PostsController < ApplicationController
   end
 
   def post 
-    begin
+    # begin
       sort = @@post_sort.key?(params[:sort]) ? @@post_sort[params[:sort]] : @@post_sort['lt']
-      @user = User.where(username: params[:username]).first!
-      @post = Post.includes({comments: [{user: [:subscriptions]}, :likes, :replies]}).where(active: true).order(sort).find_by_hashid(params[:id])
+      @post = Post.active.find_by_hashid(params[:id])
+      @comments = @post.comments.order(sort).page(params['page']).per(PER_PAGE_COMMENTS)
+      error_page unless @post.user.username == params[:username]
       @comment = Comment.new
-      # @color = @post.user.settings(:settings).user_post_color
-    rescue
-      error_page
-    end
+    # rescue
+    #   error_page
+    # end
   end
 
   def edit_post 
@@ -74,11 +74,9 @@ class PostsController < ApplicationController
     @post.text = params[:text]
     @res = @post.save
 
-
-
     respond_to do |format|
       if @post.save
-        format.html { redirect_back_or_to show_post_path(@post.user.username, @post.hashid), notice: "post was successfully Edited." }
+        format.html { redirect_back_or_to show_post_path(@post.user.username, @post.hashid), notice: "post was succesfully Edited." }
         format.json { render :'posts/edit', status: :created, location: @post }
       else
         format.html { render :'posts/edit', status: :unprocessable_entity }

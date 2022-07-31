@@ -102,9 +102,10 @@
           </li>
         </ul>
     </div>
-      <% @post.comments.is_parent.each do |comment| %>
+      <% @comments.is_parent.each do |comment| %>
         <%= render 'comments/comment', comment: comment %>
       <% end%>
+          <a href="#" class="dark:text-slate-300 text-lg rounded-lg text-sm px-4 py-2.5 inline-flex underline" type="button"><%=t(:load_more_comments)%> </a>
     <% end %>
   </section>
 </div>
