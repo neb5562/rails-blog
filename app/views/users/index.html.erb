@@ -16,7 +16,7 @@
                     <%=image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'rounded-lg -full shadow-lg') %>
                   <% end %>
                 </span>
-                <div class = "dark:bg-gray-800 bg-white rounded-lg  border border-gray-200 shadow-sm dark:bg-gray-700 dark:border-gray-600">
+                <div class = "dark:bg-zinc-800 bg-white rounded-lg  border border-gray-200 shadow-sm dark:bg-zinc-900 dark:border-gray-600">
                   <div class="justify-between items-center p-4 sm:flex">
                     <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0"><%= time_ago_in_words(item.created_at).to_s + " ago" %></time>
                     <div class="text-sm font-normal text-gray-500 lex dark:text-gray-300"><%=h(item.user.username)%> has created new post <a target = "_blank" href="<%=show_post_path(item.user.username, item.hashid)%>" class="font-semibold text-blue-600 dark:text-blue-500 hover:underline"><%="#{item.text[0,12]}..."%></a> </div>
@@ -33,12 +33,12 @@
                     <%=image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :alt => "user photo", class: 'rounded-lg -full shadow-lg') %>
                   <% end %>
                 </span>
-                <div class="p-4 bg-white dark:bg-gray-800 rounded-lg  border border-gray-200 shadow-sm dark:bg-gray-700 dark:border-gray-600">
+                <div class="p-4 bg-white dark:bg-zinc-800 rounded-lg  border border-gray-200 shadow-sm dark:bg-zinc-900 dark:border-gray-600">
                   <div class="justify-between items-center mb-3 sm:flex">
                     <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0"><%= time_ago_in_words(item.created_at).to_s + " ago" %></time>
                     <div class="text-sm font-normal text-gray-500 lex dark:text-gray-300"><%=h(item.user.username)%> has commented on <a target = "_blank" href="<%=show_post_path(item.user.username, item.post.hashid)%>" class="font-semibold text-blue-600 dark:text-blue-500 hover:underline"><%=item.post.text[0,12]%></a></div>
                   </div>
-                  <div class="p-3 text-sm font-normal text-gray-500 bg-gray-50 rounded-lg  border border-gray-200 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-300">
+                  <div class="p-3 text-sm font-normal text-gray-500 bg-gray-50 rounded-lg  border border-gray-200 dark:bg-zinc-700 dark:border-gray-500 dark:text-gray-300">
                     <%=render 'layouts/comment_body', {comment: item}  %>
                   </div>
                 </div>
@@ -52,7 +52,7 @@
                     <%=image_tag("/images/users/profile_picture.jpg", :alt => "user photo", class: 'rounded-lg -full shadow-lg') %>
                   <% end %>
                 </span>
-                <div class="p-4 dark:bg-gray-800 bg-white rounded-lg  dark:bg-gray-800border border-gray-200 shadow-sm dark:bg-gray-700 dark:border-gray-600">
+                <div class="p-4 dark:bg-zinc-800 bg-white rounded-lg  dark:bg-zinc-800border border-gray-200 shadow-sm dark:bg-zinc-900 dark:border-gray-600">
                   <div class="justify-between items-center mb-3 sm:flex">
                     <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0"><%= time_ago_in_words(item.created_at).to_s + " ago" %></time>
                     <div class="text-sm font-normal text-gray-500 lex dark:text-gray-300">
@@ -60,7 +60,7 @@
                       👍🏼
                       <%=item.comment.nil? ? "post" : "comment" %> on <a target = "_blank" href="<%=item.comment.nil? ? show_post_url(item.post.user.username, item.post.hashid) : show_post_url(item.comment.post.user.username, item.comment.post.hashid) %>" class="font-semibold text-blue-600 dark:text-blue-500 hover:underline"><%=item.comment.nil? ? item.post.text[0,12] : item.comment.post.text[0,12] %></a></div>
                   </div>
-                  <div class="p-3 text-sm font-normal text-gray-500 bg-gray-50 rounded-lg  border border-gray-200 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-300">
+                  <div class="p-3 text-sm font-normal text-gray-500 bg-gray-50 rounded-lg  border border-gray-200 dark:bg-zinc-700 dark:border-gray-500 dark:text-gray-300">
                     <%=item.comment.nil? ? item.post.text[0,12] : item.comment.body%>
                   </div>
                 </div>
@@ -81,7 +81,7 @@
           <%=image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :alt => "user photo", class: 'rounded-lg -full shadow-lg') %>
         <% end %>
       </span>
-      <div class="justify-between items-center p-4 bg-white dark:bg-gray-800 rounded-lg  border border-gray-200 shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
+      <div class="justify-between items-center p-4 bg-white dark:bg-zinc-800 rounded-lg  border border-gray-200 shadow-sm sm:flex dark:bg-zinc-900 dark:border-gray-600">
         <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0"><%= time_ago_in_words(@registered.created_at).to_s + " ago" %></time>
         <div class="text-sm font-normal text-gray-500 lex dark:text-gray-300"><%=h(@registered.username)%> <%=t('registered')%>  </div>
       </div>

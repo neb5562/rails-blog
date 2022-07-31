@@ -1,31 +1,31 @@
 <div class="mt-10 m-auto w-full max-w-lg content-center">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "dark:text-slate-300 dark:bg-gray-800 bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4" }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "dark:text-slate-300 dark:bg-zinc-800 bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4" }) do |f| %>
     <%= devise_error_messages! %>
     <% flash.each do |key, value| %>
       <div class="flash <%= key %> text-red-500"><%= value %></div>
     <% end %>
     <div class="mb-4">
       <%= f.label t(:email), class: 'block text-gray-700 text-sm font-bold'%><br />
-      <%= f.email_field :email, :required => true, autofocus: true, autocomplete: "email", class: 'dark:bg-gray-600 dark:text-slate-300 dark:placeholder-white dark:border-gray-800 shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+      <%= f.email_field :email, :required => true, autofocus: true, autocomplete: "email", class: 'dark:bg-zinc-700 dark:text-slate-300 dark:placeholder-white dark:border-gray-800 shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
     </div>
     <div class="mb-4">
       <%= f.label t(:username), class: 'block text-gray-700 text-sm font-bold'%><br />
-      <%= f.text_field :username, :required => true, autofocus: true, autocomplete: "email", class: 'dark:bg-gray-600 dark:text-slate-300 dark:placeholder-white dark:border-gray-800 shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+      <%= f.text_field :username, :required => true, autofocus: true, autocomplete: "email", class: 'dark:bg-zinc-700 dark:text-slate-300 dark:placeholder-white dark:border-gray-800 shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
     </div>
     <div class="mb-4">
       <%= f.label t(:full_name), class: 'block text-gray-700 text-sm font-bold'%><br />
-      <%= f.text_field :full_name, :required => true, autofocus: true, autocomplete: "email", class: 'dark:bg-gray-600 dark:text-slate-300 dark:placeholder-white dark:border-gray-800 shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+      <%= f.text_field :full_name, :required => true, autofocus: true, autocomplete: "email", class: 'dark:bg-zinc-700 dark:text-slate-300 dark:placeholder-white dark:border-gray-800 shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
     </div>
     <div class="mb-4">
       <%= f.label t(:password), class: 'block text-gray-700 text-sm font-bold' %><br />
       <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> <%=t('characters_minimum')%>)</em>
       <% end %><br />
-      <%= f.password_field :password, :required => true, autocomplete: "current-password", class: 'dark:bg-gray-600 dark:text-slate-300 dark:placeholder-white dark:border-gray-800 shadow appearance-none border  rounded-lg w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline' %>
+      <%= f.password_field :password, :required => true, autocomplete: "current-password", class: 'dark:bg-zinc-700 dark:text-slate-300 dark:placeholder-white dark:border-gray-800 shadow appearance-none border  rounded-lg w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline' %>
     </div>
     <div class="mb-4">
       <%= f.label t(:password_confirmation), class: 'block text-gray-700 text-sm font-bold' %><br />
-      <%= f.password_field :password_confirmation, :required => true, autocomplete: "current-password", class: 'dark:bg-gray-600 dark:text-slate-300 dark:placeholder-white dark:border-gray-800 shadow appearance-none border  rounded-lg w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline' %>
+      <%= f.password_field :password_confirmation, :required => true, autocomplete: "current-password", class: 'dark:bg-zinc-700 dark:text-slate-300 dark:placeholder-white dark:border-gray-800 shadow appearance-none border  rounded-lg w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline' %>
     </div>
     <div class="flex items-baseline justify-between">
       <%= f.submit t("sign_up"), class: 'bg-blue-500 hover:bg-blue-700 text-slate-200 font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline' %>

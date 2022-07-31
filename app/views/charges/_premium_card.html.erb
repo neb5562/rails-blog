@@ -39,7 +39,7 @@
     background-color: #2557D6 !important;
   }
 </style>
-<div class="block mx-auto ml-2 mr-2 p-4 bg-white rounded-lg  border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+<div class="block mx-auto ml-2 mr-2 p-4 bg-white rounded-lg  border shadow-md sm:p-8 dark:bg-zinc-800 dark:border-gray-700">
   <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400"><%=t('premium_plan')%></h5>
   <div class="flex items-baseline text-gray-900 dark:text-slate-300">
     <span class="text-3xl font-semibold">$</span>
@@ -48,19 +48,19 @@
   </div>
   <%= form_tag charges_path do %>
     <div class="flex items-center mt-2 pl-4 rounded-lg border border-gray-200 dark:border-gray-700">
-      <input checked onchange="javascript:change_price(999);" id="bordered-radio-1" type="radio" value="1" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+      <input checked onchange="javascript:change_price(999);" id="bordered-radio-1" type="radio" value="1" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-zinc-900 dark:border-gray-600">
       <label for="bordered-radio-1" class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">1 <%=t('month')%></label>
     </div>
     <div class="flex items-center mt-2 pl-4 rounded-lg border border-gray-200 dark:border-gray-700">
-      <input onchange="javascript:change_price(2499);"  id="bordered-radio-2" type="radio" value="3" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+      <input onchange="javascript:change_price(2499);"  id="bordered-radio-2" type="radio" value="3" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-zinc-900 dark:border-gray-600">
       <label for="bordered-radio-2" class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">3 <%=t('months')%></label>
     </div>
     <div class="flex items-center mt-2 pl-4 rounded-lg border border-gray-200 dark:border-gray-700">
-      <input  onchange="javascript:change_price(4999);" id="bordered-radio-3" type="radio" value="6" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+      <input  onchange="javascript:change_price(4999);" id="bordered-radio-3" type="radio" value="6" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-zinc-900 dark:border-gray-600">
       <label for="bordered-radio-3" class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">6 <%=t('months')%></label>
     </div>
     <div class="flex items-center mt-2 pl-4 rounded-lg border border-gray-200 dark:border-gray-700">
-      <input  onchange="javascript:change_price(9999);" id="bordered-radio-4" type="radio" value="12" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+      <input  onchange="javascript:change_price(9999);" id="bordered-radio-4" type="radio" value="12" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-zinc-900 dark:border-gray-600">
       <label for="bordered-radio-4" class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">12 <%=t('months')%></label>
     </div>
     <!-- List -->
