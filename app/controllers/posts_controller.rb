@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :user_posts, :post, :search_posts]
-
+  @@post_sort = { 'tl' => 'comments.likes_count desc', 'tr' => 'comments.count_of_replies asc', 'lt' => 'comments.created_at desc', 'ot' => 'comments.created_at asc'}
   PER_PAGE = 9
 
   def index
@@ -50,8 +50,9 @@ class PostsController < ApplicationController
 
   def post 
     begin
+      sort = @@post_sort.key?(params[:sort]) ? @@post_sort[params[:sort]] : @@post_sort['lt']
       @user = User.where(username: params[:username]).first!
-      @post = Post.includes(:comments => [:user, :likes]).where(active: true).order('comments.created_at desc').find_by_hashid(params[:id])
+      @post = Post.includes(:comments => [:user, :likes]).where(active: true).order(sort).find_by_hashid(params[:id])
       @comment = Comment.new
       @color = @post.user.settings(:settings).user_post_color
     rescue
