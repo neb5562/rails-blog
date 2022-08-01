@@ -7,3 +7,4 @@
 //= link like.js
 //= link stripe.js
 //= link skeleton.js
+//= link_tree ../builds

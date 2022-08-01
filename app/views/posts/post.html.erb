@@ -29,9 +29,11 @@
             </span>
           </div>
         </div>
-        <% if current_user.present?  && current_user.id == @post.user_id %>
+        
           <div x-data="{ open: false, word: 'Edit' }">
+          <% if current_user.present?  && current_user.id == @post.user_id %>
             <button class="dark:text-slate-300 float-right" x-on:click="open = ! open, word = (word == 'Edit') ? 'Cancel' : 'Edit'" x-text="word"><%=t(:edit)%></button>
+           <% end %>
             <div x-show="open">
               <%= form_with(url: save_edit_post_path, html: { method: :patch}) do |f| %>
                 <div class="mb-2">
@@ -46,7 +48,7 @@
               <%= render 'layouts/post_text', post: @post %>
             </div>
           </div>
-        <% end %>
+        
         <!-- component -->
         <% unless current_user.nil?%>
           <div class="float-right mt-4" x-data="{ count: <%=@post.likes.size%>, liked: <%=!@post.likes.select{|item| item.user_id == current_user.id}.empty?%> }">
