@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   belongs_to :notification, optional: true
   include Hashid::Rails
 
+  scope :active, -> { where(active: true) }
+
   validates :text, presence: true,  length: { maximum: 65000 }
   validates :active, inclusion: { in: [ true, false ] }
 

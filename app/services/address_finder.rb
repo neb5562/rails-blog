@@ -13,7 +13,7 @@ class AddressFinder
     response = Net::HTTP.get_response(uri)
     data = response.body
     
-    JSON.parse(data)
+    @data = JSON.parse(data)
 
   end
 end

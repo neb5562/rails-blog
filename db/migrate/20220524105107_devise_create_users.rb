@@ -7,9 +7,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
-      t.integer :posts_count
-      t.integer :likes_count
-      t.integer :comments_count
+      t.integer :posts_count, default: 0
+      t.integer :likes_count, default: 0
+      t.integer :comments_count, default: 0
 
       ## Recoverable
       t.string   :reset_password_token

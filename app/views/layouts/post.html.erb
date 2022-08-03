@@ -70,12 +70,12 @@
       </div>
       <!--<div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
             <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Technology</a>
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Automotive</a>
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Finance</a>
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Politics</a>
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Culture</a>
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Sports</a>
+                <a href="#" class="hover:bg-gray-400 rounded-lg py-2 px-4 mx-2">Technology</a>
+                <a href="#" class="hover:bg-gray-400 rounded-lg py-2 px-4 mx-2">Automotive</a>
+                <a href="#" class="hover:bg-gray-400 rounded-lg py-2 px-4 mx-2">Finance</a>
+                <a href="#" class="hover:bg-gray-400 rounded-lg py-2 px-4 mx-2">Politics</a>
+                <a href="#" class="hover:bg-gray-400 rounded-lg py-2 px-4 mx-2">Culture</a>
+                <a href="#" class="hover:bg-gray-400 rounded-lg py-2 px-4 mx-2">Sports</a>
             </div>
         </div>-->
     </nav>
@@ -139,7 +139,7 @@
         <div class="w-full bg-white shadow flex flex-col my-4 p-6">
           <p class="text-xl font-semibold pb-5">About Us</p>
           <p class="pb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis est eu odio sagittis tristique. Vestibulum ut finibus leo. In hac habitasse platea dictumst.</p>
-          <a href="#" class="w-full bg-blue-800 text-slate-200 font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
+          <a href="#" class="w-full bg-blue-800 text-slate-200 font-bold text-sm uppercase rounded-lg hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
             Get to know us
           </a>
         </div>
@@ -156,7 +156,7 @@
             <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=8">
             <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=9">
           </div>
-          <a href="#" class="w-full bg-blue-800 text-slate-200 font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
+          <a href="#" class="w-full bg-blue-800 text-slate-200 font-bold text-sm uppercase rounded-lg hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
             <i class="fab fa-instagram mr-2"></i> Follow @dgrzyb
           </a>
         </div>
@@ -168,7 +168,7 @@
             x-data="getCarouselData()"
         >
         <button
-                class="absolute bg-blue-800 hover:bg-blue-700 text-slate-200 text-2xl font-bold hover:shadow rounded-full w-16 h-16 ml-12"
+                class="absolute bg-blue-800 hover:bg-blue-700 text-slate-200 text-2xl font-bold hover:shadow rounded-lg -full w-16 h-16 ml-12"
                 x-on:click="decrement()">
           &#8592;
         </button>
@@ -176,7 +176,7 @@
           <img class="w-1/6 hover:opacity-75" :src="image">
         </template>
         <button
-                class="absolute right-0 bg-blue-800 hover:bg-blue-700 text-slate-200 text-2xl font-bold hover:shadow rounded-full w-16 h-16 mr-12"
+                class="absolute right-0 bg-blue-800 hover:bg-blue-700 text-slate-200 text-2xl font-bold hover:shadow rounded-lg -full w-16 h-16 mr-12"
                 x-on:click="increment()">
           &#8594;
         </button>

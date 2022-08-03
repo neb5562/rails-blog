@@ -3,11 +3,11 @@
 <%=render "layouts/settings_nav" %>
 <div class="py-12">
   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-      <div class="p-6 bg-white border-b border-gray-200">
-        <%= form_with(url:find_address_path, html: { method: :post, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" }) do |f| %>
+    <div class="overflow-hidden shadow-sm sm:rounded-lg ">
+      <div class="">
+        <%= form_with(url:find_address_path, html: { method: :post, class: "dark:text-slate-300 dark:bg-zinc-800 bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4" }) do |f| %>
           <% if @address.errors.full_messages.any? %>
-            <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+            <div class="p-4 text-sm text-red-700 bg-red-100 rounded-lg  dark:bg-red-200 dark:text-red-800" role="alert">
               <% @address.errors.full_messages.each do |error_message| %>
                 <%=error_message %><br>
               <% end %>
@@ -15,30 +15,29 @@
           <% end %>
           <div class="mb-4">
             <label class="text-xl text-gray-600"><%=t('enter_address')%>: <%=t('example')%>(Merab Kostava St 11, Kutaisi, Imereti, Georgia)<span class="text-red-500">*</span></label></br>
-          <input type="text", required = true, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="query" id="title" value="" >
+          <input type="text", required = true, class="dark:bg-zinc-700 dark:text-slate-300 dark:placeholder-white dark:border-gray-800 shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="query" id="title" value="" >
         </div>
         <div class="flex p-1">
-          <button role="submit" class="p-3 bg-blue-500 text-slate-200 hover:bg-blue-400"><%=t('find')%></button>
+          <button role="submit" class="rounded-lg p-3 bg-blue-500 text-slate-200 hover:bg-blue-400"><%=t('find')%></button>
         </div>
       <% end %>
     </div>
-    <div class="p-6 bg-white border-b border-gray-200">
+    <div class="">
       <div class="container my-12 mx-auto px-4 md:px-12">
         <div class="flex flex-wrap -mx-1 lg:-mx-4">
           <% unless @addresses.nil? %>
             <!-- Column -->
             <% @addresses.each do |address|%>
-              <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+              <div class="my-1 rounded-lg dark:bg-zinc-800 dark:text-slate-300 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
                 <!-- Article -->
-                <article class="overflow-hidden rounded-lg shadow-lg">
+                <article class="overflow-hidden rounded-lg  shadow-lg">
                   <header class="flex items-center justify-between leading-tight p-2 md:p-4">
                     <h1 class="text-lg">
-                      <p class="no-underline hover:underline text-black" href="#">
+                      <p class="no-underline hover:underline text-black dark:text-slate-300" href="#">
                         <%=address['label']%>
                       </p>
                     </h1>
                   </header>
-                  <hr>
                   <div class="p-2 md:p-4">
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                       <bold class="font-bold"><%=t('street')%>:</bold> <%="#{address['street']}"%>
@@ -70,7 +69,7 @@
                       <%= f.hidden_field :country , value: address['country']%>
                       <%= f.hidden_field :longitude , value: address['longitude']%>
                       <%= f.hidden_field :latitude , value: address['latitude']%>
-                      <button type="submit" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-slate-200 bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <button type="submit" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-slate-200 bg-blue-700 rounded-lg  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         <%=t('choose')%>
                       </button>
                     <% end %>
