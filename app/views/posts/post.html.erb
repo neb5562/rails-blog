@@ -29,26 +29,24 @@
             </span>
           </div>
         </div>
-        
-          <div x-data="{ open: false, word: 'Edit' }">
+        <div x-data="{ open: false, word: 'Edit' }">
           <% if current_user.present?  && current_user.id == @post.user_id %>
             <button class="dark:text-slate-300 float-right" x-on:click="open = ! open, word = (word == 'Edit') ? 'Cancel' : 'Edit'" x-text="word"><%=t(:edit)%></button>
-           <% end %>
-            <div x-show="open">
-              <%= form_with(url: save_edit_post_path, html: { method: :patch}) do |f| %>
-                <div class="mb-2">
-                  <textarea name="text", required = true, class="dark:bg-zinc-700 dark:text-slate-300 dark:placeholder-white text-xl placeholder-gray-900 shadow border dark:border-gray-800 rounded-lg  w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"><%=@post.text%></textarea>
-                </div>
-                <div class="flex float-right">
-                  <button role="submit" class="p-2 rounded-lg -md bg-blue-500 text-slate-200 hover:bg-blue-400" required><%=t(:save)%></button>
-                </div>
-              <% end %>
-            </div>
-            <div x-show="! open">
-              <%= render 'layouts/post_text', post: @post %>
-            </div>
+          <% end %>
+          <div x-show="open">
+            <%= form_with(url: save_edit_post_path, html: { method: :patch}) do |f| %>
+              <div class="mb-2">
+                <textarea name="text", required = true, class="dark:bg-zinc-700 dark:text-slate-300 dark:placeholder-white text-xl placeholder-gray-900 shadow border dark:border-gray-800 rounded-lg  w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"><%=@post.text%></textarea>
+              </div>
+              <div class="flex float-right">
+                <button role="submit" class="p-2 rounded-lg -md bg-blue-500 text-slate-200 hover:bg-blue-400" required><%=t(:save)%></button>
+              </div>
+            <% end %>
           </div>
-        
+          <div x-show="! open">
+            <%= render 'layouts/post_text', post: @post %>
+          </div>
+        </div>
         <!-- component -->
         <% unless current_user.nil?%>
           <div class="float-right mt-4" x-data="{ count: <%=@post.likes.size%>, liked: <%=!@post.likes.select{|item| item.user_id == current_user.id}.empty?%> }">
@@ -85,16 +83,19 @@
       </div>
     </div>
     <!-- component -->
-    <% unless @post.comments.empty? %>
-    <button id="dropdownDefault" data-dropdown-toggle="dropdown1" class="dark:text-slate-300 font-medium rounded-lg text-sm px-4 py-2.5 inline-flex" type="button"><%=t(:sort_by)%> <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-    <!-- Dropdown menu -->
-    <div id="dropdown1" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-zinc-900">
+    <% unless @comments.empty? %>
+      <button id="dropdownDefault" data-dropdown-toggle="dropdown1" class="dark:text-slate-300 font-medium rounded-lg text-sm px-4 py-2.5 inline-flex" type="button">
+      <%=t(:sort_by)%> 
+      <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+      </button>
+      <!-- Dropdown menu -->
+      <div id="dropdown1" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-zinc-900">
         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
           <li>
-          <%= link_to t(:top_likes), request.params.merge(sort: "tl"), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+            <%= link_to t(:top_likes), request.params.merge(sort: "tl"), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
           </li>
           <li>
-          <%= link_to t(:most_replies), request.params.merge(sort: "tr"), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+            <%= link_to t(:most_replies), request.params.merge(sort: "tr"), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
           </li>
           <li>
             <%= link_to t(:newest), request.params.merge(sort: "lt"), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
@@ -103,11 +104,13 @@
             <%= link_to t(:oldest), request.params.merge(sort: "ot"), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
           </li>
         </ul>
-    </div>
-      <% @comments.is_parent.each do |comment| %>
+      </div>
+      <% @comments.each do |comment| %>
         <%= render 'comments/comment', comment: comment %>
       <% end%>
-          <a href="#" class="dark:text-slate-300 text-lg rounded-lg text-sm px-4 py-2.5 inline-flex underline" type="button"><%=t(:load_more_comments)%> </a>
+      <div class="mx-auto text-center mt-10">
+        <%= paginate @comments %>
+      </div>
     <% end %>
   </section>
 </div>

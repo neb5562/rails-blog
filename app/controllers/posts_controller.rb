@@ -49,15 +49,15 @@ class PostsController < ApplicationController
   end
 
   def post 
-    # begin
+    begin
       sort = @@post_sort.key?(params[:sort]) ? @@post_sort[params[:sort]] : @@post_sort['lt']
       @post = Post.active.find_by_hashid(params[:id])
-      @comments = @post.comments.order(sort).page(params['page']).per(PER_PAGE_COMMENTS)
       error_page unless @post.user.username == params[:username]
+      @comments = @post.comments.is_parent.page(params['page']).per(PER_PAGE_COMMENTS).order(sort)
       @comment = Comment.new
-    # rescue
-    #   error_page
-    # end
+    rescue
+      error_page
+    end
   end
 
   def edit_post 
