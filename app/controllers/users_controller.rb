@@ -43,10 +43,6 @@ class UsersController < ApplicationController
     @status = current_user.premium?
   end
 
-  def profile
-    @user = User.find_by(username: params[:username])
-  end
-
   private
 
   def user_settings

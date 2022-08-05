@@ -7,16 +7,15 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = Post.where(active: true).order('created_at desc').includes(:comments => [:user, :likes]).page(params['page']).per(PER_PAGE)
-    render 'posts/index'
+    render 'posts/index', locals: {profile: false, posts: @posts}
   end
 
   def user_posts
     begin
-      @post = Post.new
       @user = User.find_by(username: params[:username])
-      @posts = Post.where(user_id: @user.id, active: true).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
-      @posts = Post.select
-      render 'posts/index'
+      @post = Post.new
+      @posts = Post.where(user_id: @user.id, active: true).order('created_at desc').includes(:comments, user: :subscriptions).page(params['page']).per(PER_PAGE)
+      render 'posts/index', locals: {user: @user, profile: true}
     rescue
       error_page
     end
@@ -25,7 +24,7 @@ class PostsController < ApplicationController
   def search_posts 
     @post = Post.new
     @posts = Post.search(params[:query]).where(active: true).order('created_at desc').includes(:comments, :user).page(params['page']).per(PER_PAGE)
-    render 'posts/index'
+    render 'posts/index', locals: {profile: false}
   end
 
   def new_post 

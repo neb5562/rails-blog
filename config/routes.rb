@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     # Defines the root path route ("/")
 
     get "/@:username/posts", to: "posts#user_posts", as: :user_posts
-    get "/@:username", to: "users#profile", as: :user_public_profile
+    get "/@:username", to: "posts#user_posts", as: :user_public_profile
     get "/posts/new", to: "posts#new_post", as: :create_new_post
     get "/post/:id/edit", to: "posts#edit_post", as: :edit_post
     patch "/post/:id", to: "posts#save_edit_post", as: :save_edit_post
@@ -57,6 +57,8 @@ Rails.application.routes.draw do
     req.path.exclude? 'rails/active_storage'
   }
   resources :webhooks, only: [:create]
+  put '/request/create', to: 'requests#create', as: :sent_friend_request
+  delete '/request/destroy', to: 'requests#destroy', as: :destroy_friend_request
   post "/likes/save", to: "likes#save", as: :save_like
   # get '*unmatched_route', to: 'application#error_page'
 

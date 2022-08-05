@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_31_090704) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_04_053524) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,6 +82,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_31_090704) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "friends", force: :cascade do |t|
+    t.boolean "following", default: true
+    t.bigint "user_id"
+    t.integer "friend_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_friends_on_user_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "comment_id"
@@ -105,8 +114,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_31_090704) do
     t.bigint "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "request_id"
     t.index ["comment_id"], name: "index_notifications_on_comment_id"
     t.index ["post_id"], name: "index_notifications_on_post_id"
+    t.index ["request_id"], name: "index_notifications_on_request_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -150,6 +161,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_31_090704) do
     t.bigint "user_id", null: false
     t.boolean "active", default: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.boolean "seen", default: false
+    t.integer "to_user_id", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -225,14 +245,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_31_090704) do
   add_foreign_key "addresses", "users", on_delete: :cascade
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users", on_delete: :cascade
+  add_foreign_key "friends", "users", on_delete: :cascade
   add_foreign_key "likes", "users", on_delete: :cascade
   add_foreign_key "notifications", "comments", on_delete: :cascade
   add_foreign_key "notifications", "posts", on_delete: :cascade
+  add_foreign_key "notifications", "requests", on_delete: :cascade
   add_foreign_key "payments", "subscriptions", on_delete: :cascade
   add_foreign_key "payments", "users", on_delete: :cascade
   add_foreign_key "phones", "users", on_delete: :cascade
   add_foreign_key "post_categories", "categories", on_delete: :cascade
   add_foreign_key "post_categories", "posts", on_delete: :cascade
   add_foreign_key "posts", "users", on_delete: :cascade
+  add_foreign_key "requests", "users", on_delete: :cascade
   add_foreign_key "subscriptions", "users", on_delete: :cascade
 end
