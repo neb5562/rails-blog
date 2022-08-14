@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :friends, foreign_key: 'friend_id'
   has_many :requests, foreign_key: 'to_user_id'
   has_many :requests
-  has_many :notifications, class_name: 'Notification', foreign_key: 'to'
+  has_many :notifications, -> { order(created_at: :desc) }, class_name: 'Notification', foreign_key: 'to'
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_fill: [100, 100]
   end
