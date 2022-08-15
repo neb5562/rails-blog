@@ -39,6 +39,8 @@ Rails.application.routes.draw do
     put "/profile/phones/new", to: "phones#save_new_phone", as: :save_phone   
     get "/profile/settings/phones", to: "phones#index", as: :phone
     delete "/profile/phone/:phone/delete", to: "phones#delete", as: :delete_phone
+    get "/dm", to: "messages#index", as: :direct_messages
+    get "/dm/user/@:username", to: "messages#user", as: :user_direct_messages
 
     get "/profile/settings/privacy", to: "privacy#index", as: :privacy
     put "/profile/settings/privacy", to: "privacy#save", as: :save_privacy
