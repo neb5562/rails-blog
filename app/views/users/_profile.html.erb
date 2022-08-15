@@ -9,14 +9,16 @@
       <% end %>
     </div>
     <div class="text-center px-3 pb-6 pt-2">
-      <% if @user.friend? current_user %>
-        <button type="button" class="inline-flex item-center text-gray-900 bg-white focus:outline-none hover:bg-gray-100 rounded-lg py-2 px-3 mb-2 text-xs font-medium text-center dark:bg-blue-400 dark:hover:bg-blue-500  dark:text-white">
-          <%=t(:unfriend)%>
-        </button>
-      <% elsif current_user.request_sent?(@user)%>
-        <%=button_to t(:delete_request), destroy_friend_request_path, params: {'to_user_id' => @user.id}, method: :delete, class: "inline-flex item-center text-gray-900 bg-white focus:outline-none hover:bg-gray-100 rounded-lg py-2 px-3 mb-2 text-xs font-medium text-center dark:bg-blue-400 dark:hover:bg-blue-500  dark:text-white"%>
-      <% else %>
-        <%=button_to t(:add_friend), sent_friend_request_path, params: {'to_user_id' => @user.id}, method: :put, class: "inline-flex item-center text-gray-900 bg-white focus:outline-none hover:bg-gray-100 rounded-lg py-2 px-3 mb-2 text-xs font-medium text-center dark:bg-blue-400 dark:hover:bg-blue-500  dark:text-white"%>
+      <% unless @user.id == current_user.id %>
+        <% if @user.friend? current_user %>
+          <button type="button" class="inline-flex item-center text-gray-900 bg-white focus:outline-none hover:bg-gray-100 rounded-lg py-2 px-3 mb-2 text-xs font-medium text-center dark:bg-blue-400 dark:hover:bg-blue-500  dark:text-white">
+            <%=t(:unfriend)%>
+          </button>
+        <% elsif current_user.request_sent?(@user)%>
+          <%=button_to t(:delete_request), destroy_friend_request_path, params: {'to_user_id' => @user.id}, method: :delete, class: "inline-flex item-center text-gray-900 bg-white focus:outline-none hover:bg-gray-100 rounded-lg py-2 px-3 mb-2 text-xs font-medium text-center dark:bg-blue-400 dark:hover:bg-blue-500  dark:text-white"%>
+        <% else %>
+          <%=button_to t(:add_friend), sent_friend_request_path, params: {'to_user_id' => @user.id}, method: :put, class: "inline-flex item-center text-gray-900 bg-white focus:outline-none hover:bg-gray-100 rounded-lg py-2 px-3 mb-2 text-xs font-medium text-center dark:bg-blue-400 dark:hover:bg-blue-500  dark:text-white"%>
+        <% end %>
       <% end %>
       <h3 class="text-white text-sm bold font-sans"><%=@user.full_name%></h3>
       <p class="mt-2 font-sans font-light text-white">about me</p>
