@@ -51,6 +51,8 @@ Rails.application.routes.draw do
     get "/premium", to: "users#premium", as: :premium
     post "/charges/new", to: 'charges#create_subscription', as: :charges
     match '/auth/:provider/callback', :to => 'omniauth#google_oauth2', :via => [:get, :post]
+
+    post '/user/accept', to: 'requests#accept', as: :accept_friend
   end
   
   get '*all', to: 'application#error_page', constraints: lambda { |req|

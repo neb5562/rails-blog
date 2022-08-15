@@ -1,0 +1,17 @@
+<li>
+  <a href="<%=user_public_profile_path(notification.from_user.username)%>" class="flex flex-col items-center bg-white shadow-md md:flex-row md:max-w-xl hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-600">
+    <% if notification.from_user.avatar.attached? %>
+      <%= image_tag notification.from_user.avatar.variant(:thumb), class: 'mr-2 w-12 h-12 rounded-full'%>
+    <% else %>
+      <%=image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :alt => "user photo", class: 'mr-2 w-12 h-12 rounded-full') %>
+    <% end %>
+    <div class="flex flex-col justify-between p-4 leading-normal">
+      <p class="flex mb-3 font-normal text-gray-700 dark:text-gray-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+        </svg>
+        <%="#{notification.from_user.full_name} Sent you friend request"%>
+      </p>
+    </div>
+  </a>
+</li>

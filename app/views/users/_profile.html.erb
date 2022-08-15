@@ -1,36 +1,35 @@
 <% content_for(:html_title) { @user.full_name } %>
-  <div class="rounded-lg my-3 w-72 max-w-72 inline-block fixed">
-    <div class="rounded-lg overflow-hidden shadow-xl my-3 bg-blue-500 dark:bg-zinc-800">
-      <div class="flex justify-center mt-8">
-        <% if @user.avatar.attached? %>
-          <%= image_tag @user.avatar.variant(:thumb), class: 'rounded-lg -full border-solid border-white border-2 -mt-3'%>
-        <% else %>
-          <%=image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :height => '100', :width => '100', :alt => "user photo", class: 'rounded-lg -full shadow-lg') %>
-        <% end %>
+<div class="rounded-lg my-3 w-72 max-w-72 inline-block fixed">
+  <div class="rounded-lg overflow-hidden shadow-xl my-3 bg-blue-500 dark:bg-zinc-800">
+    <div class="flex justify-center mt-8">
+      <% if @user.avatar.attached? %>
+        <%= image_tag @user.avatar.variant(:thumb), class: 'rounded-lg -full border-solid border-white border-2 -mt-3'%>
+      <% else %>
+        <%=image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :height => '100', :width => '100', :alt => "user photo", class: 'rounded-lg -full shadow-lg') %>
+      <% end %>
+    </div>
+    <div class="text-center px-3 pb-6 pt-2">
+      <% if @user.friend? current_user %>
+        <button type="button" class="inline-flex item-center text-gray-900 bg-white focus:outline-none hover:bg-gray-100 rounded-lg py-2 px-3 mb-2 text-xs font-medium text-center dark:bg-blue-400 dark:hover:bg-blue-500  dark:text-white">
+          <%=t(:unfriend)%>
+        </button>
+      <% elsif current_user.request_sent?(@user)%>
+        <%=button_to t(:delete_request), destroy_friend_request_path, params: {'to_user_id' => @user.id}, method: :delete, class: "inline-flex item-center text-gray-900 bg-white focus:outline-none hover:bg-gray-100 rounded-lg py-2 px-3 mb-2 text-xs font-medium text-center dark:bg-blue-400 dark:hover:bg-blue-500  dark:text-white"%>
+      <% else %>
+        <%=button_to t(:add_friend), sent_friend_request_path, params: {'to_user_id' => @user.id}, method: :put, class: "inline-flex item-center text-gray-900 bg-white focus:outline-none hover:bg-gray-100 rounded-lg py-2 px-3 mb-2 text-xs font-medium text-center dark:bg-blue-400 dark:hover:bg-blue-500  dark:text-white"%>
+      <% end %>
+      <h3 class="text-white text-sm bold font-sans"><%=@user.full_name%></h3>
+      <p class="mt-2 font-sans font-light text-white">about me</p>
+    </div>
+    <div class="flex justify-center pb-3 text-white">
+      <div class="text-center mr-3 border-r pr-3">
+        <h2>34</h2>
+        <span>Photos</span>
       </div>
-      <div class="text-center px-3 pb-6 pt-2">
-        <% unless @user.id == current_user.id %>
-          <% unless current_user.request_sent?(@user)%>
-            <%=button_to t(:add_friend), sent_friend_request_path, params: {'to_user_id' => @user.id}, method: :put, class: "inline-flex item-center text-gray-900 bg-white focus:outline-none hover:bg-gray-100 rounded-lg py-2 px-3 mb-2 text-xs font-medium text-center dark:bg-blue-400 dark:hover:bg-blue-500  dark:text-white"%>
-          <% else %>
-            <%=button_to t(:delete_request), destroy_friend_request_path, params: {'to_user_id' => @user.id}, method: :delete, class: "inline-flex item-center text-gray-900 bg-white focus:outline-none hover:bg-gray-100 rounded-lg py-2 px-3 mb-2 text-xs font-medium text-center dark:bg-blue-400 dark:hover:bg-blue-500  dark:text-white"%>
-          <% end %>
-          <button type="button" class="inline-flex item-center text-gray-900 bg-white focus:outline-none hover:bg-gray-100 rounded-lg py-2 px-3 mb-2 text-xs font-medium text-center dark:bg-blue-400 dark:hover:bg-blue-500  dark:text-white">
-            <%=t(:unfriend)%>
-          </button>
-        <% end %>
-        <h3 class="text-white text-sm bold font-sans"><%=@user.full_name%></h3>
-        <p class="mt-2 font-sans font-light text-white">about me</p>
-      </div>
-      <div class="flex justify-center pb-3 text-white">
-        <div class="text-center mr-3 border-r pr-3">
-          <h2>34</h2>
-          <span>Photos</span>
-        </div>
-        <div class="text-center">
-          <h2><%=@user.friends.size%></h2>
-          <span>Friends</span>
-        </div>
+      <div class="text-center">
+        <h2><%=@user.friends.size%></h2>
+        <span>Friends</span>
       </div>
     </div>
   </div>
+</div>

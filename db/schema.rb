@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_04_053524) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_15_081220) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,11 +84,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_04_053524) do
 
   create_table "friends", force: :cascade do |t|
     t.boolean "following", default: true
-    t.bigint "user_id"
-    t.integer "friend_id", null: false
+    t.bigint "first_id"
+    t.bigint "second_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_friends_on_user_id"
+    t.index ["first_id"], name: "index_friends_on_first_id"
+    t.index ["second_id"], name: "index_friends_on_second_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -245,7 +246,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_04_053524) do
   add_foreign_key "addresses", "users", on_delete: :cascade
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users", on_delete: :cascade
-  add_foreign_key "friends", "users", on_delete: :cascade
+  add_foreign_key "friends", "users", column: "first_id", on_delete: :cascade
+  add_foreign_key "friends", "users", column: "second_id", on_delete: :cascade
   add_foreign_key "likes", "users", on_delete: :cascade
   add_foreign_key "notifications", "comments", on_delete: :cascade
   add_foreign_key "notifications", "posts", on_delete: :cascade

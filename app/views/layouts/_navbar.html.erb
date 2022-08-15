@@ -78,8 +78,11 @@
             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
               <% unless current_user.notifications.all_except(current_user).size.zero? %>
                 <% current_user.notifications.all_except(current_user).each do |notification| %>
-                  <%=render 'notifications/notification', notification: notification %>
+                  <%= render "notifications/#{notification.ntype.downcase}_#{notification.naction.downcase}_#{notification.non.downcase}", notification: notification %>
                 <% end %>
+                <li class="w-full text-center p-4">
+                <%=link_to t(:view_all_notifications), "#", class:"underline font-bold"%>
+                </li>
               <% else %>
                 <li>No notifications</li>
               <% end %>

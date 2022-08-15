@@ -7,9 +7,7 @@ class User < ApplicationRecord
   has_many :phones
   has_many :subscriptions
   has_many :payments
-  has_many :friends, foreign_key: 'friend_id'
   has_many :requests, foreign_key: 'to_user_id'
-  has_many :requests
   has_many :notifications, -> { order(created_at: :desc) }, class_name: 'Notification', foreign_key: 'to'
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_fill: [100, 100]
@@ -38,6 +36,9 @@ class User < ApplicationRecord
   #   UserMailer.with(user: self).welcome_email.deliver_later
   # end
 
+  def friends
+    Friend.where("first_id = ? OR second_id = ?", self.id, self.id)
+  end
 
   def phone?
     @phone
@@ -74,6 +75,10 @@ class User < ApplicationRecord
 
   def request_sent? user
     Request.where(to_user_id: user.id, user_id: self.id).exists?
+  end
+
+  def friend? user
+    Friend.where(first_id: user.id, second_id: self.id).exists?
   end
 
   private
