@@ -107,4 +107,7 @@ gem "pundit", "~> 2.2"
 gem "rolify"
 
 gem "stripe"
+
 gem "tailwindcss-rails", "~> 2.0"
+
+gem "ruby-vips"
