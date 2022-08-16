@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_15_081220) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_16_072610) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -101,6 +101,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_15_081220) do
     t.index ["comment_id"], name: "index_likes_on_comment_id"
     t.index ["post_id"], name: "index_likes_on_post_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "body", null: false
+    t.boolean "seen", default: false
+    t.datetime "seen_at"
+    t.bigint "send_id"
+    t.bigint "receive_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receive_id"], name: "index_messages_on_receive_id"
+    t.index ["send_id"], name: "index_messages_on_send_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -249,6 +261,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_15_081220) do
   add_foreign_key "friends", "users", column: "first_id", on_delete: :cascade
   add_foreign_key "friends", "users", column: "second_id", on_delete: :cascade
   add_foreign_key "likes", "users", on_delete: :cascade
+  add_foreign_key "messages", "users", column: "receive_id", on_delete: :cascade
+  add_foreign_key "messages", "users", column: "send_id", on_delete: :cascade
   add_foreign_key "notifications", "comments", on_delete: :cascade
   add_foreign_key "notifications", "posts", on_delete: :cascade
   add_foreign_key "notifications", "requests", on_delete: :cascade
