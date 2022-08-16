@@ -34,7 +34,7 @@
     <span id = "premprice" class="text-5xl font-extrabold tracking-tight"><%=@amount.to_f / 100%></span>
     <span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">/<%=t('month')%></span>
   </div>
-<%= form_tag charges_path do %>
+<%= form_tag charges_path, 'data-turbo': false do %>
     <div class="flex items-center mt-2 pl-4 rounded-lg border border-gray-200 dark:border-gray-700">
       <input checked onchange="javascript:change_price(999);" id="bordered-radio-1" type="radio" value="1" name="month" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-zinc-900 dark:border-gray-600">
       <label for="bordered-radio-1" class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">1 <%=t('month')%></label>
