@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_fill: [100, 100]
   end
+  
+  # has_many :friends, ->(user){ unscope(where: :user_id).where("first_id = ? OR second_id = ?", user.id, user.id) }, class_name: 'Friend'
 
   has_settings do |s|
     s.key :settings, :defaults => { :user_post_color => '#3b82f680' }
@@ -37,7 +39,13 @@ class User < ApplicationRecord
   # end
 
   def friends
+    # User.joins(:user).where("first_id = ? OR second_id = ?", self.id, self.id )
     Friend.where("first_id = ? OR second_id = ?", self.id, self.id)
+    # User.find_by_sql("
+    #   SELECT * FROM users
+    #   WHERE id in(SELECT first)
+    #   WHERE users.id = friends.first_id OR users.id = friends.second_id
+    # ")
   end
 
   def phone?

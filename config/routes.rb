@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     # Defines the root path route ("/")
 
     get "/@:username/posts", to: "posts#user_posts", as: :user_posts
+    get "/@:username/friends", to: "friends#user_friends", as: :user_friends
     get "/@:username", to: "posts#user_posts", as: :user_public_profile
     get "/posts/new", to: "posts#new_post", as: :create_new_post
     get "/post/:id/edit", to: "posts#edit_post", as: :edit_post

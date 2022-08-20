@@ -293,10 +293,6 @@ GEM
     timeout (0.2.0)
     toastr-rails (1.0.3)
       railties (>= 3.1.0)
-    turbo-rails (1.1.1)
-      actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
-      railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2022.1)
@@ -354,7 +350,6 @@ DEPENDENCIES
   tailwindcss-rails (~> 2.0)
   telephone_number
   toastr-rails
-  turbo-rails
   tzinfo-data
   web-console
   webdrivers
