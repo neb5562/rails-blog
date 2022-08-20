@@ -50,7 +50,7 @@ class User < ApplicationRecord
 
   def premium?
     @last_sub = subscriptions.last
-    return false if @last_sub.end_at.nil?
+    return false if  @last_sub.nil? || @last_sub.end_at.nil?
     @last_p = @last_sub.payments.last
     return false if @last_p.nil?
     @last_sub.end_at > Time.now && @last_p.status == true

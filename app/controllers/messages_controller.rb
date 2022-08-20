@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @message.save
   
     # You can then broadcast to the room like follows
-    DmChannel.broadcast_to(@user, @message)
+    # DmChannel.broadcast_to(@user, @message)
   end
 
   def index
