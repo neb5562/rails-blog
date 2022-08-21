@@ -6,7 +6,6 @@ class Request < ApplicationRecord
 
   after_commit :notify_user, on: :create
 
-
   private
 
   def notify_user

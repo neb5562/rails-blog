@@ -4,19 +4,23 @@
   </div>
   <div class="flow-root">
     <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-      <% unless user.friends.empty? %>
-        <% user.friends.each do |friend| %>
+      <% unless friends.empty? %>
+        <% friends.each do |friend| %>
           <li class="py-3 sm:py-4">
             <div class="flex items-center space-x-4">
               <div class="flex-shrink-0">
-                <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Neil image">
+                <% if friend.avatar.attached? %>
+                  <%= image_tag friend.avatar.variant(:thumb), class: 'w-8 h-8 rounded-full'%>
+                <% else %>
+                  <%=image_tag("#{ENV['DEFAULT_AVATAR_IMAGE_PATH']}", :alt => "user photo", class: 'w-8 h-8 rounded-full') %>
+                <% end %>
               </div>
               <div class="flex-1 min-w-0">
                 <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                  <%=friend.inspect%>
+                   <%=link_to h(friend.full_name), user_posts_path(friend.username), class: "text-blue-400 hover:underline" %>
                 </p>
                 <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                  email@windster.com
+                  <%="Friend since #{friend.friended_at.strftime('%d %b, %Y')}"%>
                 </p>
               </div>
             </div>

@@ -39,13 +39,22 @@ class User < ApplicationRecord
   # end
 
   def friends
-    # User.joins(:user).where("first_id = ? OR second_id = ?", self.id, self.id )
-    Friend.where("first_id = ? OR second_id = ?", self.id, self.id)
-    # User.find_by_sql("
-    #   SELECT * FROM users
-    #   WHERE id in(SELECT first)
-    #   WHERE users.id = friends.first_id OR users.id = friends.second_id
-    # ")
+    sql = "SELECT *, friends.created_at as friended_at FROM
+    (
+    SELECT first_id as id, created_at 
+      FROM friends 
+        WHERE first_id = :user_id OR second_id = :user_id  
+    UNION 
+      SELECT second_id as id, created_at 
+        FROM friends 
+          WHERE first_id = :user_id OR second_id = :user_id
+    ) friends
+    LEFT JOIN users u 
+      ON u.id = friends.id
+      WHERE u.id <> :user_id
+        ORDER BY friends.created_at desc"
+
+    User.find_by_sql([sql, {user_id: self.id}])
   end
 
   def phone?
@@ -88,6 +97,10 @@ class User < ApplicationRecord
 
   def friend? user
     Friend.where(first_id: user.id, second_id: self.id).exists?
+  end
+
+  def follow? user
+    !!Friend.where(first_id: user.id, second_id: self.id).first.following
   end
 
   private
